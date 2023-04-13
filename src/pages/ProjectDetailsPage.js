@@ -41,7 +41,6 @@ function ProjectDetailsPage (props) {
         <>
           <h1>{project.title}</h1>
           <p>{project.description}</p>
-          <ProjectCard key={project._id} {...project} />
         </>
       )}
 

@@ -35,12 +35,13 @@ function ContributionDetailsPage (props) {
   
   return (
     <div className="ContributionDetails">
-    
+
+        <h1>DETAILS</h1>
       {contribution && (
         <>
           <h1>{contribution.title}</h1>
           <p>{contribution.description}</p>
-          <ContributionCard key={contribution._id} {...contribution} />
+          {/* <ContributionCard key={contribution._id} {...contribution} /> */}
         </>
       )}
 
