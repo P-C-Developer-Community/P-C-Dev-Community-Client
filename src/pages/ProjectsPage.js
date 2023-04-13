@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import ProjectCard from "../components/ProjectCard";
 import AddProject from "../components/AddProject";
-
 const API_URL = "http://localhost:5005";
 
 function ProjectsPage() {

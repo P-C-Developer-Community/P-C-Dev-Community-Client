@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom'
+import ContributionCard from "../components/ContributionCard";
 import axios from "axios";
 const API_URL = "http://localhost:5005";
 
@@ -39,12 +40,13 @@ function ContributionDetailsPage (props) {
         <>
           <h1>{contribution.title}</h1>
           <p>{contribution.description}</p>
+          <ContributionCard key={contribution._id} {...contribution} />
         </>
       )}
 
       
       <Link to="/contributions">
-        <button>Back to projects</button>
+        <button>Back</button>
       </Link>
           
       <Link to={`/contributions/edit/${contributionId}`}>

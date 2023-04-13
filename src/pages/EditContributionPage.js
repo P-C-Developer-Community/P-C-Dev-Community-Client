@@ -10,7 +10,10 @@ function EditContributionPage(props) {
   
   const { contributionId } = useParams();
   const navigate = useNavigate();
-  
+  const goBack = () => {
+    navigate(-1);
+  }
+
   useEffect(() => {
     axios
       .get(`${API_URL}/api/contributions/${contributionId}`)
@@ -39,7 +42,7 @@ function EditContributionPage(props) {
   const deleteContribution = () => {
     
     axios
-      .delete(`${process.env.REACT_APP_API_URL}/api/contributions/${contributionId}`)
+      .delete(`${API_URL}/api/contributions/${contributionId}`)
       .then(() => {
         navigate("/contributions");
       })
@@ -71,6 +74,9 @@ function EditContributionPage(props) {
       </form>
 
       <button onClick={deleteContribution}>Delete Contribution</button>
+
+      <button onClick={goBack}> Back </button>
+      
     </div>
   );
 }

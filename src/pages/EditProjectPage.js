@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from 'react-router-dom';
-
 import axios from "axios";
 const API_URL = "http://localhost:5005";
 
@@ -79,8 +78,7 @@ function EditProjectPage(props) {
       <button onClick={deleteProject}>Delete Project</button>
 
       <button onClick={goBack}> Back </button>
-        
-      
+              
     </div>
   );
 }

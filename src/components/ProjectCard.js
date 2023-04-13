@@ -8,7 +8,7 @@ function ProjectCard ( { title, description, _id, owner } ) {
   return (
     <div className="ProjectCard card">
       <Link to={`/projects/${_id}`}>
-        <h3>Title {title}</h3>
+        <h3>{title}</h3>
       </Link>
       <h2>Owner {owner.name}</h2>
       <p style={{ maxWidth: "400px" }}>{description} </p>

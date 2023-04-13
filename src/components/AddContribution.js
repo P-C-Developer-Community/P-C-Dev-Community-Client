@@ -16,8 +16,14 @@ function AddContribution(props) {
     // Create an object representing the body of the POST request
     const requestBody = { title, description, contributionsId };
 
+    const storedToken = localStorage.getItem('authToken');
+
     axios
-      .post(`${API_URL}/api/contributions`, requestBody)
+      .post(
+        `${API_URL}/api/contributions`, requestBody,
+      { headers: { Authorization: `Bearer ${storedToken}` } }
+      )
+
       .then((response) => {
         // Reset the state to clear the inputs
         setTitle("");
@@ -25,7 +31,7 @@ function AddContribution(props) {
       
         // Invoke the callback function coming through the props
         // from the ContributionDetailsPage, to refresh the project details
-        props.refreshContribution();
+        props.refreshContributions();
       })
       .catch((error) => console.log(error));
   };

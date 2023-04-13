@@ -17,7 +17,7 @@ function ContributionsPage() {
           `${API_URL}/api/contributions`,
           { headers: { Authorization: `Bearer ${storedToken}` } }
         ) 
-          .then((response)  => {
+          .then((response)  => { console.log("response from Api", response.data)
             setContributions(response.data)})
           .catch((error) => console.log(error));
       };
@@ -29,7 +29,7 @@ function ContributionsPage() {
       return (
         <div className="ContributionsPage">
 
-        <AddContribution refreshContributions={getAllContributions} />
+         <AddContribution refreshContributions={getAllContributions} />
 
           <h1>Contributions Page</h1>
           
