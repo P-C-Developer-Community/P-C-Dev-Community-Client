@@ -61,6 +61,14 @@ function AddProject(props) {
           onChange={(e) => setDescription(e.target.value)}
         />
 
+         <input
+          type="hidden"
+          title="owner"
+          value={user._id}
+        /> 
+       
+
+
         <button type="submit">Submit</button>
       </form>
     </div>

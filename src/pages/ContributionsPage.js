@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import AddContribution from "../components/AddContribution";
+import ContributionCard from "../components/ContributionCard"
 const API_URL = "http://localhost:5005";
 
 function ContributionsPage() {
@@ -27,21 +28,17 @@ function ContributionsPage() {
       return (
         <div className="ContributionsPage">
 
-        <AddContribution refreshContribution={getAllContributions} />
+        <AddContribution refreshContributions={getAllContributions} />
 
           <h1>Contributions Page</h1>
           
           {contributions.length > 0 ? (
-            contributions.map((contribution) => (
-              <div key={contribution._id}>
-                <h2>{contribution.title}</h2>
-                <p>{contribution.description}</p>
-              </div>
-            ))
-          ) : (
-            <p>No contributions available at the moment</p>
-          )}
-        </div>
-      );
+       contributions.map((contribution) => <ContributionCard key={contribution._id} {...contribution} />  )
+       ) : ( 
+        <p> No available contributions at the moment </p>
+       )}   
+       
+    </div>
+  );
 }
 export default ContributionsPage;
