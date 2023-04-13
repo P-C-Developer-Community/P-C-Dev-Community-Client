@@ -21,8 +21,11 @@ function ProjectsPage() {
           `${API_URL}/api/projects`,
           { headers: { Authorization: `Bearer ${storedToken}` } }
         )
-          .then((response) =>  setProjects(response.data))
+          .then((response) => {
+            setProjects(response.data)} )
           
+            
+
           .catch((error) => console.log(error));
       };
 
