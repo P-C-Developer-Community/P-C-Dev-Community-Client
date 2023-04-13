@@ -16,8 +16,9 @@ function ContributionsPage() {
           .get(
           `${API_URL}/api/contributions`,
           { headers: { Authorization: `Bearer ${storedToken}` } }
-        )
-          .then((response) => setContributions(response.data))
+        ) 
+          .then((response)  => {
+            setContributions(response.data)})
           .catch((error) => console.log(error));
       };
 

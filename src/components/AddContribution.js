@@ -4,6 +4,7 @@ const API_URL = "http://localhost:5005";
 
 
 function AddContribution(props) {
+
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
@@ -11,8 +12,7 @@ function AddContribution(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // We need the project id when creating the new task
-    const { contributionsId } = props;
+  const { contributionsId } = props;
     // Create an object representing the body of the POST request
     const requestBody = { title, description, contributionsId };
 
@@ -24,7 +24,7 @@ function AddContribution(props) {
         setDescription("");
       
         // Invoke the callback function coming through the props
-        // from the ProjectDetailsPage, to refresh the project details
+        // from the ContributionDetailsPage, to refresh the project details
         props.refreshContribution();
       })
       .catch((error) => console.log(error));

@@ -14,6 +14,7 @@ function AddProject(props) {
   const {  user } = useContext(AuthContext);  
   const handleSubmit = (e) => {
     e.preventDefault();
+    const { projectId } = props;
     const requestBody = { title, description, owner: user._id };
   
     // Get the token from the localStorage
