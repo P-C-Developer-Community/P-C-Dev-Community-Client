@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from 'react-router-dom';
 import axios from "axios";
-import ContributionCard from "../components/ContributionCard";
+import ProjectCard from "../components/ContributionCard";
 import AddContribution from "../components/AddContribution";
 const API_URL = "http://localhost:5005";
 
 
 
 function ProjectDetailsPage (props) {
-  const [project, setProject] = useState(null);
+  const [project, setProject] = useState({});
   const { projectId } = useParams();
   
   const getProject = () => {
@@ -41,12 +41,15 @@ function ProjectDetailsPage (props) {
         <>
           <h1>{project.title}</h1>
           <p>{project.description}</p>
+          <ProjectCard key={project._id} {...project} />
         </>
       )}
 
-      <AddContribution refreshProject={getProject} projectId={projectId} /> 
+     
 
-      { project && project.contributions.map((contribution) => <ContributionCard key={contribution._id} {...contribution} /> )}
+      
+
+      
 
       <Link to="/projects">
         <button>Back to projects</button>
