@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+
+
+import AddProject from "../components/AddProject";
+
 const API_URL = "http://localhost:5005";
 
 function ProjectsPage() {
-    const [projects, setProjects] = useState([]);
+    const [projects, setProjects] = useState(null);
 
     const getAllProjects = () => {
         
@@ -24,10 +28,14 @@ function ProjectsPage() {
       }, [] );
 
     return ( 
-        <div>
-            <h1>Projects Page</h1>
-        </div>
-    );
+      <div className="ProjectPage">
+      
+      <AddProject refreshProjects={getAllProjects} />
+      
+      {/* { projects.map((project) => <ProjectCard key={project._id} {...project} />  )}  */}
+       
+    </div>
+  );
 }
 
 export default ProjectsPage;

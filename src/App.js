@@ -6,15 +6,17 @@ import HomePage from "./pages/HomePage";
 import Navbar from "./components/NavBar";
 import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
+import UserProfilePage from "./pages/UserProfilePage";
+import EditUserProfilePage from "./pages/EditUserProfilePage";
 
 import ProjectsPage from "./pages/ProjectsPage";
 import EditProjectPage from "./pages/EditProjectPage";
-import AddProject from "./pages/AddProject";
+import AddProject from "./components/AddProject";
 import ProjectDetailsPage from "./pages/ProjectDetailsPage";
 
 import ContributionsPage from "./pages/ContributionsPage";
 import EditContributionPage from "./pages/EditContributionPage";
-import AddContribution from "./pages/AddContribution";
+import AddContribution from "./components/AddContribution";
 import ContributionDetailsPage from "./pages/ContributionDetails.Page";
 
 
@@ -38,6 +40,9 @@ function App() {
 
             <Route path="/signup" element={<IsAnon> <SignUpPage /> </IsAnon>} />
             <Route path="/login" element={<IsAnon> <LoginPage /> </IsAnon>} />
+
+            <Route path="/userprofilepage" element={<IsPrivate> <UserProfilePage /></IsPrivate>} />
+            <Route path="/userprofilepage/edit/:userId" element={<IsPrivate> <EditUserProfilePage /></IsPrivate>} />
         </Routes>
     </div>
   );

@@ -25,6 +25,10 @@ function Navbar() {
               <Link to="/contributions">
                 <button>Contributions</button>
               </Link>
+
+              <Link to="/userprofilepage">
+                <button>User Profile</button>
+              </Link>
     
               <button onClick={logOutUser}>Logout</button>
               <span>{user && user.name}</span>

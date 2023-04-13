@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from 'react-router-dom';
 import axios from "axios";
+import ContributionCard from "../components/ContributionCard";
+import AddContribution from "../components/AddContribution";
 const API_URL = "http://localhost:5005";
 
 
@@ -42,8 +44,9 @@ function ProjectDetailsPage (props) {
         </>
       )}
 
-      
-      
+      <AddContribution refreshProject={getProject} projectId={projectId} /> 
+
+      { project && project.contributions.map((contribution) => <ContributionCard key={contribution._id} {...contribution} /> )}
 
       <Link to="/projects">
         <button>Back to projects</button>
