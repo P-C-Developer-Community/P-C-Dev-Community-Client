@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from 'react-router-dom';
+
 import axios from "axios";
 const API_URL = "http://localhost:5005";
 
@@ -8,8 +9,12 @@ function EditProjectPage(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   
+  
   const { projectId } = useParams();
   const navigate = useNavigate();
+  const goBack = () => {
+    navigate(-1);
+  }
   
   useEffect(() => {
     axios
@@ -24,12 +29,13 @@ function EditProjectPage(props) {
   }, [projectId]);
   
 
+ 
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const requestBody = { title, description };
 
     axios
-      .put(`${process.env.REACT_APP_API_URL}/api/projects/${projectId}`, requestBody)
+      .put(`${API_URL}/api/projects/${projectId}`, requestBody)
       .then((response) => {
         navigate(`/projects/${projectId}`)
       });
@@ -39,7 +45,7 @@ function EditProjectPage(props) {
   const deleteProject = () => {
     
     axios
-      .delete(`${process.env.REACT_APP_API_URL}/api/projects/${projectId}`)
+      .delete(`${API_URL}/api/projects/${projectId}`)
       .then(() => {
         navigate("/projects");
       })
@@ -71,6 +77,10 @@ function EditProjectPage(props) {
       </form>
 
       <button onClick={deleteProject}>Delete Project</button>
+
+      <button onClick={goBack}> Back </button>
+        
+      
     </div>
   );
 }

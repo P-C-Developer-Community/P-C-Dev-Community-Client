@@ -8,10 +8,11 @@ function AddProject(props) {
 
 
 
-
+  const [owner, setOwner] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const {  user } = useContext(AuthContext);  
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     const requestBody = { title, description, owner: user._id };
@@ -63,12 +64,12 @@ function AddProject(props) {
           onChange={(e) => setDescription(e.target.value)}
         />
 
-        {/* <input
+         <input
           type="hidden"
           title="owner"
           value={user._id}
           onChange={(e) => setOwner(e.target.value)}
-        /> */}
+        /> 
        
 
 

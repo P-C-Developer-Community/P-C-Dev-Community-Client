@@ -20,6 +20,7 @@ function ProjectDetailsPage (props) {
       .get(
         `${API_URL}/api/projects/${projectId}`,
         { headers: { Authorization: `Bearer ${storedToken}` } }
+        
       )
       .then((response) => {
         const oneProject = response.data;
