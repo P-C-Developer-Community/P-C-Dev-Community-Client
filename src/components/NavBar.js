@@ -21,6 +21,10 @@ function Navbar() {
               <Link to="/projects">
                 <button>Projects</button>
               </Link>
+
+              <Link to="/contributions">
+                <button>Contributions</button>
+              </Link>
     
               <button onClick={logOutUser}>Logout</button>
               <span>{user && user.name}</span>
@@ -30,13 +34,13 @@ function Navbar() {
           {!isLoggedIn && (
             <>
               <Link to="/signup">
-                {" "}
-                <button>Sign Up</button>{" "}
+               
+                <button>Sign Up</button>
               </Link>
     
               <Link to="/login">
-                {" "}
-                <button>Login</button>{" "}
+               
+                <button>Login</button>
               </Link>
             </>
           )}
