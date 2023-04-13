@@ -22,6 +22,7 @@ function ProjectsPage() {
           { headers: { Authorization: `Bearer ${storedToken}` } }
         )
           .then((response) => {
+            console.log("response.data", response.data)
             setProjects(response.data)} )
           
             
