@@ -5,12 +5,18 @@ import { AuthContext } from "../context/auth.context";
 const API_URL = "http://localhost:5005";
 
 function AddProject(props) {
+
+
+
+
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const {  user } = useContext(AuthContext);  
   const handleSubmit = (e) => {
     e.preventDefault();
-    const requestBody = { title, description };
+    const requestBody = { title, description, owner: user._id };
+
+    console.log("this is requestBody........", requestBody)
   
     // Get the token from the localStorage
     const storedToken = localStorage.getItem('authToken');
@@ -56,6 +62,13 @@ function AddProject(props) {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
+
+        {/* <input
+          type="hidden"
+          title="owner"
+          value={user._id}
+          onChange={(e) => setOwner(e.target.value)}
+        /> */}
        
 
 
