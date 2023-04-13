@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
+import service from "../api/service";
 const API_URL = "http://localhost:5005";
 
 function AddProject(props) {
@@ -11,11 +12,35 @@ function AddProject(props) {
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
   const {  user } = useContext(AuthContext);  
+
+  const handleFileUpload = (e) => {
+    // console.log("The file to be uploaded is: ", e.target.files[0]);
+ 
+    const uploadData = new FormData();
+ 
+    // imageUrl => this name has to be the same as in the model since we pass
+    // req.body to .create() method when creating a new movie in '/api/movies' POST route
+    uploadData.append("imageUrl", e.target.files[0]);
+ 
+    service
+      .uploadImage(uploadData)
+      .then(response => {
+        // console.log("response is: ", response);
+        // response carries "fileUrl" which we can use to update the state
+        setImageUrl(response.fileUrl);
+      })
+      .catch(err => console.log("Error while uploading the file: ", err));
+  };
+
+
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const { projectId } = props;
-    const requestBody = { title, description, owner: user._id };
+    const requestBody = { title, description, owner: user._id, imageUrl: imageUrl };
   
     // Get the token from the localStorage
     const storedToken = localStorage.getItem('authToken');
@@ -67,6 +92,7 @@ function AddProject(props) {
           value={user._id}
         /> 
        
+       <input type="file" onChange={(e) => handleFileUpload(e)} />
 
 
         <button type="submit">Submit</button>

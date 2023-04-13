@@ -17,7 +17,6 @@ function ContributionsPage() {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
-        console.log("response from Api", response.data);
         setContributions(response.data);
       })
       .catch((error) => console.log(error));
