@@ -25,7 +25,7 @@ function AddContribution(props) {
       
         // Invoke the callback function coming through the props
         // from the ProjectDetailsPage, to refresh the project details
-        props.refreshProject();
+        props.refreshContribution();
       })
       .catch((error) => console.log(error));
   };
@@ -52,7 +52,7 @@ function AddContribution(props) {
           onChange={(e) => setDescription(e.target.value)}
         />
 
-        <button type="submit">Add Task</button>
+        <button type="submit">Add Contribution</button>
       </form>
     </div>
   );

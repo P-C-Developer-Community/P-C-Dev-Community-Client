@@ -22,7 +22,7 @@ function AddProject(props) {
     // Send the token through the request "Authorization" Headers
     axios
       .post(
-      `${API_URL}/api/projects`,
+      `${API_URL}/api/contributions`,
       requestBody,
       { headers: { Authorization: `Bearer ${storedToken}` } }
     )
