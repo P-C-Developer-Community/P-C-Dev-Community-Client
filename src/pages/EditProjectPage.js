@@ -54,7 +54,7 @@ function EditProjectPage(props) {
   
   return (
     <div className="EditProjectPage">
-      <h3>Edit the Project</h3>
+      <h3>Edit your Project</h3>
 
       <form onSubmit={handleFormSubmit}>
         <label>Title:</label>

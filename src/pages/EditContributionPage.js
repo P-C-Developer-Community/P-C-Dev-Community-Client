@@ -52,7 +52,7 @@ function EditContributionPage(props) {
   
   return (
     <div className="EditContributionPage">
-      <h3>Edit the Contribution</h3>
+      <h3>Edit your Contribution</h3>
 
       <form onSubmit={handleFormSubmit}>
         <label>Title:</label>
@@ -76,7 +76,7 @@ function EditContributionPage(props) {
       <button onClick={deleteContribution}>Delete Contribution</button>
 
       <button onClick={goBack}> Back </button>
-      
+
     </div>
   );
 }

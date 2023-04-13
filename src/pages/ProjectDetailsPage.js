@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from 'react-router-dom';
 import axios from "axios";
-import ProjectCard from "../components/ContributionCard";
-import AddContribution from "../components/AddContribution";
+import ProjectCard from "../components/ProjectCard";
 const API_URL = "http://localhost:5005";
 
 
@@ -45,12 +44,6 @@ function ProjectDetailsPage (props) {
           <ProjectCard key={project._id} {...project} />
         </>
       )}
-
-     
-
-      
-
-      
 
       <Link to="/projects">
         <button>Back to projects</button>

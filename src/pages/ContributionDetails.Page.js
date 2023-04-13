@@ -7,7 +7,7 @@ const API_URL = "http://localhost:5005";
 
 
 function ContributionDetailsPage (props) {
-  const [contribution, setContribution] = useState(null);
+  const [contribution, setContribution] = useState({});
   const { contributionId } = useParams();
   
   const getContribution = () => {
