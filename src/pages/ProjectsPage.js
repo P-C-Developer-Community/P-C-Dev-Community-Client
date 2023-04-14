@@ -40,8 +40,7 @@ function ProjectsPage() {
                   ))
                 ) : (
                   <p className="text-lg text-gray-500">
-                    {" "}
-                    No projects available at the moment{" "}
+                    No projects available at the moment
                   </p>
                 )}
               </div>

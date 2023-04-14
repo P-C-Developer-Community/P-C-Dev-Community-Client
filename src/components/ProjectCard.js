@@ -1,11 +1,22 @@
 import { Link } from "react-router-dom";
+import { Fragment, useState } from "react";
+import Modal from "../components/Modal";
 
 // We are deconstructing props object directly in the parentheses of the function
 function ProjectCard({ title, description, _id, owner, imageUrl }) {
+  const [showModal, setShowModal] = useState(false);
+
   return (
+    <Fragment>
     <div>
       <div className="bg-slate-400 rounded-xl shadow-xl shadow-cyan-300/80 hover:shadow-slate-50 hover:rounded-full transition-all duration-300 ease-in-out transition duration-1000 ease-in-out relative">
-        <Link to={`/projects/${_id}`}>
+        <Link 
+        to={`/projects/${_id}`}
+        onClick={(e) => {
+              e.preventDefault();
+              setShowModal(true);
+            }}
+        >
           <h3 className="text-gray-300 font-mono italic font-black text-2xl line-clamp-1">
             {title}
           </h3>
@@ -22,6 +33,8 @@ function ProjectCard({ title, description, _id, owner, imageUrl }) {
         </Link>
       </div>
     </div>
+    <Modal isVisible={showModal} onClose={() => setShowModal(false)} description={description} title={title} />
+    </Fragment>
   );
 }
 
