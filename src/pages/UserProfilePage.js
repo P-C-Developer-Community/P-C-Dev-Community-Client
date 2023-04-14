@@ -1,10 +1,45 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { AuthContext } from "../context/auth.context";
+import { useContext } from "react";
 
-function UserProfilePage (){
-    return(
-        <div>
-        <h1>User Profile</h1>
-        </div>
-    )   
-}
+const API_URL = "http://localhost:5005";
 
-export default UserProfilePage;
+
+
+
+function UserProfilePage() {
+
+    
+    const [users, setUsers] = useState([]);
+    const {  user } = useContext(AuthContext); 
+
+    const getCurrentUser = () => {
+      const storedToken = localStorage.getItem("authToken");
+  
+      // Send the token through the request "Authorization" Headers
+      axios
+        .get(`${API_URL}/auth/user`, {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        })
+        .then((response) => {
+            
+            setUsers(response.data);
+        })
+        .catch((error) => console.log(error));
+    };
+  
+    useEffect(() => {
+        getCurrentUser();
+    }, []);
+  
+    return (
+      <>
+      <img src={users.imageUrl} alt="" />
+      <p>Name {users.name}</p>
+      <p>Email {users.email}</p>
+      
+      </>
+    );
+  }
+  export default UserProfilePage;
