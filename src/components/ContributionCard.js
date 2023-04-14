@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
-
+import logo from "../assets/WDC-logo.png";
 
 function ContributionCard({ title, description, _id, imageUrl }) {
 
   console.log("imageUrl.......",title)
-    return (<div>
+    return(
+    <div>
       <div className="bg-slate-400 rounded-lg shadow-xl shadow-cyan-500/40 hover:shadow-slate-50 relative">
       <Link to={`/contributions/${_id}`}>  
       <img src={imageUrl} alt="" />
