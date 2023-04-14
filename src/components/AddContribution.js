@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import service from "../api/service";
 const API_URL = "http://localhost:5005";
 
 
@@ -7,6 +8,26 @@ function AddContribution(props) {
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+
+  const handleFileUpload = (e) => {
+    // console.log("The file to be uploaded is: ", e.target.files[0]);
+ 
+    const uploadData = new FormData();
+ 
+    // imageUrl => this name has to be the same as in the model since we pass
+    // req.body to .create() method when creating a new movie in '/api/movies' POST route
+    uploadData.append("imageUrl", e.target.files[0]);
+ 
+    service
+      .uploadImage(uploadData)
+      .then(response => {
+        // console.log("response is: ", response);
+        // response carries "fileUrl" which we can use to update the state
+        setImageUrl(response.fileUrl);
+      })
+      .catch(err => console.log("Error while uploading the file: ", err));
+  };
 
   
   const handleSubmit = (e) => {
@@ -14,7 +35,7 @@ function AddContribution(props) {
 
   const { contributionsId } = props;
     // Create an object representing the body of the POST request
-    const requestBody = { title, description, contributionsId };
+    const requestBody = { title, description, contributionsId, imageUrl };
 
     const storedToken = localStorage.getItem('authToken');
 
@@ -57,6 +78,8 @@ function AddContribution(props) {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
+
+        <input type="file" onChange={(e) => handleFileUpload(e)} />
 
         <button type="submit">Add Contribution</button>
       </form>

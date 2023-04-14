@@ -7,9 +7,6 @@ const API_URL = "http://localhost:5005";
 
 function AddProject(props) {
 
-
-
-
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [imageUrl, setImageUrl] = useState("");
