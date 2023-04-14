@@ -26,7 +26,7 @@ function ContributionsPage() {
   }, []);
 
   return (
-    <div className="bg-cover  bg-center bg-slate-600"  >
+    <div className="bg-cover  bg-center bg-slate-800"  >
     <div className="flex flex-col  justify-center min-h-screen">
       <h1 className="text-3xl font-extrabold mb-4" >Contributions Page</h1>
       <AddContribution refreshContributions={getAllContributions} />
