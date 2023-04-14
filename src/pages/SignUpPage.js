@@ -45,7 +45,7 @@ function SignupPage(props) {
     // Create an object representing the request body
     const requestBody = { email, password, name, imageUrl };
  
-console.log("MY BOdy111111111",requestBody )
+
 
     // Make an axios request to the API
     // If the POST request is a successful redirect to the login page
