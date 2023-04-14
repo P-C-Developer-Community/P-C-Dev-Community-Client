@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import AddContribution from "../components/AddContribution";
 import ContributionCard from "../components/ContributionCard";
-import logo from "../assets/WDC-logo Background.png";
 const API_URL = "http://localhost:5005";
 
 function ContributionsPage() {

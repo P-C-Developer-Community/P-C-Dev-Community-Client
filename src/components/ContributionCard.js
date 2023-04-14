@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../assets/WDC-logo.png";
+
 
 function ContributionCard({ title, description, _id, imageUrl }) {
 
