@@ -3,7 +3,8 @@ import AddProject from "../components/AddProject";
 
 const AddProjectModal = ({ isVisible, onClose, handleAddProjectSuccess }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [projectsId, setProjectsId] = useState
+  const [projectsId, setProjectsId] = useState("");
+
   const handleClose = (e) => {
     if (e.target.id === "wrapper") onClose();
   };
