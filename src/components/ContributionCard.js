@@ -1,22 +1,20 @@
 import { Link } from "react-router-dom";
-import logo from "../assets/WDC-logo.png";
 import { Fragment, useState } from "react";
-import Modal from "../components/Modal";
+import DetailsModal from "./DetailsModal";
 
 function ContributionCard({ title, description, _id, imageUrl }) {
-  const [showModal, setShowModal] = useState(false);
+  const [showDetailsModal, setShowDetailsModal] = useState(false);
 
   return (
     <Fragment>
       <div>
         <div className="bg-slate-400 rounded-xl shadow-xl shadow-cyan-300/80 hover:shadow-slate-50 hover:rounded-full transition-all duration-300 ease-in-out transition duration-1000 ease-in-out relative">
           <Link
-            to={`/contributions/${_id}`}
+            to={`/contribution/${_id}`}
             onClick={(e) => {
               e.preventDefault();
-              setShowModal(true);
-            }}
-          >
+              setShowDetailsModal(true);
+            }}>
             <img src={imageUrl} alt="" />
             <div className="p-4">
               {/* <div
@@ -34,7 +32,14 @@ function ContributionCard({ title, description, _id, imageUrl }) {
           </Link>
         </div>
       </div>
-      <Modal isVisible={showModal} onClose={() => setShowModal(false)} description={description} title={title} />
+      <DetailsModal
+        isVisible={showDetailsModal}
+        onClose={() => setShowDetailsModal(false)}
+        description={description}
+        title={title}
+        itemType="contribution"
+        _id={_id}
+      />
     </Fragment>
   );
 }
