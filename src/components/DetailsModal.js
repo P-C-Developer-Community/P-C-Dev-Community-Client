@@ -26,7 +26,7 @@ const DetailsModal = ({ isVisible, onClose, description, title, _id, itemType })
           {description}
         </div>
         <Link to={`/${itemType}s/${_id}`}>
-        <button className="p-4 text-cyan-600">Details</button>
+        <button className="p-4 drop hover:text-white hover:shadow-lg rounded-full hover:shadow-cyan-400 text-cyan-600">Details</button>
       </Link>
       </div>
     </div>
