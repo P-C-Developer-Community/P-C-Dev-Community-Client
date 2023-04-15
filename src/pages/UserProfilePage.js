@@ -27,43 +27,15 @@ function UserProfilePage() {
         .catch((error) => console.log(error));
     };
 
-    const getAllRequests = () => {
-        
-        const storedToken = localStorage.getItem("authToken");
-       
-        // Send the token through the request "Authorization" Headers
-        axios
-          .get(
-          `${API_URL}/api/requests`,
-          { headers: { Authorization: `Bearer ${storedToken}` } }
-        )
-          .then((response) => {
-            setRequests(response.data)} )
-            .catch((error) => console.log(error));
-      };
 
 console.log("requests.........",requests)
   
     useEffect(() => {
         getCurrentUser();
-        getAllRequests()
     }, []);
   
     return (
       <>
-      <div>
-      {requests.map((e)=>{
-        //  console.log("this is element,,,",e.message)
-         return (
-            <>
-            <h1>You have a new message from {e.sender}</h1>
-            <h2>Re: Project - {e.projectInInterest}</h2>
-         <h2>Message: {e.message}</h2>
-         </>
-         )
-      })} 
-    
-      </div>
       <img src={users.imageUrl} alt="" />
       <p>Name {users.name}</p>
       <p>Email {users.email}</p>
