@@ -16,17 +16,19 @@ const DetailsModal = ({ isVisible, onClose, description, title, _id, itemType })
       onClick={handleClose}
       style={{ zIndex: 9999 }}
       >
-      <div className="w-[600px] flex flex-col">
+      <div className="w-[540px] flex flex-col">
         <button
-          className="text-white text-xl place-self-end"
-          onClick={() => onClose()}>X</button>
+          className="text-red-500 text-md place-self-end"
+          onClick={() => onClose()}>close</button>
           
-        <div className="p-4 text-slate-100 ">{title} </div>
-        <div className="bg-transparent text-white p-2 rounded">
+        <div className="p-4 text-slate-100 text-2xl uppercase font-bold ">{title} </div>
+        <div className="bg-transparent text-white p-2 rounded whitespace-pre-line break-normal text-center">
           {description}
         </div>
         <Link to={`/${itemType}s/${_id}`}>
-        <button className="p-4 drop hover:text-white hover:shadow-lg rounded-full hover:shadow-cyan-400 text-cyan-600">Details</button>
+        <button className="p-4 mt-4 drop border hover:text-white hover:shadow-lg rounded-full hover:shadow-cyan-400 text-cyan-500">
+        Details
+        </button>
       </Link>
       </div>
     </div>

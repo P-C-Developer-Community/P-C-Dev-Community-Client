@@ -10,7 +10,7 @@ import Modal from "./DetailsModal";
 // We are deconstructing props object directly in the parentheses of the function
 function ProjectCard({ title, description, _id, owner, imageUrl }) {
   const [showModal, setShowModal] = useState(false);
-    const [message, setMessage] = useState("");
+  const [message, setMessage] = useState("");
 
   const API_URL = "http://localhost:5005";
 

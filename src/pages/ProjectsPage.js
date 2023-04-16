@@ -52,7 +52,7 @@ function ProjectsPage() {
     <>
     <div className="bg-slate-800 flex flex-col items-center justify-top mt-4 pt-4 h-screen">
         <p className="text-3xl text-white font-extrabold mb-6">
-          Projects Page
+          Projects 
         </p>
         <button
           className="text-white rounded-full bg-cyan-500 border-double border-4 border-violet-600"
@@ -71,7 +71,7 @@ function ProjectsPage() {
         <div className="">
           <div className="w-full rounded-t-lg mb-4">
             <div className="p-4">
-              <div className="grid grid-cols-3 lg:grid-cols-5 gap-x-16 gap-y-10">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-10">
                 {sortedProjects.length > 0 ? (
                   sortedProjects.map((project) => (
                     <ProjectCard key={project._id} {...project} />

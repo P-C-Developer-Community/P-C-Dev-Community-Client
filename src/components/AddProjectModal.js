@@ -23,9 +23,9 @@ const AddProjectModal = ({ isVisible, onClose, handleAddProjectSuccess }) => {
       style={{ zIndex: 9999 }}>
       <div className="w-[600px] flex flex-col">
         <button
-          className="text-white text-xl place-self-end"
+          className="text-red-500 text-lg place-self-end"
           onClick={() => onClose()}>
-          X
+          close
         </button>
 
         {isSubmitted ? (

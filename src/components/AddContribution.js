@@ -102,6 +102,7 @@ function AddContribution(props) {
             placeholder="Enter a description of your contribution"></textarea>
         </div>
 
+        
         <div className="mb-4">
           <label htmlFor="file" className="block text-zinc-200 font-bold mb-2">
             Upload file:
@@ -110,21 +111,21 @@ function AddContribution(props) {
             type="file"
             name="file"
             id="file"
-            className=" appearance-none border border-cyan-400 rounded-xl w-full py-2 px-3 text-slate-300 leading-tight focus:outline-none focus:ring-white"
+            className="mb-6 appearance-none border border-cyan-400 rounded-xl w-full py-2 px-3 text-slate-300 leading-tight focus:outline-none focus:ring-white"
             onChange={(e) => handleFileUpload(e)}
           />
         </div>
 
         <div className="flex justify-center">
           <button
+            type="cancel"
+            className="bg-red-600 hover:bg-slate-700 text-black mr-6 font-bold py-2 px-4 rounded-full hover:text-red-600  hover:italic hover:shadow-lg hover:shadow-red-600">
+            Cancel
+          </button>
+          <button
             type="submit"
             className="bg-cyan-400 hover:bg-white text-black font-bold py-2 px-4 rounded-full hover:italic hover:shadow-lg hover:shadow-cyan-400 ">
             Submit
-          </button>
-          <button
-            type="cancel"
-            className="bg-red-600 hover:bg-slate-700 text-black ml-6 font-bold py-2 px-4 rounded-full hover:text-red-600  hover:italic hover:shadow-lg hover:shadow-red-600">
-            Cancel
           </button>
         </div>
       </form>

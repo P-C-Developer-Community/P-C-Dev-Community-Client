@@ -72,12 +72,12 @@ function EditProjectPage(props) {
           onChange={(e) => setDescription(e.target.value)}
         />
 
-        <button type="submit">Update Project</button>
+        <button className="p-4 drop bg-slate-800 hover:text-white hover:shadow-lg rounded-full hover:shadow-cyan-400 text-cyan-600" type="submit">Update</button>
       </form>
 
-      <button onClick={deleteProject}>Delete Project</button>
+      <button className="mt-4 mr-8 p-4 drop bg-red-600 hover:text-black hover:shadow-lg rounded-full hover:shadow-red-500 text-white" onClick={deleteProject}>Delete</button>
 
-      <button onClick={goBack}> Back </button>
+      <button className="p-4 drop bg-slate-800 hover:text-white hover:shadow-lg rounded-full hover:shadow-cyan-400 text-cyan-600" onClick={goBack}> Back </button>
               
     </div>
   );
