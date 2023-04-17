@@ -93,6 +93,7 @@ function AddProject(props) {
       <label>Owner:</label>
       <span>{user && user.name}</span>
 
+
       <form onSubmit={handleSubmit} className="max-w-md mx-auto">
         <div className="mb-4">
           <label htmlFor="title" className="block text-zinc-200 font-bold mb-2">
@@ -109,6 +110,8 @@ function AddProject(props) {
             placeholder="Enter the title of your project"
           />
         </div>
+
+
         <div className="mb-4">
           <label
             htmlFor="description"
