@@ -11,7 +11,7 @@ function SearchBar () {
     const retrieveSearch = (searchValue) => {
         setSearch(searchValue)
         console.log("search value...", search);
-        axios.get(`${API_URL}` + "/search/", search )
+        axios.get(`${API_URL}` + "/api/search", search )
         .then((response) => {
             // setSearch(response.data);
         });
