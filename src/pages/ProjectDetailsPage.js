@@ -38,7 +38,7 @@ function ProjectDetailsPage(props) {
       projectInInterest: project._id,
     };
 
-    console.log("requestBody......", requestBody)
+    console.log("requestBody......", requestBody);
 
     // Get the token from the localStorage
     const storedToken = localStorage.getItem("authToken");
@@ -50,10 +50,9 @@ function ProjectDetailsPage(props) {
       })
       .then((response) => {
         // Set the formSubmitted state to trigger a re-render
-        console.log("response", response)
+        console.log("response", response);
         setFormSubmitted(true);
         setMessageSent(true); // set the messageSent state to true after successful message submission
-        
       })
       .catch((error) => console.log(error));
   };
@@ -68,20 +67,19 @@ function ProjectDetailsPage(props) {
   }, [projectId, formSubmitted, messageSent]);
 
   return (
-    <div className="h-screen flex flex-wrap" 
-    style={{
-      backgroundImage: `url(${backgroundImage})`,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      backgroundRepeat: "repeat",
-      
-      
-    }}>
-    <div className="w-full sm:w-1/2 lg:w-1/2 px-6 py-10">
-      <div className="bg-transparent backdrop-blur-lg hover:shadow-xl hover:shadow-white box-border h-64 w-72 p-4 border-2 bg-slate-200 rounded-3xl shadow-lg shadow-cyan-400 ml-6 mr-6 mt-4">
+    <div
+      className="h-screen flex flex-wrap"
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "repeat",
+      }}>
+      <div className="w-full sm:w-1/2 lg:w-1/2 px-6 py-10">
+        <div className="bg-transparent backdrop-blur-lg hover:shadow-xl hover:shadow-white box-border h-64 w-72 p-4 border-2 bg-slate-200 rounded-3xl shadow-lg shadow-cyan-400 ml-6 mr-6 mt-4">
           <form className="mb-4" onSubmit={handleSubmit}>
             <label className="text-xl font-bold text-white mb-4">Message</label>
-            <input 
+            <input
               className="h-auto mt-12 rounded-2xl bg-transparent  appearance-none box-border  text-white placeholder-white border-cyan-400  w-full py-2 px-3  leading-tight  focus:ring-white"
               type="text"
               name="message"
@@ -90,14 +88,16 @@ function ProjectDetailsPage(props) {
               onChange={(e) => setMessage(e.target.value)}
             />
             {messageSent && <p>Message sent successfully!</p>}
-            <button className="mt-4 p-4  bg-slate-800 border hover:text-green-400 hover:shadow-lg rounded-2xl hover:shadow-green-400 text-green-500" type="submit">
-            Submit
+            <button
+              className="mt-4 p-4  bg-slate-800 border hover:text-green-400 hover:shadow-lg rounded-2xl hover:shadow-green-400 text-green-500"
+              type="submit">
+              Submit
             </button>
           </form>
         </div>
-        </div>
-        <div className="w-full sm:w-1/2 lg:w-1/2 px-6 py-10">
-        <div className=" bg-transparent backdrop-blur-md text-white rounded-3xl border-2 shadow-lg shadow-cyan-400 hover:shadow-xl hover:shadow-white ml-6 mr-6 mt-4 p-8" >
+      </div>
+      <div className="w-full sm:w-1/2 lg:w-1/2 px-6 py-10">
+        <div className=" bg-transparent backdrop-blur-md text-white rounded-3xl border-2 shadow-lg shadow-cyan-400 hover:shadow-xl hover:shadow-white ml-6 mr-6 mt-4 p-8">
           {project && (
             <>
               <h1 className="text-3xl uppercase font-bold  mb-4">
@@ -126,9 +126,8 @@ function ProjectDetailsPage(props) {
             </button>
           </Link>
         </div>
-        </div>
-  </div>
-       
+      </div>
+    </div>
   );
 }
 
