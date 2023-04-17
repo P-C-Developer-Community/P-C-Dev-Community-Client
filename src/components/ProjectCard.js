@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
+import { useEffect } from "react";
 
 
 import { Fragment, useState } from "react";
@@ -15,25 +16,30 @@ function ProjectCard({ title, description, _id, owner, imageUrl }) {
   const API_URL = "http://localhost:5005";
 
   const handleSubmit = (e) => {
-        e.preventDefault();
+    e.preventDefault();
+  
+    const requestBody = { message, owner, projectInInterest: _id };
+  
+    // Get the token from the localStorage
+    const storedToken = localStorage.getItem("authToken");
+  
+    // Send the token through the request "Authorization" Headers
+    axios
+      .post(
+        `${API_URL}/api/requests`,
+        requestBody,
+        { headers: { Authorization: `Bearer ${storedToken}` } }
+      )
+      .then((response) => {
+        // Clear the message field
+        setMessage("");
+      })
+      .catch((error) => console.log(error));
+  };
+
+  useEffect(() => {
     
-        const requestBody = {message, owner, projectInInterest: _id };
-      
-        // Get the token from the localStorage
-        const storedToken = localStorage.getItem('authToken');
-      
-        // Send the token through the request "Authorization" Headers
-        axios
-          .post(
-          `${API_URL}/api/requests`, requestBody,
-          { headers: { Authorization: `Bearer ${storedToken}` } }
-        )
-          .then((response) => {
-          // Reset the state
-          setMessage("");
-        })
-          .catch((error) => console.log(error));
-      };
+}, [message]);
     
   
   return (
