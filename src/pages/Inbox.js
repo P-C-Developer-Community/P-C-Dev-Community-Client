@@ -38,6 +38,7 @@ function Inbox() {
           { headers: { Authorization: `Bearer ${storedToken}` } }
         )
           .then((response) => {
+            console.log("response.data......",response.data)
             setRequests(response.data)
           console.log("requests",requests)} )
             .catch((error) => console.log(error));
@@ -105,7 +106,8 @@ function Inbox() {
          return (
             <div key={e._id}>
             <h1 >You have a new message from {e.sender.email}</h1>
-            <h2 >Re: Project - {e.projectInInterest.title}</h2>
+            {e.projectInInterest && <h2>Re: Project - {e.projectInInterest.title}</h2>}
+            {e.contributionInInterest && <h2>Re: Your Contribution - {e.contributionInInterest.title}</h2>}
             <h2 >Message: {e.message}</h2>
             <button  onClick={()=>{changeToRead(e._id)}} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Mark As Read</button>
             </div>
@@ -120,7 +122,8 @@ function Inbox() {
          return (
             <div key={e._id}>
             <h1>You have a new message from {e.sender.email}</h1>
-            <h2>Re: Project - {e.projectInInterest.title}</h2>
+            {e.projectInInterest && <h2>Re: Project - {e.projectInInterest.title}</h2>}
+            {e.contributionInInterest && <h2>Re: Your Contribution - {e.contributionInInterest.title}</h2>}
          <h2>Message: {e.message}</h2>
          <button  onClick={()=>{deleteMessage(e._id)}} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Delete Message</button>
          </div>
