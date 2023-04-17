@@ -3,6 +3,11 @@ import { useParams, Link } from "react-router-dom";
 import backgroundImage from "../assets/com-bg.jpg";
 import ContributionCard from "../components/ContributionCard";
 import axios from "axios";
+
+import { AuthContext } from "../context/auth.context";
+import { useContext } from "react";
+
+
 const API_URL = "http://localhost:5005";
 
 function ContributionDetailsPage(props) {
@@ -10,6 +15,8 @@ function ContributionDetailsPage(props) {
   const { contributionId } = useParams();
   const [message, setMessage] = useState("");
   const [messageSent, setMessageSent] = useState(false);
+
+  const { user } = useContext(AuthContext);
 
   const getContribution = () => {
     // Get the token from the localStorage
@@ -98,6 +105,7 @@ function ContributionDetailsPage(props) {
                   }
                   onChange={(e) => setMessage(e.target.value)}
                 />
+          
               </div>
             ) : null}
 
@@ -133,14 +141,18 @@ function ContributionDetailsPage(props) {
             </button>
           </Link>
 
-          <Link to={`/contributions/edit/${contributionId}`}>
-            <button className="p-4 drop border bg-slate-800 hover:text-red-500 hover:shadow-lg rounded-2xl hover:shadow-red-500 text-cyan-600">
-              Edit
-            </button>
-          </Link>
-        </div>
+        
+        {contribution.owner && contribution.owner._id === user._id ? (
+            <Link to={`/contributions/edit/${contributionId}`}>
+              <button className="p-4 drop bg-slate-800 border hover:text-red-500 hover:shadow-lg rounded-2xl hover:shadow-red-500 text-cyan-600">
+                Edit
+              </button>
+            </Link>
+          ) : null}
+
       </div>
     </div>
+    // </div>
   );
 }
 
