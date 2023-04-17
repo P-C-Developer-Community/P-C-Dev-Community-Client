@@ -67,8 +67,9 @@ function ContributionDetailsPage(props) {
   }, [contributionId, messageSent]);
 
   return (
+    <div className="h-screen flex flex-wrap">
     <div
-      className="h-screen flex flex-wrap"
+      className="h-screen flex "
       style={{
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: "cover",
@@ -152,7 +153,8 @@ function ContributionDetailsPage(props) {
 
       </div>
     </div>
-    // </div>
+     </div>
+     </div>
   );
 }
 

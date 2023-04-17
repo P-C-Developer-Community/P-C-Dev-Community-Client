@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 function HomePage() {
   return (
+    
     <div 
     className="h-screen "
     style={{
@@ -41,8 +42,22 @@ function HomePage() {
               </div>
             </div>
         </Link>
-    </div>
-    </div>
+        {/* <div className="flex text-center my-8">
+        <p className="text-gray-400 text-lg md:text-xl lg:text-2xl">
+          Are you a developer looking for exciting new projects to contribute to? Or are you a project owner in search of talented developers to bring your vision to life? Look no further than our platform, where developers and project owners can come together to create something truly amazing.
+        </p>
+        <p className="mt-4 text-gray-400 text-lg md:text-xl lg:text-2xl">
+          Whether you're a frontend or backend developer, a designer, or a project manager, our platform has opportunities for everyone. Browse our curated list of projects or create your own project and start attracting talented developers today.
+        </p>
+        <p className="mt-4 text-gray-400 text-lg md:text-xl lg:text-2xl">
+          Our platform offers a seamless experience for both project owners and developers, with easy project creation and management tools, powerful collaboration features, and secure payment processing.
+        </p>
+        <p className="mt-4 text-gray-400 text-lg md:text-xl lg:text-2xl">
+          Join our community of passionate developers and project owners today and take your skills and projects to the next level. Start building something great today!
+        </p>
+      </div> */}
+      </div>
+      </div>
   );
 }
 

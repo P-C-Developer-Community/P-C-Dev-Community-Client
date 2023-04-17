@@ -9,9 +9,6 @@ import { useContext } from "react";
 
 const API_URL = "http://localhost:5005";
 
-
-
-
 function ProjectDetailsPage(props) {
   const [project, setProject] = useState({});
   const { projectId } = useParams();
@@ -21,7 +18,7 @@ function ProjectDetailsPage(props) {
 
   const { user } = useContext(AuthContext);
 
-console.log("our user........",user)
+  console.log("our user........", user);
 
   const getProject = () => {
     // Get the token from the localStorage
@@ -84,25 +81,23 @@ console.log("our user........",user)
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "repeat",
-      }}
-    >
+      }}>
       <div className="w-full sm:w-1/2 lg:w-1/2 px-6 py-10">
-        <div className="bg-transparent backdrop-blur-lg hover:shadow-xl hover:shadow-white box-border h-64 w-72 p-4 border-2 bg-slate-200 rounded-3xl shadow-lg shadow-cyan-400 ml-6 mr-6 mt-4">
+        <div className=" bg-transparent backdrop-blur-lg text-white hover:shadow-xl hover:shadow-white box-border  p-4 border-2 bg-slate-200 rounded-3xl shadow-lg shadow-cyan-400 ml-6 mr-6 mt-4">
           <form className="mb-4" onSubmit={handleSubmit}>
             <label className="text-xl font-bold text-white mb-4">
-              Created By
+              Project created by:
             </label>
             {project.owner ? (
               <div>
-                <p>Name: {project.owner.name}</p>
+                <p>{project.owner.name}</p>
                 <p>Email: {project.owner.email}</p>
                 <p>
-                  Created at: {new Date(project.createdAt).toLocaleDateString()}
+                Published: {new Date(project.createdAt).toLocaleDateString('en-US', { weekday: 'short', month: 'long', day: 'numeric', year:  'numeric' })}
                 </p>
-
-
+                
                 <input
-                  className="h-auto mt-12 rounded-2xl bg-transparent  appearance-none box-border  text-white placeholder-white border-cyan-400  w-full py-2 px-3  leading-tight  focus:ring-white"
+                  className=" h-auto mt-12 rounded-2xl bg-transparent  appearance-none box-border  text-white placeholder-white border-cyan-400  w-full py-2 px-3  leading-tight  focus:ring-white"
                   type="text"
                   name="message"
                   value={message}
@@ -118,15 +113,11 @@ console.log("our user........",user)
 
             <button
               className="mt-4 p-4  bg-slate-800 border hover:text-green-400 hover:shadow-lg rounded-2xl hover:shadow-green-400 text-green-500"
-              type="submit"
-            >
+              type="submit">
               Submit
             </button>
           </form>
         </div>
-      </div>
-      <div className="w-full sm:w-1/2 lg:w-1/2 px-6 py-10">
-        <div className=" bg-transparent backdrop-blur-md text-white rounded-3xl border-2 shadow-lg shadow-cyan-400 hover:shadow-xl hover:shadow-white ml-6 mr-6 mt-4 p-8">
       </div>
       <div className="w-full sm:w-1/2 lg:w-1/2 px-6 py-10">
         <div className=" bg-transparent backdrop-blur-md text-white rounded-3xl border-2 shadow-lg shadow-cyan-400 hover:shadow-xl hover:shadow-white ml-6 mr-6 mt-4 p-8">
@@ -137,7 +128,7 @@ console.log("our user........",user)
               </h1>
               <span className="text-sm">
                 {" "}
-                {new Date(project.createdAt).toLocaleDateString()}
+                {new Date(project.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year:  'numeric' })}
               </span>
               <p className="whitespace-pre-line break-normal text-center mt-6 mb-8">
                 {project.description}
@@ -163,11 +154,6 @@ console.log("our user........",user)
       </div>
       <SearchBar />
     </div>
-
-    
-
-      </div>
-    
   );
 }
 

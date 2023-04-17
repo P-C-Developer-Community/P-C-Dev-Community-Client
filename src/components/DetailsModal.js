@@ -16,7 +16,7 @@ const DetailsModal = ({ isVisible, onClose, description, title, _id, itemType })
       onClick={handleClose}
       style={{ zIndex: 9999 }}
       >
-      <div className="w-[540px] flex flex-col">
+      <div className="w-full max-w-lg max-h-screen overflow-y-auto  rounded-lg  ">
         <button
           className="text-red-500 text-md place-self-end"
           onClick={() => onClose()}>close</button>

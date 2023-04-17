@@ -24,7 +24,7 @@ const AddContributionModal = ({
       id="wrapper"
       onClick={handleClose}
       style={{ zIndex: 9999 }}>
-      <div className="w-[600px] flex flex-col">
+      <div className="w-full max-w-lg max-h-screen overflow-y-auto  rounded-lg shadow-lg">
         <button
           className="text-red-500 text-lg place-self-end"
           onClick={() => onClose()}>

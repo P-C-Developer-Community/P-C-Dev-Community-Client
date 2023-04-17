@@ -129,11 +129,11 @@ function AddProject(props) {
           Languages used
         </h3>
 
-        <ul className="ms-center w-full text-sm sm:flex sm:flex-wrap  appearance-none border bg-transparent text-white border-cyan-400 rounded-xl leading-tight focus:outline-none focus:ring-white  ">
+        <ul className="flex flex-wrap justify-center gap-4  appearance-none border bg-transparent text-white border-cyan-400 rounded-xl focus:outline-none focus:ring-white  ">
          
           {/* React-checkbox */}
           <li class="ml-4 mt-2 border-white">
-            <div class="flex items-center pl-3">
+            <div class="flex items-center ">
               <input
                 id="React-checkbox-list"
                 type="checkbox"
@@ -164,7 +164,7 @@ function AddProject(props) {
 
           {/* Angular-checkbox */}
           <li class="ml-10 mt-2 dark:border-gray-600">
-            <div class="flex items-center pl-3">
+            <div class="flex items-center ">
               <input
                 id="Angular-checkbox-list"
                 type="checkbox"
@@ -211,8 +211,8 @@ function AddProject(props) {
           </li>
 
           {/* JavaScript-checkbox */}
-          <li class="ml-4 mt-2 dark:border-gray-600">
-            <div class="flex items-center pl-3">
+          <li class="ml-2 mt-2 dark:border-gray-600">
+            <div class="flex items-center ">
               <input
                 id="JavaScript-checkbox-list"
                 type="checkbox"
@@ -251,7 +251,7 @@ function AddProject(props) {
 
           {/* NextJs-checkbox */}
           <li class="ml-5 mt-2 dark:border-gray-600">
-            <div class="flex items-center pl-3">
+            <div class="flex items-center ">
               <input
                 id="NextJs-checkbox-list"
                 type="checkbox"
@@ -279,8 +279,8 @@ function AddProject(props) {
           </li>
 
           {/* TypeScript-checkbox */}
-          <li class="ml-4 mr-2 mt-2 dark:border-gray-600">
-            <div class="flex items-center pl-3">
+          <li class="mr-36 mt-2 dark:border-gray-600">
+            <div class="flex items-center">
               <input
                 id="TypeScript-checkbox-list"
                 type="checkbox"
@@ -311,7 +311,7 @@ function AddProject(props) {
           </li>
 
           {/* VueJS-checkbox */}
-          <li class="ml-2 mt-2 dark:border-gray-600">
+          <li class="mr-12 mt-2 dark:border-gray-600">
             <div class="flex items-center pl-3">
               <input
                 id="VueJS-checkbox-list"
@@ -351,7 +351,7 @@ function AddProject(props) {
           </li>
 
           {/* Python-checkbox */}
-          <li class="ml-4 mr-2 mt-2 dark:border-gray-600">
+          <li class="-ml-2 mt-2 dark:border-gray-600">
             <div class="flex items-center pl-3">
               <input
                 id="Python-checkbox-list"
