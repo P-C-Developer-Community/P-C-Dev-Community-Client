@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import backgroundImage from "../assets/display-bg.jpeg";
 import axios from "axios";
 import ProjectCard from "../components/ProjectCard";
 
@@ -67,12 +68,21 @@ function ProjectDetailsPage(props) {
   }, [projectId, formSubmitted, messageSent]);
 
   return (
-    <div className="bg-slate-700 h-screen">
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2">
-      <div className="bg-transparent box-border h-64 w-72 p-4 border-2 bg-slate-200 rounded-3xl shadow-lg shadow-cyan-400 hover:shadow-xl hover:shadow-white ml-6 mr-6 mt-4 ">
+    <div className="h-screen flex flex-wrap" 
+    style={{
+      backgroundImage: `url(${backgroundImage})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "repeat",
+      
+      
+    }}>
+    <div className="w-full sm:w-1/2 lg:w-1/2 px-6 py-10">
+      <div className="bg-transparent backdrop-blur-lg hover:shadow-xl hover:shadow-white box-border h-64 w-72 p-4 border-2 bg-slate-200 rounded-3xl shadow-lg shadow-cyan-400 ml-6 mr-6 mt-4">
           <form className="mb-4" onSubmit={handleSubmit}>
             <label className="text-xl font-bold text-white mb-4">Message</label>
-            <input className="h-auto mt-12 rounded-2xl bg-transparent  appearance-none box-border  text-white placeholder-white border-cyan-400  w-full py-2 px-3  leading-tight  focus:ring-white"
+            <input 
+              className="h-auto mt-12 rounded-2xl bg-transparent  appearance-none box-border  text-white placeholder-white border-cyan-400  w-full py-2 px-3  leading-tight  focus:ring-white"
               type="text"
               name="message"
               value={message}
@@ -85,8 +95,9 @@ function ProjectDetailsPage(props) {
             </button>
           </form>
         </div>
-   
-        <div className=" bg-transparent text-white rounded-3xl border-2 shadow-lg shadow-cyan-400 hover:shadow-xl hover:shadow-white ml-6 mr-6 mt-4 p-8" >
+        </div>
+        <div className="w-full sm:w-1/2 lg:w-1/2 px-6 py-10">
+        <div className=" bg-transparent backdrop-blur-md text-white rounded-3xl border-2 shadow-lg shadow-cyan-400 hover:shadow-xl hover:shadow-white ml-6 mr-6 mt-4 p-8" >
           {project && (
             <>
               <h1 className="text-3xl uppercase font-bold  mb-4">

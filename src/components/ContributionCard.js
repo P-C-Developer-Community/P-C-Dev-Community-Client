@@ -3,7 +3,7 @@ import { Fragment, useState } from "react";
 import DetailsModal from "./DetailsModal";
 
 
-function ContributionCard({ title, description, _id, imageUrl }) {
+function ContributionCard({ title, description, _id, owner, imageUrl }) {
   const [showDetailsModal, setShowDetailsModal] = useState(false);
 
   return (
@@ -15,20 +15,24 @@ function ContributionCard({ title, description, _id, imageUrl }) {
             onClick={(e) => {
               e.preventDefault();
               setShowDetailsModal(true);
-            }}>
+            }}
+          >
             <div className="flex flex-col items-center justify-center">
             <img src={imageUrl} alt=""   className="mt-2 mb-2 drop-shadow-2xl shadow-black h-24 w-24 rounded-2xl" />
-              {/* <div
-              className="absolute  h-8 w-8 bg-cover bg-no-repeat bg-center"
-              style={{ backgroundImage: `url(${logo})` }}></div> */}
+             
               <div className="flex flex-col items-center justify-center text-center mr-16 ml-16 mb-2 ">
               <h2 className="text-gray-300 font-mono antialiased italic font-black text-2xl line-clamp-1">
                 {title}
               </h2>
+              <div className="p-4">
+              <p className="text-gray-500 font-mono italic font-medium text-sm">From:</p>
+             {/* <p className="text-gray-300 font-mono  font-black text-2xl" > {owner.name}  </p>  */}
+
               <p className="text-gray-300 font-mono antialiased  italic text-xs text-center line-clamp-2 ">
                 {description}
               </p>
               <div className="flex justify-between items-center"></div>
+            </div>
             </div>
             </div>
           </Link>

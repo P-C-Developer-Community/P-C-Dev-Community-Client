@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import backgroundImqage from "../assets/com-bg.jpg"
+import backgroundImage from "../assets/display-bg.jpeg"
 import ProjectCard from "../components/ProjectCard";
 import AddProject from "../components/AddProject";
 import AddProjectModal from "../components/AddProjectModal";
@@ -51,7 +51,15 @@ function ProjectsPage() {
 
   return (
     <>
-    <div className="bg-slate-800 flex flex-col items-center justify-top mt-4 pt-4 h-screen">
+    <div className="flex flex-col items-center justify-top mt-4 pt-4 h-screen" 
+          style={{
+           backgroundImage: `url(${backgroundImage})`,
+           backgroundSize: 'cover',
+           backgroundPosition: 'center',
+           backgroundRepeat: 'repeat',
+           height: '100%',
+           width: '100%', 
+      }} >
         <p className="text-3xl text-white font-extrabold mb-6">
           Projects 
         </p>
