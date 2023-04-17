@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import backgroundImage from "../assets/display-bg.jpeg";
 import axios from "axios";
-import ProjectCard from "../components/ProjectCard";
+import SearchBar from "../components/SearchBar";
 
 const API_URL = "http://localhost:5005";
 
@@ -127,7 +127,11 @@ function ProjectDetailsPage(props) {
           </Link>
         </div>
       </div>
+      <SearchBar />
     </div>
+
+    
+
   );
 }
 
