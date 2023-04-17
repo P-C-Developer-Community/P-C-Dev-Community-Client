@@ -9,6 +9,8 @@ function ProjectDetailsPage(props) {
   const [project, setProject] = useState({});
   const { projectId } = useParams();
   const [message, setMessage] = useState("");
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [messageSent, setMessageSent] = useState(false);
 
   const getProject = () => {
     // Get the token from the localStorage
@@ -31,9 +33,11 @@ function ProjectDetailsPage(props) {
 
     const requestBody = {
       message,
-      owner: project.owner._id,
+      owner: project.owner,
       projectInInterest: project._id,
     };
+
+    console.log("requestBody......", requestBody)
 
     // Get the token from the localStorage
     const storedToken = localStorage.getItem("authToken");
@@ -44,16 +48,23 @@ function ProjectDetailsPage(props) {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
-        // Reset the state
-        setMessage("");
-        console.log("posting message.........", response.data);
+        // Set the formSubmitted state to trigger a re-render
+        console.log("response", response)
+        setFormSubmitted(true);
+        setMessageSent(true); // set the messageSent state to true after successful message submission
+        
       })
       .catch((error) => console.log(error));
   };
 
   useEffect(() => {
     getProject(projectId);
-  }, [projectId]);
+    // Reset the formSubmitted state after a successful form submission
+    if (formSubmitted) {
+      setMessage("");
+      setFormSubmitted(false);
+    }
+  }, [projectId, formSubmitted, messageSent]);
 
   return (
     <div className="bg-slate-700 h-screen">
@@ -63,11 +74,12 @@ function ProjectDetailsPage(props) {
             <label className="text-xl font-bold text-white mb-4">Message</label>
             <input className="h-auto mt-12 rounded-2xl bg-transparent  appearance-none box-border  text-white placeholder-white border-cyan-400  w-full py-2 px-3  leading-tight  focus:ring-white"
               type="text"
-              message="message"
+              name="message"
               value={message}
               placeholder="Type your message here...."
               onChange={(e) => setMessage(e.target.value)}
             />
+            {messageSent && <p>Message sent successfully!</p>}
             <button className="mt-4 p-4  bg-slate-800 border hover:text-green-400 hover:shadow-lg rounded-2xl hover:shadow-green-400 text-green-500" type="submit">
             Submit
             </button>

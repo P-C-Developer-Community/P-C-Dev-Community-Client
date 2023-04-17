@@ -14,18 +14,18 @@ function Inbox() {
     const {  user } = useContext(AuthContext); 
     const [deleteStatus, setDeleteStatus] = useState(false);
 
-    const getCurrentUser = () => {
-      const storedToken = localStorage.getItem("authToken");  
-      // Send the token through the request "Authorization" Headers
-      axios
-        .get(`${API_URL}/auth/user`, {
-          headers: { Authorization: `Bearer ${storedToken}` },
-        })
-        .then((response) => {
-            setUsers(response.data);
-        })
-        .catch((error) => console.log(error));
-    };
+    // const getCurrentUser = () => {
+    //   const storedToken = localStorage.getItem("authToken");  
+    //   // Send the token through the request "Authorization" Headers
+    //   axios
+    //     .get(`${API_URL}/auth/user`, {
+    //       headers: { Authorization: `Bearer ${storedToken}` },
+    //     })
+    //     .then((response) => {
+    //         setUsers(response.data);
+    //     })
+    //     .catch((error) => console.log(error));
+    // };
 
     const getAllRequests = () => {
         
@@ -38,7 +38,8 @@ function Inbox() {
           { headers: { Authorization: `Bearer ${storedToken}` } }
         )
           .then((response) => {
-            setRequests(response.data)} )
+            setRequests(response.data)
+          console.log("requests",requests)} )
             .catch((error) => console.log(error));
       };
 

@@ -69,17 +69,6 @@ function ProjectCard({ title, description, _id, owner, imageUrl }) {
             <div className="flex justify-between items-center"></div>
           </div>
         </Link>
-        <form onSubmit={handleSubmit}>
-        <label>Message:</label>
-        <input
-          type="text"
-          message="message"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-        />
-
-        <button type="submit">Submit</button>
-      </form>
       </div>
     </div>
     <Modal isVisible={showModal}
