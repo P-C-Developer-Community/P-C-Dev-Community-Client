@@ -11,10 +11,11 @@ function SearchBar () {
     const retrieveSearch = (searchValue) => {
         setSearch(searchValue)
         console.log("search value...", search);
-        axios.get(`${API_URL}` + "/api/projects/search")
-        .then((response) => {
+        axios.get(`${API_URL}/api/projects/quer/${search}`)
+        // .then((response) => {
             // setSearch(response.data);
-        });
+        // }
+        // );
     };
 
 

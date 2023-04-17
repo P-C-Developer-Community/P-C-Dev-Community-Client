@@ -9,9 +9,10 @@ import { Fragment, useState } from "react";
 import Modal from "./DetailsModal";
 
 // We are deconstructing props object directly in the parentheses of the function
-function ProjectCard({ title, description, _id, owner, imageUrl }) {
+function ProjectCard({ title, description, _id, owner, imageUrl, languages }) {
   const [showModal, setShowModal] = useState(false);
   const [message, setMessage] = useState("");
+
 
   const API_URL = "http://localhost:5005";
 
@@ -68,6 +69,12 @@ function ProjectCard({ title, description, _id, owner, imageUrl }) {
              <p className="text-gray-300 font-mono antialiased  italic text-xs text-center line-clamp-2 ">
               {description}{" "}
             </p>
+            <p>Languages Used</p>
+            {languages.map((lang)=>{
+              return <h2>{lang}</h2>  
+            })}
+       
+            
             <div className="flex justify-between items-center"></div>
             </div>
             </div>
