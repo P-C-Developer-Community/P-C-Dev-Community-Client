@@ -7,6 +7,8 @@ const API_URL = "http://localhost:5005";
 function EditContributionPage(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+
+  const storedToken = localStorage.getItem("authToken");
   
   const { contributionId } = useParams();
   const navigate = useNavigate();
@@ -28,11 +30,18 @@ function EditContributionPage(props) {
   
 
   const handleFormSubmit = (e) => {
+
+    const storedToken = localStorage.getItem("authToken");
+
     e.preventDefault();
     const requestBody = { title, description };
 
+   
+
     axios
-      .put(`${API_URL}/api/contributions/${contributionId}`, requestBody)
+      .put(`${API_URL}/api/contributions/${contributionId}`, requestBody,
+      {headers: { Authorization: `Bearer ${storedToken}` },
+    })
       .then((response) => {
         navigate(`/contributions/${contributionId}`)
       });
@@ -42,7 +51,9 @@ function EditContributionPage(props) {
   const deleteContribution = () => {
     
     axios
-      .delete(`${API_URL}/api/contributions/${contributionId}`)
+      .delete(`${API_URL}/api/contributions/${contributionId}`, 
+      {headers: { Authorization: `Bearer ${storedToken}` },
+      })
       .then(() => {
         navigate("/contributions");
       })
