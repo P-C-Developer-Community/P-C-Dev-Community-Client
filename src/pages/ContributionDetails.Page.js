@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from 'react-router-dom'
+import backgroundImage from '../assets/com-bg.jpg'
 import ContributionCard from "../components/ContributionCard";
 import axios from "axios";
 const API_URL = "http://localhost:5005";
@@ -59,9 +60,18 @@ function ContributionDetailsPage (props) {
 
   
   return (
-     <div className="bg-slate-700 h-screen">
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2">
-      <div className="bg-transparent hover:shadow-xl hover:shadow-white box-border h-64 w-72 p-4 border-2 bg-slate-200 rounded-3xl shadow-lg shadow-cyan-400 ml-6 mr-6 mt-4 ">
+     <div className="h-screen flex flex-wrap" 
+     style={{
+      backgroundImage: `url(${backgroundImage})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'repeat',
+      height: '100%',
+      width: '100%',
+    }}>
+     <div className="w-full sm:w-1/2 lg:w-1/2 px-6 py-10">
+    {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2"> */}
+      <div className="bg-transparent backdrop-blur-lg hover:shadow-xl hover:shadow-white box-border h-64 w-72 p-4 border-2 bg-slate-200 rounded-3xl shadow-lg shadow-cyan-400 ml-6 mr-6 mt-4 ">
           <form className="mb-4" onSubmit={handleSubmit}>
             <label className="text-xl font-bold text-white mb-4">Message</label>
             <input className="h-auto mt-12 rounded-2xl bg-transparent  appearance-none box-border  text-white placeholder-white border-cyan-400  w-full py-2 px-3  leading-tight  focus:ring-white"
@@ -76,8 +86,9 @@ function ContributionDetailsPage (props) {
             </button>
           </form>
         </div>
+        </div>
    
-        <div className=" bg-transparent text-white rounded-3xl border-2 shadow-lg shadow-cyan-400 hover:shadow-xl hover:shadow-white ml-6 mr-6 mt-4 p-8" >
+        <div className=" bg-transparent backdrop-blur-lg  text-white rounded-3xl border-2 shadow-lg shadow-cyan-400 hover:shadow-xl hover:shadow-white ml-6 mr-6 mt-4 p-8" >
 
 
 
@@ -112,7 +123,7 @@ function ContributionDetailsPage (props) {
           </Link>
         </div>
         </div>
-  </div>
+  // </div>
   );
 }
 

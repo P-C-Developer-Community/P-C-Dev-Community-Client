@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import backgroundImqage from "../assets/com-bg.jpg"
 import ProjectCard from "../components/ProjectCard";
 import AddProject from "../components/AddProject";
 import AddProjectModal from "../components/AddProjectModal";

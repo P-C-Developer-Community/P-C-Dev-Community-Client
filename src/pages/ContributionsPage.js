@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import backgroundImage from "../assets/com-bg.jpg"
 import AddContributionModal from "../components/AddContributionModal";
 import ContributionCard from "../components/ContributionCard";
 
@@ -49,7 +50,14 @@ function ContributionsPage() {
 
   return (
     <>
-      <div className="bg-slate-800 flex flex-col items-center justify-top mt-4 pt-4 h-screen">
+      <div className=" flex flex-col items-center justify-top mt-4 pt-4 h-screen" style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'repeat',
+        height: '100%',
+        width: '100%',
+      }} >
         <p className="text-3xl text-white font-extrabold mb-6">
           Contributions 
         </p>
