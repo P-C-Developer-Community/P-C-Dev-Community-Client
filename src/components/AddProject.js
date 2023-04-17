@@ -33,7 +33,7 @@ function AddProject(props) {
     service
       .uploadImage(uploadData)
       .then((response) => {
-        // console.log("response is: ", response);
+        console.log("response is: ", response);
         // response carries "fileUrl" which we can use to update the state
         setImageUrl(response.fileUrl);
       })
@@ -46,7 +46,7 @@ function AddProject(props) {
     const { projectsId } = props;
     // Create an object representing the body of the POST request
 
-    console.log("languages......77............",languages)
+    
     const requestBody = { title, description, owner: user._id, imageUrl, languages };
 
     // Get the token from the localStorage

@@ -22,6 +22,8 @@ import ContributionDetailsPage from "./pages/ContributionDetails.Page";
 
 import Inbox from "./pages/Inbox";
 
+import CommunityPage from "./pages/CommunityPage";
+
 
 
 function App() {
@@ -48,6 +50,8 @@ function App() {
             <Route path="/userprofilepage/edit/:userId" element={<IsPrivate> <EditUserProfilePage /></IsPrivate>} />
 
             <Route path="/inbox" element={<Inbox></Inbox>} />
+
+            <Route path="/community" element={<CommunityPage></CommunityPage>} />
         </Routes>
     </div>
   );
