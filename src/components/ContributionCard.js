@@ -3,7 +3,7 @@ import { Fragment, useState } from "react";
 import DetailsModal from "./DetailsModal";
 
 
-function ContributionCard({ title, description, _id, owner, imageUrl }) {
+function ContributionCard({ title, description, _id, owner, imageUrl, languages }) {
   const [showDetailsModal, setShowDetailsModal] = useState(false);
 
   return (
@@ -31,6 +31,10 @@ function ContributionCard({ title, description, _id, owner, imageUrl }) {
               <p className="text-gray-300 font-mono antialiased  italic text-xs text-center line-clamp-2 ">
                 {description}
               </p>
+              <p>Languages Used</p>
+            {languages.map((lang)=>{
+              return <h2>{lang}</h2>  
+            })}
               <div className="flex justify-between items-center"></div>
             </div>
             </div>

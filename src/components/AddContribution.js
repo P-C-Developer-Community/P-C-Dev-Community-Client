@@ -8,6 +8,7 @@ function AddContribution(props) {
   const [description, setDescription] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [contributionsId, setContributionsId] = useState("");
+  const [languages, setLanguages] = useState([]);
 
   useEffect(() => {
     // Get the contribution ID from URL params or from the contribution object passed as a prop
@@ -39,7 +40,7 @@ function AddContribution(props) {
 
     const { contributionsId } = props;
     // Create an object representing the body of the POST request
-    const requestBody = { title, description, contributionsId, imageUrl };
+    const requestBody = { title, description, contributionsId, imageUrl, languages };
 
     const storedToken = localStorage.getItem("authToken");
 
@@ -60,6 +61,20 @@ function AddContribution(props) {
         props.onClose();
       })
       .catch((error) => console.log(error));
+
+  };
+
+  const handleLanguageChange = (e) => {
+    const isChecked = e.target.checked;
+    console.log("is checked,,,,,,,", isChecked);
+    const value = e.target.value;
+    console.log("values......", value);
+    if (isChecked) {
+      setLanguages([value, ...languages]);
+      console.log("languages..........", languages);
+    } else {
+      setLanguages(languages.filter((lang) => lang !== value));
+    }
   };
 
   return (
@@ -113,8 +128,9 @@ function AddContribution(props) {
                   <input
                     id="React-checkbox-list"
                     type="checkbox"
-                    value=""
+                    value="React"
                     class="w-4 h-4 text-cyan-500 bg-transparent border rounded focus:ring-white ring-offset-cyan-400 focus:ring-offset-gray-700 focus:ring-2  border-white"
+                    onChange={handleLanguageChange}
                   />
 
                   <svg
@@ -143,8 +159,9 @@ function AddContribution(props) {
                   <input
                     id="Angular-checkbox-list"
                     type="checkbox"
-                    value=""
+                    value="Angular"
                     class="w-4 h-4 text-cyan-500 bg-transparent border rounded focus:ring-white ring-offset-cyan-400 focus:ring-offset-gray-700 focus:ring-2  border-white"
+                    onChange={handleLanguageChange}
                   />
 
                   <svg
@@ -184,15 +201,17 @@ function AddContribution(props) {
                 </div>
               </td>
 
+
               {/* JavaScript-checkbox */}
               <td class=" mt-2 dark:border-gray-600">
                 <div class="flex items-center pl-4">
                   <input
                     id="JavaScript-checkbox-list"
                     type="checkbox"
-                    value=""
+                    value="JavaScript"
                     class="w-4 h-4 text-cyan-500 bg-transparent border rounded focus:ring-white ring-offset-cyan-400 focus:ring-offset-gray-700 focus:ring-2  border-white"
-                  />
+                    onChange={handleLanguageChange}
+                 />
 
                   <svg
                     className="ml-4 "
@@ -228,8 +247,9 @@ function AddContribution(props) {
                   <input
                     id="NextJs-checkbox-list"
                     type="checkbox"
-                    value=""
+                    value="NextJs"
                     class="w-4 h-4 text-cyan-500 bg-transparent border rounded focus:ring-white ring-offset-cyan-400 focus:ring-offset-gray-700 focus:ring-2  border-white"
+                    onChange={handleLanguageChange}
                   />
 
                   <svg
@@ -256,8 +276,9 @@ function AddContribution(props) {
                   <input
                     id="TypeScript-checkbox-list"
                     type="checkbox"
-                    value=""
+                    value="TypeScript"
                     class="w-4 h-4 text-cyan-500 bg-transparent border rounded focus:ring-white ring-offset-cyan-400 focus:ring-offset-gray-700 focus:ring-2  border-white"
+                    onChange={handleLanguageChange}
                   />
 
                   <svg
@@ -287,8 +308,9 @@ function AddContribution(props) {
                   <input
                     id="VueJS-checkbox-list"
                     type="checkbox"
-                    value=""
+                    value="VueJS"
                     class="w-4 h-4 text-cyan-500 bg-transparent border rounded focus:ring-white ring-offset-cyan-400 focus:ring-offset-gray-700 focus:ring-2  border-white"
+                    onChange={handleLanguageChange}
                   />
 
                   <svg
@@ -326,9 +348,10 @@ function AddContribution(props) {
                   <input
                     id="Python-checkbox-list"
                     type="checkbox"
-                    value=""
+                    value="Python"
                     class="w-4 h-4 text-cyan-500 bg-transparent border rounded focus:ring-white ring-offset-cyan-400 focus:ring-offset-gray-700 focus:ring-2  border-white"
-                  />
+                    onChange={handleLanguageChange}
+                 />
 
                   <svg
                     className="ml-3 "
@@ -381,8 +404,9 @@ function AddContribution(props) {
                   <input
                     id="NodeJS-checkbox-list"
                     type="checkbox"
-                    value=""
+                    value="NodeJS"
                     class="w-4 h-4 text-cyan-500 bg-transparent border rounded focus:ring-white ring-offset-cyan-400 focus:ring-offset-gray-700 focus:ring-2  border-white"
+                    onChange={handleLanguageChange}
                   />
 
                   <svg
@@ -412,8 +436,9 @@ function AddContribution(props) {
                   <input
                     id="TailwindCSS-checkbox-list"
                     type="checkbox"
-                    value=""
+                    value="TailwindCSS"
                     class="w-4 h-4 text-cyan-500 bg-transparent border rounded focus:ring-white ring-offset-cyan-400 focus:ring-offset-gray-700 focus:ring-2  border-white"
+                    onChange={handleLanguageChange}
                   />
 
                   <svg
@@ -447,9 +472,10 @@ function AddContribution(props) {
                   <input
                     id="Bootstrap-checkbox-list"
                     type="checkbox"
-                    value=""
+                    value="Bootstrap"
                     class="w-4 h-4 text-cyan-500 bg-transparent border rounded focus:ring-white ring-offset-cyan-400 focus:ring-offset-gray-700 focus:ring-2  border-white"
-                  />
+                    onChange={handleLanguageChange}
+                 />
 
                   <svg
                     className="ml-3 "
@@ -478,9 +504,10 @@ function AddContribution(props) {
                   <input
                     id="Sass-checkbox-list"
                     type="checkbox"
-                    value=""
+                    value="Sass"
                     class="w-4 h-4 text-cyan-500 bg-transparent border rounded focus:ring-white ring-offset-cyan-400 focus:ring-offset-gray-700 focus:ring-2  border-white"
-                  />
+                    onChange={handleLanguageChange}
+                />
 
                   <svg
                     className="ml-3 "
@@ -508,8 +535,9 @@ function AddContribution(props) {
                   <input
                     id="jQuery-checkbox-list"
                     type="checkbox"
-                    value=""
+                    value="jQuery"
                     class="w-4 h-4 text-cyan-500 bg-transparent border rounded focus:ring-white ring-offset-cyan-400 focus:ring-offset-gray-700 focus:ring-2  border-white"
+                    onChange={handleLanguageChange}
                   />
 
                   <svg

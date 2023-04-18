@@ -144,8 +144,9 @@ function AddProject(props) {
                   <input
                     id="React-checkbox-list"
                     type="checkbox"
-                    value=""
+                    value="React"
                     class="w-4 h-4 text-cyan-500 bg-transparent border rounded focus:ring-white ring-offset-cyan-400 focus:ring-offset-gray-700 focus:ring-2  border-white"
+                    onChange={handleLanguageChange}
                   />
 
                   <svg
@@ -174,8 +175,9 @@ function AddProject(props) {
                   <input
                     id="Angular-checkbox-list"
                     type="checkbox"
-                    value=""
+                    value="Angular"
                     class="w-4 h-4 text-cyan-500 bg-transparent border rounded focus:ring-white ring-offset-cyan-400 focus:ring-offset-gray-700 focus:ring-2  border-white"
+                    onChange={handleLanguageChange}
                   />
 
                   <svg
@@ -222,9 +224,10 @@ function AddProject(props) {
                   <input
                     id="JavaScript-checkbox-list"
                     type="checkbox"
-                    value=""
+                    value="JavaScript"
                     class="w-4 h-4 text-cyan-500 bg-transparent border rounded focus:ring-white ring-offset-cyan-400 focus:ring-offset-gray-700 focus:ring-2  border-white"
-                  />
+                    onChange={handleLanguageChange}
+                 />
 
                   <svg
                     className="ml-4 "
@@ -260,8 +263,9 @@ function AddProject(props) {
                   <input
                     id="NextJs-checkbox-list"
                     type="checkbox"
-                    value=""
+                    value="NextJs"
                     class="w-4 h-4 text-cyan-500 bg-transparent border rounded focus:ring-white ring-offset-cyan-400 focus:ring-offset-gray-700 focus:ring-2  border-white"
+                    onChange={handleLanguageChange}
                   />
 
                   <svg
@@ -288,8 +292,9 @@ function AddProject(props) {
                   <input
                     id="TypeScript-checkbox-list"
                     type="checkbox"
-                    value=""
+                    value="TypeScript"
                     class="w-4 h-4 text-cyan-500 bg-transparent border rounded focus:ring-white ring-offset-cyan-400 focus:ring-offset-gray-700 focus:ring-2  border-white"
+                    onChange={handleLanguageChange}
                   />
 
                   <svg
@@ -319,8 +324,9 @@ function AddProject(props) {
                   <input
                     id="VueJS-checkbox-list"
                     type="checkbox"
-                    value=""
+                    value="VueJS"
                     class="w-4 h-4 text-cyan-500 bg-transparent border rounded focus:ring-white ring-offset-cyan-400 focus:ring-offset-gray-700 focus:ring-2  border-white"
+                    onChange={handleLanguageChange}
                   />
 
                   <svg
@@ -358,9 +364,10 @@ function AddProject(props) {
                   <input
                     id="Python-checkbox-list"
                     type="checkbox"
-                    value=""
+                    value="Python"
                     class="w-4 h-4 text-cyan-500 bg-transparent border rounded focus:ring-white ring-offset-cyan-400 focus:ring-offset-gray-700 focus:ring-2  border-white"
-                  />
+                    onChange={handleLanguageChange}
+                 />
 
                   <svg
                     className="ml-3 "
@@ -413,8 +420,9 @@ function AddProject(props) {
                   <input
                     id="NodeJS-checkbox-list"
                     type="checkbox"
-                    value=""
+                    value="NodeJS"
                     class="w-4 h-4 text-cyan-500 bg-transparent border rounded focus:ring-white ring-offset-cyan-400 focus:ring-offset-gray-700 focus:ring-2  border-white"
+                    onChange={handleLanguageChange}
                   />
 
                   <svg
@@ -444,8 +452,9 @@ function AddProject(props) {
                   <input
                     id="TailwindCSS-checkbox-list"
                     type="checkbox"
-                    value=""
+                    value="TailwindCSS"
                     class="w-4 h-4 text-cyan-500 bg-transparent border rounded focus:ring-white ring-offset-cyan-400 focus:ring-offset-gray-700 focus:ring-2  border-white"
+                    onChange={handleLanguageChange}
                   />
 
                   <svg
@@ -479,9 +488,10 @@ function AddProject(props) {
                   <input
                     id="Bootstrap-checkbox-list"
                     type="checkbox"
-                    value=""
+                    value="Bootstrap"
                     class="w-4 h-4 text-cyan-500 bg-transparent border rounded focus:ring-white ring-offset-cyan-400 focus:ring-offset-gray-700 focus:ring-2  border-white"
-                  />
+                    onChange={handleLanguageChange}
+                 />
 
                   <svg
                     className="ml-3 "
@@ -510,9 +520,10 @@ function AddProject(props) {
                   <input
                     id="Sass-checkbox-list"
                     type="checkbox"
-                    value=""
+                    value="Sass"
                     class="w-4 h-4 text-cyan-500 bg-transparent border rounded focus:ring-white ring-offset-cyan-400 focus:ring-offset-gray-700 focus:ring-2  border-white"
-                  />
+                    onChange={handleLanguageChange}
+                />
 
                   <svg
                     className="ml-3 "
@@ -540,8 +551,9 @@ function AddProject(props) {
                   <input
                     id="jQuery-checkbox-list"
                     type="checkbox"
-                    value=""
+                    value="jQuery"
                     class="w-4 h-4 text-cyan-500 bg-transparent border rounded focus:ring-white ring-offset-cyan-400 focus:ring-offset-gray-700 focus:ring-2  border-white"
+                    onChange={handleLanguageChange}
                   />
 
                   <svg
