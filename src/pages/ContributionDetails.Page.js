@@ -95,13 +95,13 @@ function ContributionDetailsPage(props) {
                 </p>
 
                 <input
-                  className="h-auto mt-12 rounded-2xl bg-transparent  appearance-none box-border  text-white placeholder-white border-cyan-400  w-full py-2 px-3  leading-tight  focus:ring-white"
+                  className="h-auto mt-12 rounded-2xl bg-transparent  appearance-none box-border  text-white placeholder-slate-400 border-cyan-400  w-full py-2 px-3  leading-tight  focus:ring-white"
                   type="text"
                   message="message"
                   value={message}
                   placeholder={
                     !messageSent
-                      ? `Send a message to ${contribution.owner.name}`
+                      ? `Send a message to ${contribution.owner.name}...`
                       : "message sent succesfully"
                   }
                   onChange={(e) => setMessage(e.target.value)}

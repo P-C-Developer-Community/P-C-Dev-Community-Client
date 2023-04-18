@@ -48,7 +48,7 @@ function UserProfilePage() {
        
 
         <div className=" flex justify-center px-6 py-10">
-            <div className="bg-transparent backdrop-blur-lg text-slate-400 hover:shadow-xl hover:shadow-white box-border p-4 border-2 bg-slate-200 rounded-3xl shadow-lg shadow-cyan-400 ml-6 mr-6 mt-4">
+            <div className="bg-transparent backdrop-blur-md text-slate-400 hover:shadow-xl hover:shadow-white box-border p-4 border-2 bg-slate-200 rounded-3xl shadow-lg shadow-cyan-400 ml-6 mr-6 mt-4">
                 <form onSubmit={handleSubmit}>
                     <label className="text-xl font-bold text-white mb-4">
                         {users.name}'s Profile
