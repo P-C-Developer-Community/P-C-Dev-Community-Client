@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import backgroundImage from "../assets/com-bg.jpg";
-const API_URL = "http://localhost:5005";
+
 
 function EditContributionPage(props) {
   const [title, setTitle] = useState("");
@@ -18,7 +18,7 @@ function EditContributionPage(props) {
 
   useEffect(() => {
     axios
-      .get(`${API_URL}/api/contributions/${contributionId}`)
+      .get(`${process.env.REACT_APP_API_URL}/api/contributions/${contributionId}`)
       .then((response) => {
         const oneContribution = response.data;
         setTitle(oneContribution.title);
@@ -34,9 +34,9 @@ function EditContributionPage(props) {
     const requestBody = { title, description };
 
     axios
-      .put(`${API_URL}/api/contributions/${contributionId}`, requestBody, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      })
+      .put(`${process.env.REACT_APP_API_URL}/api/contributions/${contributionId}`, requestBody,
+      {headers: { Authorization: `Bearer ${storedToken}` },
+    })
       .then((response) => {
         navigate(`/contributions/${contributionId}`);
       });
@@ -44,8 +44,8 @@ function EditContributionPage(props) {
 
   const deleteContribution = () => {
     axios
-      .delete(`${API_URL}/api/contributions/${contributionId}`, {
-        headers: { Authorization: `Bearer ${storedToken}` },
+      .delete(`${process.env.REACT_APP_API_URL}/api/contributions/${contributionId}`, 
+      {headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then(() => {
         navigate("/contributions");

@@ -14,7 +14,7 @@ function ProjectCard({ title, description, _id, owner, imageUrl, languages }) {
   const [message, setMessage] = useState("");
 
 
-  const API_URL = "http://localhost:5005";
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,7 +27,7 @@ function ProjectCard({ title, description, _id, owner, imageUrl, languages }) {
     // Send the token through the request "Authorization" Headers
     axios
       .post(
-        `${API_URL}/api/requests`,
+        `${process.env.REACT_APP_API_URL}/api/requests`,
         requestBody,
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )

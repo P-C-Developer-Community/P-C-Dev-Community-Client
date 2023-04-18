@@ -4,7 +4,7 @@ import { AuthContext } from "../context/auth.context";
 import { useContext } from "react";
 import { useState, useEffect } from "react";
 
-const API_URL = "http://localhost:5005";
+
 
 
 function CommunityPage(){
@@ -17,7 +17,7 @@ function CommunityPage(){
 
     const getAllUsers = () => {
         axios
-        .get(`${API_URL}/auth/community`, {
+        .get(`${process.env.REACT_APP_API_URL}/auth/community`, {
           headers: { Authorization: `Bearer ${storedToken}` },
         })
         .then((response) => {

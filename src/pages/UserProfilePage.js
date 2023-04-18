@@ -23,7 +23,7 @@ function UserProfilePage() {
     const storedToken = localStorage.getItem("authToken");
     // Send the token through the request "Authorization" Headers
     axios
-      .get(`${API_URL}/auth/user`, {
+      .get(`${process.env.REACT_APP_API_URL}/auth/user`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {

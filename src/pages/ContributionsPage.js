@@ -4,7 +4,7 @@ import backgroundImage from "../assets/com-bg.jpg"
 import AddContributionModal from "../components/AddContributionModal";
 import ContributionCard from "../components/ContributionCard";
 
-const API_URL = "http://localhost:5005";
+
 
 function ContributionsPage() {
   const [contributions, setContributions] = useState([]);
@@ -16,7 +16,7 @@ function ContributionsPage() {
 
     // Send the token through the request "Authorization" Headers
     axios
-      .get(`${API_URL}/api/contributions`, {
+      .get(`${process.env.REACT_APP_API_URL}/api/contributions`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {

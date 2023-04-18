@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import backgroundImage from "../assets/display-bg.jpeg";
-const API_URL = "http://localhost:5005";
+
 
 function EditProjectPage(props) {
   const [title, setTitle] = useState("");
@@ -18,7 +18,7 @@ function EditProjectPage(props) {
 
   useEffect(() => {
     axios
-      .get(`${API_URL}/api/projects/${projectId}`)
+      .get(`${process.env.REACT_APP_API_URL}/api/projects/${projectId}`)
       .then((response) => {
         const oneProject = response.data;
         setTitle(oneProject.title);
@@ -32,7 +32,7 @@ function EditProjectPage(props) {
     const requestBody = { title, description };
 
     axios
-      .put(`${API_URL}/api/projects/${projectId}`, requestBody, {
+      .put(`${process.env.REACT_APP_API_URL}/api/projects/${projectId}`, requestBody, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
@@ -42,7 +42,7 @@ function EditProjectPage(props) {
 
   const deleteProject = () => {
     axios
-      .delete(`${API_URL}/api/projects/${projectId}`, {
+      .delete(`${process.env.REACT_APP_API_URL}/api/projects/${projectId}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then(() => {

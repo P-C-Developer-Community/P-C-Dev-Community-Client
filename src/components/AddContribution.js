@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import service from "../api/service";
-const API_URL = "http://localhost:5005";
+
 
 function AddContribution(props) {
   const [title, setTitle] = useState("");
@@ -44,7 +44,7 @@ function AddContribution(props) {
     const storedToken = localStorage.getItem("authToken");
 
     axios
-      .post(`${API_URL}/api/contributions`, requestBody, {
+      .post(`${process.env.REACT_APP_API_URL}/api/contributions`, requestBody, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
 

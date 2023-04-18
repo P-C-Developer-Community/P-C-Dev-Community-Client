@@ -3,7 +3,7 @@ import { useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
 import service from "../api/service";
-const API_URL = "http://localhost:5005";
+
 
 function AddProject(props) {
   const [title, setTitle] = useState("");
@@ -59,7 +59,7 @@ function AddProject(props) {
 
     // Send the token through the request "Authorization" Headers
     axios
-      .post(`${API_URL}/api/projects`, requestBody, {
+      .post(`${process.env.REACT_APP_API_URL}/api/projects`, requestBody, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {

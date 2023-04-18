@@ -4,7 +4,6 @@ import { AuthContext } from "../context/auth.context";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
-const API_URL = "http://localhost:5005";
 
 function Inbox() {
     
@@ -18,7 +17,7 @@ function Inbox() {
     //   const storedToken = localStorage.getItem("authToken");  
     //   // Send the token through the request "Authorization" Headers
     //   axios
-    //     .get(`${API_URL}/auth/user`, {
+    //     .get(`${process.env.REACT_APP_API_URL}/auth/user`, {
     //       headers: { Authorization: `Bearer ${storedToken}` },
     //     })
     //     .then((response) => {
@@ -34,7 +33,7 @@ function Inbox() {
         // Send the token through the request "Authorization" Headers
         axios
           .get(
-          `${API_URL}/api/requests`,
+          `${process.env.REACT_APP_API_URL}/api/requests`,
           { headers: { Authorization: `Bearer ${storedToken}` } }
         )
           .then((response) => {
@@ -46,13 +45,12 @@ function Inbox() {
 
 
       const changeToRead = (id) => {
-        console.log(id)
         const storedToken = localStorage.getItem("authToken");
        
         // Send the token through the request "Authorization" Headers
         axios
           .get(
-          `${API_URL}/api/request/read`,
+          `${process.env.REACT_APP_API_URL}/api/request/read`,
           { 
             headers: { Authorization: `Bearer ${storedToken}` },
             params: {id: id} 
@@ -78,7 +76,7 @@ function Inbox() {
         // Send the token through the request "Authorization" Headers
         axios
           .get(
-          `${API_URL}/api/request/delete`,
+          `${process.env.REACT_APP_API_URL}/api/request/delete`,
           { 
             headers: { Authorization: `Bearer ${storedToken}` },
             params: {id: id} 

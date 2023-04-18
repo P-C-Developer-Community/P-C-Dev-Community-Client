@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const API_URL = "http://localhost:5005";
+
 
 function SearchBar () {
     const [search, setSearch] = useState ();
@@ -11,7 +11,7 @@ function SearchBar () {
     const retrieveSearch = (searchValue) => {
         setSearch(searchValue)
         console.log("search value...", search);
-        axios.get(`${API_URL}/api/projects/quer/${search}`)
+        axios.get(`${process.env.REACT_APP_API_URL}/api/projects/quer/${search}`)
         // .then((response) => {
             // setSearch(response.data);
         // }

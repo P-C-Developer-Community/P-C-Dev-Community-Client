@@ -8,7 +8,7 @@ import { AuthContext } from "../context/auth.context";
 import { useContext } from "react";
 
 
-const API_URL = "http://localhost:5005";
+
 
 function ContributionDetailsPage(props) {
   const [contribution, setContribution] = useState({});
@@ -24,7 +24,7 @@ function ContributionDetailsPage(props) {
 
     // Send the token through the request "Authorization" Headers
     axios
-      .get(`${API_URL}/api/contributions/${contributionId}`, {
+      .get(`${process.env.REACT_APP_API_URL}/api/contributions/${contributionId}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
@@ -50,7 +50,7 @@ function ContributionDetailsPage(props) {
 
     // Send the token through the request "Authorization" Headers
     axios
-      .post(`${API_URL}/api/requests`, requestBody, {
+      .post(`${process.env.REACT_APP_API_URL}/api/requests`, requestBody, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {

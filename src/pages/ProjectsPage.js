@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import backgroundImage from "../assets/display-bg.jpeg"
 import ProjectCard from "../components/ProjectCard";
-import AddProject from "../components/AddProject";
+
 import AddProjectModal from "../components/AddProjectModal";
 
-const API_URL = "http://localhost:5005";
+
 
 function ProjectsPage() {
   const [projects, setProjects] = useState([]);
@@ -17,7 +17,7 @@ function ProjectsPage() {
 
     // Send the token through the request "Authorization" Headers
     axios
-      .get(`${API_URL}/api/projects`, {
+      .get(`${process.env.REACT_APP_API_URL}/api/projects`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {

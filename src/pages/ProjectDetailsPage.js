@@ -7,7 +7,7 @@ import ProjectCard from "../components/ProjectCard";
 import { AuthContext } from "../context/auth.context";
 import { useContext } from "react";
 
-const API_URL = "http://localhost:5005";
+
 
 function ProjectDetailsPage(props) {
   const [project, setProject] = useState({});
@@ -26,7 +26,7 @@ function ProjectDetailsPage(props) {
 
     // Send the token through the request "Authorization" Headers
     axios
-      .get(`${API_URL}/api/projects/${projectId}`, {
+      .get(`${process.env.REACT_APP_API_URL}/api/projects/${projectId}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
@@ -52,7 +52,7 @@ function ProjectDetailsPage(props) {
 
     // Send the token through the request "Authorization" Headers
     axios
-      .post(`${API_URL}/api/requests`, requestBody, {
+      .post(`${process.env.REACT_APP_API_URL}/api/requests`, requestBody, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
