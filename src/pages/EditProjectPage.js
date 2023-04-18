@@ -52,9 +52,9 @@ function EditProjectPage(props) {
   };
 
   return (
-    <div className="h-screen flex flex-wrap">
+    <div className=" flex flex-wrap">
       <div
-        className="h-screen  flex justify-center  text-white"
+        className="min-h-screen  flex justify-center  text-white"
         style={{
           backgroundImage: `url(${backgroundImage})`,
           backgroundSize: "cover",

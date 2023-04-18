@@ -69,7 +69,7 @@ function Inbox() {
   return (
     <>
       <div
-        className=" text-white backdrop-filter backdrop-blur-md  pt-4 h-screen"
+        className=" text-white backdrop-filter backdrop-blur-md  pt-4 min-h-screen"
         style={{
           backgroundImage: `url(${backgroundImage})`,
           backgroundSize: "cover",

@@ -75,7 +75,7 @@ function ProjectDetailsPage(props) {
 
   return (
     <div
-      className="h-screen flex flex-wrap"
+      className="h-screen flex flex-wrap min-h-screen"
       style={{
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: "cover",

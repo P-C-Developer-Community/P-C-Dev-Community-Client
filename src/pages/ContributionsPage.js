@@ -51,7 +51,7 @@ function ContributionsPage() {
   return (
     <>
       <div
-        className=" flex flex-col items-center justify-top  pt-4 h-screen"
+        className=" flex flex-col items-center justify-top  pt-4 min-h-screen"
         style={{
           backgroundImage: `url(${backgroundImage})`,
           backgroundSize: "cover",
