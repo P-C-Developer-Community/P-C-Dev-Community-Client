@@ -26,7 +26,7 @@ function ContributionCard({ title, description, _id, owner, imageUrl }) {
               </h2>
               <div className="p-4">
               <p className="text-gray-500 font-mono italic font-medium text-sm">From:</p>
-             {/* <p className="text-gray-300 font-mono  font-black text-2xl" > {owner.name}  </p>  */}
+              <p className="text-gray-300 font-mono  font-black text-2xl" > {owner.name}  </p>  
 
               <p className="text-gray-300 font-mono antialiased  italic text-xs text-center line-clamp-2 ">
                 {description}

@@ -3,6 +3,7 @@ import axios from "axios";
 import { AuthContext } from "../context/auth.context";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import backgroundImage from "../assets/msg-bg.jpeg";
 
 
 function Inbox() {
@@ -96,6 +97,14 @@ function Inbox() {
   
     return (
       <>
+      <div
+        className="text-white flex flex-col items-center justify-top  pt-4 h-screen"
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "repeat",
+        }}>
       ************************ This is your Unread Messages  ***********************
       <div>
       {requests.filter((e) => !e.isRead).map((e)=>{
@@ -128,6 +137,7 @@ function Inbox() {
          )
       })} 
     
+      </div>     
       </div>     
       </>
     );

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import backgroundImage from "../assets/com-bg.jpg"
+import backgroundImage from "../assets/com-bg.jpg";
 import AddContributionModal from "../components/AddContributionModal";
 import ContributionCard from "../components/ContributionCard";
 
@@ -50,17 +50,15 @@ function ContributionsPage() {
 
   return (
     <>
-      <div className=" flex flex-col items-center justify-top mt-4 pt-4 h-screen" style={{
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'repeat',
-        height: '100%',
-        width: '100%',
-      }} >
-        <p className="text-3xl text-white font-extrabold mb-6">
-          Contributions 
-        </p>
+      <div
+        className=" flex flex-col items-center justify-top  pt-4 h-screen"
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "repeat",
+        }}>
+        <p className="text-3xl text-white font-extrabold mb-6">Contributions</p>
         <button
           className="text-white rounded-full bg-cyan-500 border-double border-4 border-violet-600"
           onClick={handleShowAddContributionForm}>
@@ -81,7 +79,10 @@ function ContributionsPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-10">
                 {sortedContributions.length > 0 ? (
                   sortedContributions.map((contribution) => (
-                    <ContributionCard key={contribution._id} {...contribution} />
+                    <ContributionCard
+                      key={contribution._id}
+                      {...contribution}
+                    />
                   ))
                 ) : (
                   <div className="h-full flex justify-center items-center">

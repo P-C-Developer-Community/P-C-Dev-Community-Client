@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import backgroundImage from "../assets/display-bg.jpeg"
+import backgroundImage from "../assets/display-bg.jpeg";
 import ProjectCard from "../components/ProjectCard";
 
 import AddProjectModal from "../components/AddProjectModal";
@@ -9,7 +9,7 @@ import AddProjectModal from "../components/AddProjectModal";
 
 function ProjectsPage() {
   const [projects, setProjects] = useState([]);
-  const [showModal, setShowModal] =useState(false);
+  const [showModal, setShowModal] = useState(false);
   const [showAddProjectForm, setShowAddProjectForm] = useState(false);
 
   const getAllProjects = () => {
@@ -51,32 +51,29 @@ function ProjectsPage() {
 
   return (
     <>
-    <div className="flex flex-col items-center justify-top mt-4 pt-4 h-screen" 
-          style={{
-           backgroundImage: `url(${backgroundImage})`,
-           backgroundSize: 'cover',
-           backgroundPosition: 'center',
-           backgroundRepeat: 'repeat',
-           height: '100%',
-           width: '100%', 
-      }} >
-        <p className="text-3xl text-white font-extrabold mb-6">
-          Projects 
-        </p>
+      <div
+        className="flex flex-col items-center justify-top  pt-4 h-screen"
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "repeat",
+        }}>
+        <p className="text-3xl text-white font-extrabold mb-6">Projects</p>
         <button
           className="text-white rounded-full bg-cyan-500 border-double border-4 border-violet-600"
           onClick={handleShowAddProjectForm}>
           Add Project
-          </button>
+        </button>
         {showAddProjectForm && (
           <AddProjectModal
-          refreshProjects={getAllProjects}
-          showModal={showModal}
-          onClose={handleClose}
-          handleAddProjectSuccess={handleAddProjectSuccess}
+            refreshProjects={getAllProjects}
+            showModal={showModal}
+            onClose={handleClose}
+            handleAddProjectSuccess={handleAddProjectSuccess}
           />
         )}
-          {/* Rendering and sorting projects */}
+        {/* Rendering and sorting projects */}
         <div className="">
           <div className="w-full rounded-t-lg mb-4">
             <div className="p-4">
@@ -88,7 +85,7 @@ function ProjectsPage() {
                 ) : (
                   <div className="h-full flex justify-center items-center">
                     <p className="text-lg text-gray-400">
-                    No projects available at the moment
+                      No projects available at the moment
                     </p>
                   </div>
                 )}

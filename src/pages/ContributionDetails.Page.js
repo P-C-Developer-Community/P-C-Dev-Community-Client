@@ -67,35 +67,31 @@ function ContributionDetailsPage(props) {
   }, [contributionId, messageSent]);
 
   return (
-    <div className="h-screen flex flex-wrap">
     <div
-      className="h-screen flex "
+      className="h-screen flex flex-wrap"
       style={{
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "repeat",
-        height: "100%",
-        width: "100%",
       }}>
       <div className="w-full sm:w-1/2 lg:w-1/2 px-6 py-10">
-        <div className="bg-transparent backdrop-blur-lg hover:shadow-xl hover:shadow-white box-border h-64 w-72 p-4 border-2 bg-slate-200 rounded-3xl shadow-lg shadow-cyan-400 ml-6 mr-6 mt-4">
+        <div className=" bg-transparent backdrop-blur-lg text-white hover:shadow-xl hover:shadow-white box-border  p-4 border-2 bg-slate-200 rounded-3xl shadow-lg shadow-cyan-400 ml-6 mr-6 mt-4">
           <form className="mb-4" onSubmit={handleSubmit}>
             <label className="text-xl font-bold text-white mb-4">
-              Created By
+              Created by:
             </label>
 
             {contribution.owner ? (
               <div>
-                <p>Name: {contribution.owner.name}</p>
+                <p> {contribution.owner.name}</p>
                 <p>Email: {contribution.owner.email}</p>
                 <p>
-                  Created at:{" "}
-                  {new Date(contribution.createdAt).toLocaleDateString()}
+                Published: {new Date(contribution.createdAt).toLocaleDateString('en-US', { weekday: 'short', month: 'long', day: 'numeric', year:  'numeric' })}
                 </p>
 
                 <input
-                  className="h-auto mt-12 rounded-2xl bg-transparent  appearance-none box-border  text-white placeholder-slate-400 border-cyan-400  w-full py-2 px-3  leading-tight  focus:ring-white"
+                  className=" h-auto mt-12 rounded-2xl bg-transparent  appearance-none box-border  text-white placeholder-slate-400 border-cyan-400  w-full py-2 px-3  leading-tight  focus:ring-white"
                   type="text"
                   message="message"
                   value={message}
@@ -154,7 +150,7 @@ function ContributionDetailsPage(props) {
       </div>
     </div>
      </div>
-     </div>
+    
   );
 }
 
