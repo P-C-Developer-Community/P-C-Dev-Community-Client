@@ -11,7 +11,7 @@ function HomePage() {
         backgroundPosition: "center",
         backgroundRepeat: "repeat",
       }}>
-      <div className=" flex flex-wrap justify-center items-center h-screen">
+      <div className=" font-extrabold  flex flex-wrap justify-center items-center h-screen">
         <div className="mx-24 mt-36 ">
           <p className="text-white text-lg">
             Are you a developer looking for exciting new projects to

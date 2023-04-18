@@ -60,9 +60,9 @@ function LoginPage(props) {
           </div>
           <div className="bg-transparent backdrop-blur-sm md:w-1/2 p-6">
             <form onSubmit={handleLoginSubmit}>
-              <h2 className="text-2xl font-bold mb-4">Login</h2>
+              <h2 className="text-2xl text-gray-200 font-bold mb-4">Login</h2>
               <div className="my-4">
-                <label className="block text-slate-300 font-bold mb-2">
+                <label className="block text-slate-300 font-semibold mb-2">
                   Email:
                 </label>
                 <input
@@ -75,7 +75,7 @@ function LoginPage(props) {
                 />
               </div>
               <div className="my-4">
-                <label className="block text-slate-300 font-bold mb-2">
+                <label className="block text-slate-300 font-semibold mb-2">
                   Password:
                 </label>
                 <input

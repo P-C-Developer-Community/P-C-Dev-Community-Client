@@ -331,7 +331,7 @@ function AddProject(props) {
 
                   <svg
                     className="ml-4"
-                    width="56"
+                    width="42"
                     height="24"
                     viewBox="0 0 256 221"
                     xmlns="http://www.w3.org/2000/svg"
