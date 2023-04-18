@@ -41,11 +41,13 @@ function EditProjectPage(props) {
   };
 
   const deleteProject = () => {
+    console.log("trigerring delete project.............")
     axios
       .delete(`${process.env.REACT_APP_API_URL}/api/projects/${projectId}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
-      .then(() => {
+      .then((response) => {
+        console.log("redirecting + response.............",response)
         navigate("/projects");
       })
       .catch((err) => console.log(err));

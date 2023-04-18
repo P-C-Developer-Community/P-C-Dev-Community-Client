@@ -43,7 +43,13 @@ function CommunityPage(){
            <img src={user.imageUrl} alt="" srcset="" />
             <h1>Name: {user.name}</h1>
             <p>Email: {user.email}</p>
-            <p>Created at: {new Date(user.createdAt).toLocaleDateString('en-US', { weekday: 'short', month: 'long', day: 'numeric', year:  'numeric' })}</p>
+            <p>Member Since: {new Date(user.createdAt).toLocaleDateString('en-US', { weekday: 'short', month: 'long', day: 'numeric', year:  'numeric' })}</p>
+            <div>
+            {user.gitHub !== "" && <p className="">Github: {user.gitHub}</p>}
+            {user.linkedIn !== "" && <p className="">LinkedIn: {user.linkedIn}</p>}
+            {user.twitter !== "" && <p className="">Twitter: {user.twitter}</p>}
+            {user.instagram !== "" && <p className="">Instagram: {user.instagram}</p>}
+            </div>
             </div>
 
            )

@@ -5,18 +5,35 @@ import { useContext } from "react";
 import backgroundImage from "../assets/profile-bg.jpeg";
 
 const API_URL = "http://localhost:5005";
+    const storedToken = localStorage.getItem("authToken");
 
 function UserProfilePage() {
   const [users, setUsers] = useState([]);
   const [requests, setRequests] = useState([]);
   const { user } = useContext(AuthContext);
 
-  const handleInputChange = () => {};
+  const [gitHub, setGitHub] = useState("");
+  const [linkedIn, setLinkedIn] = useState("");
+  const [twitter, setTwitter] = useState("");
+  const [instagram, setInstagram] = useState("");
 
-  const handleSubmit = () => {};
+  const handleSubmit = (e) =>{
+    e.preventDefault();
+    const requestBody = { gitHub, linkedIn, twitter, instagram }
+
+     axios
+      .put(`${process.env.REACT_APP_API_URL}/auth/user/update`, requestBody, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then((response) => {
+        setUsers(response.data);
+        console.log("after updates",users)
+      })
+      .catch((error) => console.log(error));
+  }
 
   const getCurrentUser = () => {
-    const storedToken = localStorage.getItem("authToken");
+
     // Send the token through the request "Authorization" Headers
     axios
       .get(`${process.env.REACT_APP_API_URL}/auth/user`, {
@@ -24,6 +41,7 @@ function UserProfilePage() {
       })
       .then((response) => {
         setUsers(response.data);
+        
       })
       .catch((error) => console.log(error));
   };
@@ -43,9 +61,10 @@ function UserProfilePage() {
         backgroundPosition: "center",
         backgroundRepeat: "repeat",
       }}>
+       {users && 
+       <>
       <div className=" flex justify-center items-center">
         <div className="backdrop-blur bg-blur-xl text-slate-400 hover:shadow-xl hover:shadow-white box-border p-4 border-2 rounded-3xl shadow-lg shadow-cyan-400 ml-6 mr-6 mt-4">
-          <form onSubmit={handleSubmit}>
             <label className="text-xl font-bold text-white mb-4">
               {users.name}'s Profile
             </label>
@@ -55,11 +74,15 @@ function UserProfilePage() {
               alt=""
             />
             <p className="">Email: {users.email}</p>
-          </form>
+            {users.gitHub !== "" && <p className="">Github: {users.gitHub}</p>}
+            {users.linkedIn !== "" && <p className="">LinkedIn: {users.linkedIn}</p>}
+            {users.twitter !== "" && <p className="">Twitter: {users.twitter}</p>}
+            {users.instagram !== "" && <p className="">Instagram: {users.instagram}</p>}
         </div>
       </div>
 
       <div className="backdrop-filter mt-8 bg-blur-sm justify-center items-center">
+      <form onSubmit={handleSubmit}>
         <div className="text-black hover:shadow-xl hover:shadow-white box-border p-4 border-2 rounded-3xl shadow-lg shadow-cyan-400 ml-6 mr-6 mt-4">
           <div className="my-6">
             <label className="text-slate-300 font-bold mr-2">GitHub:</label>
@@ -67,9 +90,9 @@ function UserProfilePage() {
               className="appearance-none border bg-transparent border-cyan-400 rounded-xl w-full py-2 px-3 text-white placeholder:text-slate-300 leading-tight focus:outline-none focus:ring-white"
               placeholder="your GitHub link..."
               type="text"
-              name="twitter"
-              // value={socialMedia.twitter}
-              // onChange={handleInputChange}
+              name="gitHub"
+              value={gitHub}
+              onChange={(e) => setGitHub(e.target.value)}
             />
           </div>
           <div className="my-6">
@@ -78,9 +101,9 @@ function UserProfilePage() {
               className="appearance-none border bg-transparent border-cyan-400 rounded-xl w-full py-2 px-3 text-white placeholder:text-slate-300 leading-tight focus:outline-none focus:ring-white"
               placeholder="your LinkedIn link..."
               type="text"
-              name="instagram"
-              // value={socialMedia.instagram}
-              // onChange={handleInputChange}
+              name="linkedIn"
+              value={linkedIn}
+              onChange={(e) => setLinkedIn(e.target.value)}
             />
           </div>
           <div className="my-6">
@@ -89,9 +112,9 @@ function UserProfilePage() {
               className="appearance-none border bg-transparent border-cyan-400 rounded-xl w-full py-2 px-3 text-white placeholder:text-slate-300 leading-tight focus:outline-none focus:ring-white"
               placeholder="your Twitter link..."
               type="text"
-              name="facebook"
-              // value={socialMedia.facebook}
-              // onChange={handleInputChange}
+              name="twitter"
+              value={twitter}
+              onChange={(e) => setTwitter(e.target.value)}
             />
           </div>
           <div className="my-6">
@@ -101,8 +124,8 @@ function UserProfilePage() {
               placeholder="your Instagram link..."
               type="text"
               name="instagram"
-              // value={socialMedia.instagram}
-              // onChange={handleInputChange}
+              value={instagram}
+              onChange={(e) => setInstagram(e.target.value)}
             />
           </div>
 
@@ -110,7 +133,9 @@ function UserProfilePage() {
             Save
           </button>
         </div>
+        </form>
       </div>
+      </>}
     </div>
   );
 }
