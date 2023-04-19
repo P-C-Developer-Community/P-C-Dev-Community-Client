@@ -33,12 +33,12 @@ function App() {
         <Routes>
             <Route exact path="/" element={<HomePage />} />
 
-            <Route path="/projects" element={ <IsPrivate> <ProjectsPage/> </IsPrivate> } />
+            <Route path="/projects" element={ <ProjectsPage/>  } />
             <Route path="/projects/:projectId" element={ <IsPrivate> <ProjectDetailsPage /> </IsPrivate> } /> 
             <Route path="/projects/edit/:projectId" element={ <IsPrivate> <EditProjectPage /> </IsPrivate> } />
             <Route path="/projects/addproject" element={ <IsPrivate> <AddProject /> </IsPrivate> } />
 
-            <Route path="/contributions" element={ <IsPrivate> <ContributionsPage/> </IsPrivate> } />
+            <Route path="/contributions" element={ <ContributionsPage/>  } />
             <Route path="/contributions/:contributionId" element={ <IsPrivate> <ContributionDetailsPage /> </IsPrivate> } /> 
             <Route path="/contributions/edit/:contributionId" element={ <IsPrivate> <EditContributionPage /> </IsPrivate> } />
             <Route path="/contributions/addcontribution" element={ <IsPrivate> <AddContribution /> </IsPrivate> } />
@@ -49,9 +49,9 @@ function App() {
             <Route path="/userprofilepage" element={<IsPrivate> <UserProfilePage /></IsPrivate>} />
             <Route path="/userprofilepage/edit/:userId" element={<IsPrivate> <EditUserProfilePage /></IsPrivate>} />
 
-            <Route path="/inbox" element={<Inbox></Inbox>} />
+            <Route path="/inbox" element={<Inbox />} />
 
-            <Route path="/community" element={<CommunityPage></CommunityPage>} />
+            <Route path="/community" element={<IsPrivate> <CommunityPage /></IsPrivate>} />
         </Routes>
     </div>
   );

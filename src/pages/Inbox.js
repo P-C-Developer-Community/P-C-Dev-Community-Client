@@ -3,7 +3,7 @@ import axios from "axios";
 import { AuthContext } from "../context/auth.context";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import backgroundImage from "../assets/msg-bg.jpeg";
+import backgroundImage from "../assets/key-bg.jpeg";
 
 function Inbox() {
   const [users, setUsers] = useState([]);
@@ -66,19 +66,21 @@ function Inbox() {
 
   return (
     <>
+    <div>
       <div
-        className=" text-white backdrop-filter backdrop-blur-md  pt-4 min-h-screen"
+        className="pt-4 min-h-screen"
         style={{
           backgroundImage: `url(${backgroundImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "repeat",
         }}>
-        <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/3 p-4" >
-          
-            <div className=" backdrop-filter mt-8 bg-blur-sm justify-center items-center">
-              <div className="hover:shadow-xl hover:shadow-white box-border p-4 border-2 rounded-3xl shadow-lg shadow-cyan-400 ml-6 mr-6 mt-4 ">
-                <label className="text-slate-300 font-black ">
+        {/* Unread Messages */}
+        <div className="flex  p-4" >
+          <div className="flex-1 mt-20 w-full">
+          <div className="contents ">
+              <div className="  hover:shadow-xl hover:shadow-red-500 box-border p-4 border-2 px-8 mx-10 border-red-500 rounded-3xl shadow-lg shadow-white ">
+                <label className="text-white text-3xl font-bold ">
                   Unread Messages:
                 </label>
                 <div className="text-white">
@@ -88,7 +90,7 @@ function Inbox() {
                       return (
                         <div
                           key={e._id}
-                          className="appearance-none border-2 bg-transparent  border-cyan-400 rounded-xl py-2 px-3 text-white leading-tight ">
+                          className="appearance-none border-2 backdrop-blur-md mb-6 border-white rounded-xl py-2 px-3  leading-tight ">
                           <div className="">
                             <h1 className="text-lg text-red-600 italic">{`New message from: ${e.sender.email}`}</h1>
                             {e.projectInInterest && (
@@ -98,14 +100,14 @@ function Inbox() {
                               <h2 className="text-base font-medium italic text-white">{`Re: Your Collaboration - ${e.contributionInInterest.title}`}</h2>
                             )}
                           </div>
-                          <div className="mb-20">
+                          <div className="mb-20 overflow-hidden">
                             <p className="px-4 py-2 text-white">{e.message}</p>
                             <div className="px-4 py-2 flex justify-end">
                               <button
                                 onClick={() => {
                                   changeToRead(e._id);
                                 }}
-                                className="mt-8 -mr-2 p-1 border drop bg-slate-800 hover:text-white hover:shadow-lg rounded-2xl hover:shadow-cyan-400 text-cyan-600">
+                                className="mt-8 -mr-2 p-2 border drop bg-slate-800 hover:text-white hover:shadow-lg rounded-2xl hover:shadow-green-500 text-green-500">
                                 Mark As Read
                               </button>
                             </div>
@@ -117,13 +119,11 @@ function Inbox() {
               </div>
             </div>
 
-            {/* Market as read....... */}
-            <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/3 p-4" >
-            <div className="flex flex-wrap  text-white backdrop-filter backdrop-blur-md  grid-rows-2 pt-4 h-screen">
-              <div className=" ">
-                <div className="backdrop-filter mt-8 bg-blur-sm ">
-                  <div className="hover:shadow-xl hover:shadow-white box-border p-4 border-2 rounded-3xl shadow-lg shadow-cyan-400 ml-6 mr-6 mt-4 ">
-                    <label className="text-slate-300 font-black ">
+            {/* Read Messages */}
+            <div className=" flex backdrop-filter bg-blur-sm p-4 " >
+          <div className="mt-16 w-full flex-1">
+              <div className="hover:shadow-xl hover:shadow-green-400 box-border px-8 mx-6 border-2 border-green-500 rounded-3xl shadow-lg shadow-white ">
+                <label className="text-green-400  text-3xl font-bold">
                       Read Messages:
                     </label>
                     <div className="text-white"></div>
@@ -135,7 +135,7 @@ function Inbox() {
                         return (
                           <div
                             key={e._id}
-                            className="appearance-none border-2 bg-transparent  border-cyan-400 rounded-xl py-2 px-3 text-white leading-tight ">
+                            className="appearance-none border-2 backdrop-blur-md mb-6 border-white rounded-xl py-2 px-3 text-white leading-tight ">
                             <div className="">
                               <h1 className="text-lg text-red-600 italic">{`Read message from: ${e.sender.email}`}</h1>
                               {e.projectInInterest && (
@@ -144,10 +144,10 @@ function Inbox() {
                                 </h2>
                               )}
                               {e.contributionInInterest && (
-                                <h2 className="text-base font-medium italic text-white">{`Re: Your Collaboration - ${e.contributionInInterest.title}`}</h2>
+                                <h2 className="text-base inline-flex  font-medium italic text-white">{`Re: Collaboration - ${e.contributionInInterest.title}`}</h2>
                               )}
                             </div>
-                            <div className="mb-20">
+                            <div className="mb-20 overflow-hidden">
                               <p className="px-4 py-2 text-white">
                                 {e.message}
                               </p>
@@ -169,9 +169,8 @@ function Inbox() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-     
+          </div>
+          </div>
     </>
   );
 }

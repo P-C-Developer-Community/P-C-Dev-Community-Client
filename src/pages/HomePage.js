@@ -13,7 +13,7 @@ function HomePage() {
       }}>
       <div className=" font-extrabold  flex flex-wrap justify-center items-center h-screen">
         <div className="mx-24 mt-36 ">
-          <p className="text-white text-lg">
+          <p className="text-white inline-flex  text-lg">
             Are you a developer looking for exciting new projects to
             collaborate? Or are you a project owner in search of talented
             developers to bring your vision to life? Look no further than our
@@ -64,8 +64,8 @@ function HomePage() {
           </div>
         </Link>
 
-        <div className="mx-24 backdrop-blur-md bg-blur-4xl ">
-          <p className="text-white pb-16 -mt-10 text-lg">
+        <div className="mx-24 mt-6 backdrop-blur-md bg-blur-4xl justify-center  h-screen ">
+          <p className="text-white inline-flex  pb-16 -mt-10 text-lg">
             Whether you're a frontend or backend developer, a designer, or a
             project manager, our platform has opportunities for everyone. Browse
             our curated list of projects or create your own project and start

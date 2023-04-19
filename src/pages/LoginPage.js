@@ -41,7 +41,7 @@ function LoginPage(props) {
 
   return (
     <div
-      className=" flex jusitfy-center min-h-screen"
+      className="grid grid-cols-1  jusitfy-center min-h-screen"
       style={{
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: "cover",
