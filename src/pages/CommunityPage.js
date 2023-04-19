@@ -7,7 +7,7 @@ import { NavLink, Link } from "react-router-dom";
 function CommunityPage() {
   const [users, setUsers] = useState([]);
   const [counts, setCounts] = useState({});
-  const [review, setReview] = useState ("");
+  const [review, setReview] = useState (null);
 
   const { user } = useContext(AuthContext);
   const storedToken = localStorage.getItem("authToken");
@@ -68,12 +68,13 @@ function CommunityPage() {
     e.preventDefault();
     console.log("review",review)
 
-    
+    const requestBody = { review };
 
-    setReview("")
-    axios.put(`${process.env.REACT_APP_API_URL}/auth/user/}`)
+    axios.put(`${process.env.REACT_APP_API_URL}/auth/user/review`, requestBody, {headers: { Authorization: `Bearer ${storedToken}` },
+  })
     .then((response) => {
-        setReview(response.data);
+      console.log("responsyto", response)
+      setReview("")
     }
     );
 };
@@ -262,6 +263,20 @@ function CommunityPage() {
                           Active Collaborations: {" "}
                           {counts[user._id].contributions}
                         </p>
+                        <div>
+      <form onSubmit={postReview}>
+      <input
+        
+        placeholder="Leave a review"
+        type="text"
+        
+        onChange={(e) => {
+          setReview(e.target.value);
+        }}
+      />
+      <button>Submit Review</button>
+      </form>
+    </div>
                       </>
                     )}
                   </div>
