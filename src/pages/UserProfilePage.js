@@ -52,7 +52,7 @@ function UserProfilePage() {
 
   return (
     <div
-      className="backdrop-filter backdrop-blur-md grid grid-cols-2 grid-rows-2 h-screen"
+      className="flex flex-col items-center justify-top  pt-4 min-h-screen"
       style={{
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: "cover",
@@ -61,8 +61,9 @@ function UserProfilePage() {
       }}>
        {users && 
        <>
-      <div className=" flex justify-center items-center">
-        <div className="backdrop-blur bg-blur-xl text-slate-400 hover:shadow-xl hover:shadow-white box-border p-4 border-2 rounded-3xl shadow-lg shadow-cyan-400 ml-6 mr-6 mt-4">
+       <div className="grid grid-cols-1 sm:grid-cols-2  gap-x-16 gap-y-10">
+      <div className="mt-8  justify-center items-center">
+        <div className="backdrop-blur-sm grid justify-items-center text-slate-400 hover:shadow-xl hover:shadow-white box-border p-4 border-2 rounded-3xl shadow-lg shadow-cyan-400 ml-6 mr-6 mt-4">
             <label className="text-xl font-bold text-white mb-4">
               {users.name}'s Profile
             </label>
@@ -79,9 +80,9 @@ function UserProfilePage() {
         </div>
       </div>
 
-      <div className="backdrop-filter mt-8 bg-blur-sm justify-center items-center">
+      <div className="flex-wrap backdrop-blur-sm mt-8 justify-center items-center">
       <form onSubmit={handleSubmit}>
-        <div className="text-black hover:shadow-xl hover:shadow-white box-border p-4 border-2 rounded-3xl shadow-lg shadow-cyan-400 ml-6 mr-6 mt-4">
+        <div className="hover:shadow-xl hover:shadow-white box-border p-4 border-2 rounded-3xl shadow-lg shadow-cyan-400 ml-6 mr-6 mt-4">
           <div className="my-6">
             <label className="text-slate-300 font-bold mr-2">GitHub:</label>
             <input
@@ -93,8 +94,8 @@ function UserProfilePage() {
               onChange={(e) => setGitHub(e.target.value)}
             />
           </div>
-          <div className="my-6">
-            <label className="text-slate-300 font-bold mr-2">LinkedIn:</label>
+          <div className="my-6 ">
+            <label className=" text-slate-300 font-bold mr-2">LinkedIn:</label>
             <input
               className="appearance-none border bg-transparent border-cyan-400 rounded-xl w-full py-2 px-3 text-white placeholder:text-slate-300 leading-tight focus:outline-none focus:ring-white"
               placeholder="your LinkedIn link..."
@@ -132,6 +133,7 @@ function UserProfilePage() {
           </button>
         </div>
         </form>
+      </div>
       </div>
       </>}
     </div>
