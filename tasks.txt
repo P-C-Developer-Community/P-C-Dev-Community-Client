@@ -6,8 +6,8 @@ Task list
  [] - ! Responsive Navbar --> render before routes
  [x] - Line clamp on titles for Proj. & Collabs
  [] - User profile social media icons
- [] - Logout redirect
- [] - Redirect Messaging & Community page
+ [x] - Logout redirect
+ [x] - Redirect Messaging & Community page
  [] - Picture upload delay fix
  [] - Add button
  [] - 
