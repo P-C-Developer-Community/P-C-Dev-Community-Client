@@ -8,6 +8,8 @@ function CommunityPage() {
   const [users, setUsers] = useState([]);
   const [counts, setCounts] = useState({});
   const [review, setReview] = useState (null);
+  const [allreviews, setAllReviews] = useState([]);
+
 
   const { user } = useContext(AuthContext);
   const storedToken = localStorage.getItem("authToken");
@@ -21,7 +23,7 @@ function CommunityPage() {
         setUsers(response.data);
       })
       .catch((error) => console.log(error));
-  }, [storedToken]);
+  }, [storedToken, allreviews ]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -64,22 +66,24 @@ function CommunityPage() {
   }, [users]);
 
 
-  const postReview = (e) => {
+  const postReview = (userId) => (e) => {
     e.preventDefault();
-    console.log("review",review)
+    console.log("userId",userId)
 
-    const requestBody = { review };
+    const requestBody = { review, userId };
 
     axios.put(`${process.env.REACT_APP_API_URL}/auth/user/review`, requestBody, {headers: { Authorization: `Bearer ${storedToken}` },
   })
     .then((response) => {
-      console.log("responsyto", response)
-      setReview("")
+      console.log("responsyto", response.data.reviews)
+      setAllReviews(response.data.reviews)
+      console.log("users",users)
+      
     }
     );
 };
 
-
+// console.log("allReviews",allReviews)
 
 
   return (
@@ -107,7 +111,7 @@ function CommunityPage() {
                     className=" h-24 w-24  rounded-3xl"
                     src={user.imageUrl}
                     alt=""
-                    srcset=""
+                    srcSet=""
                   />
                   <p className="text-2xl font-bold text-white">{user.name}</p>
                   <p className="text-slate-300 -mt-1">Em@il: {user.email}</p>
@@ -264,7 +268,7 @@ function CommunityPage() {
                           {counts[user._id].contributions}
                         </p>
                         <div>
-      <form onSubmit={postReview}>
+                        <form onSubmit={postReview(user._id)}>
       <input
         
         placeholder="Leave a review"
@@ -274,8 +278,31 @@ function CommunityPage() {
           setReview(e.target.value);
         }}
       />
-      <button>Submit Review</button>
+      <button
+      type="submit"
+      className="bg-cyan-400 hover:bg-white text-black font-bold py-2 px-4 rounded-full hover:italic hover:shadow-lg hover:shadow-cyan-400 "
+      >Submit Review</button>
       </form>
+      <br />
+      <br />
+
+      ********Reviews******
+
+    {user.reviews && user.reviews.map((review, index)=>{
+      return (
+        <div key={index}>
+          ------------
+        <p>Review: {review.review}</p>
+        
+        
+        <p>Reviewed By: {review.createdBy.name}</p>
+        <p>{review.createdBy.email}</p>
+        </div>
+
+      )
+      
+      
+    })}
     </div>
                       </>
                     )}
