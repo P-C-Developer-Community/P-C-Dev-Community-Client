@@ -68,7 +68,7 @@ function ContributionDetailsPage(props) {
 
   return (
     <div
-      className="min-h-screen flex flex-wrap"
+      className="h-screen flex flex-wrap"
       style={{
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: "cover",

@@ -68,8 +68,8 @@ function ProjectDetailsPage(props) {
     getProject(projectId);
     // Reset the formSubmitted state after a successful form submission
     if (formSubmitted) {
-      setMessage("");
-      setFormSubmitted(false);
+      // setMessage("");
+      // setFormSubmitted(false);
     }
   }, [projectId, formSubmitted, messageSent]);
 

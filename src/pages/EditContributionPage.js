@@ -48,6 +48,7 @@ function EditContributionPage(props) {
       {headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then(() => {
+        console.log("redirecting.......")
         navigate("/contributions");
       })
       .catch((err) => console.log(err));
@@ -97,12 +98,12 @@ function EditContributionPage(props) {
                 Delete
               </button>
 
-              <button
+            </form>
+            <button
                 className="p-4 drop border bg-slate-800 hover:text-white hover:shadow-lg rounded-full hover:shadow-cyan-400 text-cyan-600"
                 onClick={goBack}>
                 Back
               </button>
-            </form>
           </div>
         </div>
       </div>

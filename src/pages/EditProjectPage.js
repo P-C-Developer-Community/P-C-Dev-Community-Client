@@ -91,11 +91,6 @@ function EditProjectPage(props) {
                 Update
               </button>
 
-              <button
-                className="mx-6 my-6 p-4 drop border bg-red-600 hover:text-black hover:shadow-lg rounded-full hover:shadow-red-500 text-white"
-                onClick={deleteProject}>
-                Delete
-              </button>
 
               <button
                 className="p-4 drop border bg-slate-800 hover:text-white hover:shadow-lg rounded-full hover:shadow-cyan-400 text-cyan-600"
@@ -103,6 +98,11 @@ function EditProjectPage(props) {
                 Back
               </button>
             </form>
+            <button
+                className="mx-6 my-6 p-4 drop border bg-red-600 hover:text-black hover:shadow-lg rounded-full hover:shadow-red-500 text-white"
+                onClick={deleteProject}>
+                Delete
+              </button>
           </div>
         </div>
       </div>

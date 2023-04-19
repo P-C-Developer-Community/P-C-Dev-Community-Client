@@ -4,6 +4,7 @@ import { AuthContext } from "../context/auth.context";
 import { useContext } from "react";
 import backgroundImage from "../assets/profile-bg.jpeg";
 
+
 const API_URL = "http://localhost:5005";
     const storedToken = localStorage.getItem("authToken");
 

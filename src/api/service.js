@@ -21,3 +21,9 @@ const uploadImage = (file) => {
 export default {
   uploadImage,
 };
+
+
+const testingFunction = ()=>{
+  console.log("testing")
+  return "testing"
+}

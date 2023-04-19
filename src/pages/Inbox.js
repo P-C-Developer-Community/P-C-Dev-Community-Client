@@ -7,7 +7,7 @@ import backgroundImage from "../assets/msg-bg.jpeg";
 
 function Inbox() {
   const [users, setUsers] = useState([]);
-  const [requests, setRequests] = useState([]);
+  const [requests, setRequests] = useState(null);
   const [readStatus, setReadStatus] = useState(false);
   const { user } = useContext(AuthContext);
   const [deleteStatus, setDeleteStatus] = useState(false);
@@ -84,7 +84,7 @@ function Inbox() {
                   Unread Messages:
                 </label>
                 <div className="text-white">
-                  {requests
+                  {requests && requests
                     .filter((e) => !e.isRead)
                     .map((e) => {
                       return (
@@ -129,7 +129,7 @@ function Inbox() {
                       Read Messages:
                     </label>
                     <div className="text-white"></div>
-                    {requests
+                    {requests && requests
                       .filter((e) => e.isRead)
                       .map((e) => {
                         //  console.log("this is element,,,",e.message)
