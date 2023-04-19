@@ -1,9 +1,12 @@
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+
+  const navigate = useNavigate();
 
   return (
     <div className="pb-2 pt-6 pl-12 font-semibold bg-black flex text-white">
@@ -75,14 +78,17 @@ function Navbar() {
                   };
                 }}>
                 Messages
-              </NavLink>
+              </NavLink >
 
               <div className="ml-auto">
                 <span className="text-cyan-500 font-bold mr-1 ">
                   {user && user.name}
                 </span>
                 <button className={`mx-8 font-bold ${isLoggedIn ? 'text-red-600' : "" }`}
-                  onClick={logOutUser}
+                onClick={() => {
+                  logOutUser();
+                  navigate("/login")
+                }}
                   >
                   Logout
                 </button>
@@ -93,6 +99,7 @@ function Navbar() {
           {!isLoggedIn && (
             <>
               <NavLink className="mx-8"
+              
                 to="/signup"
                 style={({ isActive }) => {
                   return {

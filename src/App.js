@@ -49,7 +49,7 @@ function App() {
             <Route path="/userprofilepage" element={<IsPrivate> <UserProfilePage /></IsPrivate>} />
             <Route path="/userprofilepage/edit/:userId" element={<IsPrivate> <EditUserProfilePage /></IsPrivate>} />
 
-            <Route path="/inbox" element={<Inbox />} />
+            <Route path="/inbox" element={<IsPrivate><Inbox /></IsPrivate>} />
 
             <Route path="/community" element={<IsPrivate> <CommunityPage /></IsPrivate>} />
         </Routes>

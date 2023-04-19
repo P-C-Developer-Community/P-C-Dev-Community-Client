@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Navigate } from "react-router-dom";
 
  
 const AuthContext = React.createContext();
@@ -60,6 +61,7 @@ function AuthProviderWrapper(props) {
     removeToken();
     // and update the state variables    
     authenticateUser();
+    
   }  
   
   useEffect(() => {              
