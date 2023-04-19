@@ -74,7 +74,7 @@ function ProjectsPage() {
           />
         )}
         {/* Rendering and sorting projects */}
-        <div className="">
+        
           <div className="w-full rounded-t-lg mb-4">
             <div className="p-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-10">
@@ -93,7 +93,7 @@ function ProjectsPage() {
             </div>
           </div>
         </div>
-      </div>
+      
     </>
   );
 }

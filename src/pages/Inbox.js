@@ -90,9 +90,9 @@ function Inbox() {
                       return (
                         <div
                           key={e._id}
-                          className="appearance-none border-2 backdrop-blur-md mb-6 border-white rounded-xl py-2 px-3  leading-tight ">
+                          className="appearance-none border-2 backdrop-blur-md mb-6 border-white rounded-xl py-2 px-1 leading-tight ">
                           <div className="">
-                            <h1 className="text-lg text-red-600 italic">{`New message from: ${e.sender.email}`}</h1>
+                            <h1 className="text-lg text-green-500 italic">{`New message from: ${e.sender.email}`}</h1>
                             {e.projectInInterest && (
                               <h2 className="text-base font-medium italic text-white">{`Re: Project - ${e.projectInInterest.title}`}</h2>
                             )}
@@ -100,10 +100,12 @@ function Inbox() {
                               <h2 className="text-base font-medium italic text-white">{`Re: Your Collaboration - ${e.contributionInInterest.title}`}</h2>
                             )}
                           </div>
-                          <div className="mb-20 overflow-hidden">
-                            <p className="px-4 py-2 text-white">{e.message}</p>
-                            <div className="px-4 py-2 flex justify-end">
-                              <button
+                          <div className="overflow-hidden">
+                            <p className="px-4 py-1 text-white">
+                            {e.message}
+                            </p>
+                            <div className="px-4 py-1 flex justify-end">
+                              <button 
                                 onClick={() => {
                                   changeToRead(e._id);
                                 }}
@@ -137,7 +139,7 @@ function Inbox() {
                             key={e._id}
                             className="appearance-none border-2 backdrop-blur-md mb-6 border-white rounded-xl py-2 px-3 text-white leading-tight ">
                             <div className="">
-                              <h1 className="text-lg text-red-600 italic">{`Read message from: ${e.sender.email}`}</h1>
+                              <h1 className="text-lg text-gray-400 italic">{`Read message from: ${e.sender.email}`}</h1>
                               {e.projectInInterest && (
                                 <h2>
                                   Re: Project - {e.projectInInterest.title}
@@ -147,11 +149,11 @@ function Inbox() {
                                 <h2 className="text-base inline-flex  font-medium italic text-white">{`Re: Collaboration - ${e.contributionInInterest.title}`}</h2>
                               )}
                             </div>
-                            <div className="mb-20 overflow-hidden">
-                              <p className="px-4 py-2 text-white">
+                            <div className=" overflow-hidden">
+                              <p className="px-4 py-1 text-white">
                                 {e.message}
                               </p>
-                              <div className="px-4 py-2 flex justify-end">
+                              <div className="px-2 py-1 flex justify-end">
                                 <button
                                   onClick={() => {
                                     deleteMessage(e._id);
