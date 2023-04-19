@@ -1,17 +1,17 @@
 Task list
 
  [x] - Messaging page   
- [] - Community page
+ [x] - Community page
  [x] - Project & Collab. count for user
  [] - ! Responsive Navbar --> render before routes
  [x] - Line clamp on titles for Proj. & Collabs
- [] - User profile social media icons
+ [x] - User profile social media icons
  [x] - Logout redirect
  [x] - Redirect Messaging & Community page
  [] - Picture upload delay fix
  [] - Add button
  [] - 
- [] - CLEAN SHIT UP
+ [] - CLEAN SHIT UP - BG homepage
  [] - 
 
 

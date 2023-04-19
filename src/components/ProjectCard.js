@@ -59,19 +59,21 @@ function ProjectCard({ title, description, _id, owner, imageUrl, languages }) {
           <img src={imageUrl} alt=""   className="mt-2 mb-2 drop-shadow-2xl shadow-black h-24 w-24 rounded-2xl" />
           
           <div className="flex flex-col items-center  mr-16 ml-16 mb-2 ">
-          <h2 className="text-pink-300 font-mono  antialiased italic font-black text-2xl  line-clamp-1 ">
+          <h2 className="text-white font-mono  antialiased italic font-black text-2xl  line-clamp-1 ">
             {title}
           </h2>
-          <div className="p-4">
+          <div className="p-2">
             <p className="text-gray-500 font-mono italic font-medium text-sm">From:</p>
-             <p className="text-gray-300 font-mono  font-black text-2xl" >{owner.name}</p> 
+             <p className="text-gray-300 font-mono  font-black text-2xl pb-2" >{owner.name}</p> 
              
              <p className="text-gray-300 font-mono antialiased  italic text-xs text-center line-clamp-2 ">
               {description}{" "}
             </p>
-            <p>Languages Used</p>
+            <p className="text-slate-200 font-semibold mt-2">Code languages used:</p>
             {languages.map((lang)=>{
-              return <h2>{lang}</h2>  
+              return<ul className="text-slate-200 my-1">
+              <li>{lang}</li>  
+              </ul> 
             })}
        
             

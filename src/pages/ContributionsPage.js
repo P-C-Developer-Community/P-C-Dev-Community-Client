@@ -58,7 +58,7 @@ function ContributionsPage() {
           backgroundPosition: "center",
           backgroundRepeat: "repeat",
         }}>
-        <p className="text-3xl text-white font-extrabold mb-6">Contributions</p>
+        <p className="text-3xl text-white font-extrabold mb-6">Collaborations</p>
         <button
           className="text-white rounded-full bg-cyan-500 border-double border-4 border-violet-600"
           onClick={handleShowAddContributionForm}>

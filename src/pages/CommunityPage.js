@@ -1,7 +1,7 @@
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
 import { useContext, useState, useEffect } from "react";
-import backgroundImage from "../assets/network.jpeg";
+import backgroundImage from "../assets/globe-net.jpeg";
 import { NavLink, Link } from "react-router-dom";
 
 function CommunityPage() {
@@ -25,10 +25,11 @@ function CommunityPage() {
 
   useEffect(() => {
     const fetchData = async () => {
-      for (const user of users) {
-        try {
+      try {
+        for (const user of users) {
           const projectsResponse = await axios.get(
-            `${process.env.REACT_APP_API_URL}/api/projects/`
+            `${process.env.REACT_APP_API_URL}/api/projects/`,
+            { headers: { Authorization: `Bearer ${storedToken}` } }
           );
           const myProjects = projectsResponse.data.filter(
             (project) => project.owner._id === user._id
@@ -36,16 +37,13 @@ function CommunityPage() {
           const numberOfProjects = myProjects.length;
 
           const contributionsResponse = await axios.get(
-            `${process.env.REACT_APP_API_URL}/api/contributions/`
+            `${process.env.REACT_APP_API_URL}/api/contributions/`,
+            { headers: { Authorization: `Bearer ${storedToken}` } }
           );
-
-          console.log("response,,,,,,,", contributionsResponse);
           const myContributions = contributionsResponse.data.filter(
             (contribution) => contribution.owner === user._id
           );
           const numberOfContributions = myContributions.length;
-
-          console.log("my contr...", myContributions);
 
           setCounts((prevState) => ({
             ...prevState,
@@ -54,13 +52,15 @@ function CommunityPage() {
               contributions: numberOfContributions,
             },
           }));
-        } catch (error) {
-          console.log(error);
         }
+      } catch (error) {
+        console.log(error);
       }
     };
 
-    fetchData();
+    if (users.length > 0) {
+      fetchData();
+    }
   }, [users]);
 
 
@@ -91,7 +91,7 @@ function CommunityPage() {
         backgroundRepeat: "repeat",
       }}>
       <h1 className="text-3xl text-white font-extrabold mb-6">
-        Community page
+        Dev Community 
       </h1>
 
       <div className=" rounded-t-lg mb-4">
@@ -109,7 +109,7 @@ function CommunityPage() {
                     srcset=""
                   />
                   <p className="text-2xl font-bold text-white">{user.name}</p>
-                  <p className="text-slate-300 -mt-1">m@il: {user.email}</p>
+                  <p className="text-slate-300 -mt-1">Em@il: {user.email}</p>
                   <p className="text-slate-300 mt-1">
                     Member Since:{" "}
                     {new Date(user.createdAt).toLocaleDateString("en-US", {
@@ -255,11 +255,11 @@ function CommunityPage() {
                     {counts[user._id] && (
                       <>
                         <p className="text-slate-400 mt-5">
-                          Active Projects:
+                          Active Projects: {" "}
                           {counts[user._id].projects}
                         </p>
                         <p className="text-slate-400 ">
-                          Active Collaborations:{" "}
+                          Active Collaborations: {" "}
                           {counts[user._id].contributions}
                         </p>
                       </>
