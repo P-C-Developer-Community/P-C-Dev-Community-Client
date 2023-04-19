@@ -7,6 +7,7 @@ import { NavLink, Link } from "react-router-dom";
 function CommunityPage() {
   const [users, setUsers] = useState([]);
   const [counts, setCounts] = useState({});
+  const [review, setReview] = useState ("");
 
   const { user } = useContext(AuthContext);
   const storedToken = localStorage.getItem("authToken");
@@ -61,6 +62,24 @@ function CommunityPage() {
 
     fetchData();
   }, [users]);
+
+
+  const postReview = (e) => {
+    e.preventDefault();
+    console.log("review",review)
+
+    
+
+    setReview("")
+    axios.put(`${process.env.REACT_APP_API_URL}/auth/user/}`)
+    .then((response) => {
+        setReview(response.data);
+    }
+    );
+};
+
+
+
 
   return (
     <div
