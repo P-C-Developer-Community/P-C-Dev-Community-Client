@@ -10,7 +10,6 @@ function SearchBar () {
 
     const retrieveSearch = (searchValue) => {
         setSearch(searchValue)
-        console.log("search value...", search);
         axios.get(`${process.env.REACT_APP_API_URL}/api/projects/quer/${search}`)
         // .then((response) => {
             // setSearch(response.data);

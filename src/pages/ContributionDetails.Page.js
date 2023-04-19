@@ -43,8 +43,6 @@ function ContributionDetailsPage(props) {
       contributionInInterest: contribution._id,
     };
 
-    console.log("requestBody............contr", requestBody);
-
     // Get the token from the localStorage
     const storedToken = localStorage.getItem("authToken");
 

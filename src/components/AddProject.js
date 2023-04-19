@@ -35,7 +35,6 @@ function AddProject(props) {
     service
       .uploadImage(uploadData)
       .then((response) => {
-        console.log("response is: ", response);
         // response carries "fileUrl" which we can use to update the state
         setImageUrl(response.fileUrl);
       })
@@ -80,12 +79,9 @@ function AddProject(props) {
 
   const handleLanguageChange = (e) => {
     const isChecked = e.target.checked;
-    console.log("is checked,,,,,,,", isChecked);
     const value = e.target.value;
-    console.log("values......", value);
     if (isChecked) {
       setLanguages([value, ...languages]);
-      console.log("languages..........", languages);
     } else {
       setLanguages(languages.filter((lang) => lang !== value));
     }

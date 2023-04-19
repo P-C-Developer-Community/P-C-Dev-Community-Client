@@ -48,7 +48,6 @@ function EditContributionPage(props) {
       {headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then(() => {
-        console.log("redirecting.......")
         navigate("/contributions");
       })
       .catch((err) => console.log(err));

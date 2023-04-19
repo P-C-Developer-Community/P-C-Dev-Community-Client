@@ -18,8 +18,6 @@ function ProjectDetailsPage(props) {
 
   const { user } = useContext(AuthContext);
 
-  console.log("our user........", user);
-
   const getProject = () => {
     // Get the token from the localStorage
     const storedToken = localStorage.getItem("authToken");
@@ -45,8 +43,6 @@ function ProjectDetailsPage(props) {
       projectInInterest: project._id,
     };
 
-    console.log("requestBody......", requestBody);
-
     // Get the token from the localStorage
     const storedToken = localStorage.getItem("authToken");
 
@@ -57,7 +53,6 @@ function ProjectDetailsPage(props) {
       })
       .then((response) => {
         // Set the formSubmitted state to trigger a re-render
-        console.log("response", response);
         setFormSubmitted(true);
         setMessageSent(true); // set the messageSent state to true after successful message submission
       })

@@ -21,9 +21,7 @@ function Inbox() {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
-        console.log("response.data......", response.data);
         setRequests(response.data);
-        console.log("requests", requests);
       })
       .catch((error) => console.log(error));
   };

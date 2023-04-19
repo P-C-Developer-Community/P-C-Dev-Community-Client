@@ -28,7 +28,6 @@ function UserProfilePage() {
       })
       .then((response) => {
         setUsers(response.data);
-        console.log("after updates",users)
       })
       .catch((error) => console.log(error));
   }
@@ -46,8 +45,6 @@ function UserProfilePage() {
       })
       .catch((error) => console.log(error));
   };
-
-  console.log("requests.........", requests);
 
   useEffect(() => {
     getCurrentUser();
