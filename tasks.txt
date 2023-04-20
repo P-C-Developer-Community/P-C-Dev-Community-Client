@@ -1,31 +1,31 @@
-Task list
+        Task list
 
- [x] - Messaging page   
- [x] - Community page
- [x] - Project & Collab. count for user
- [x] - ! Responsive Navbar --> render before routes
- [x] - Line clamp on titles for Proj. & Collabs
- [x] - User profile social media icons
- [x] - Logout redirect
- [x] - Redirect Messaging & Community page
-
-
-
- [x] - Add-project/collab button
-
- [x] - Adjust bg-img signup-page Responsive / Homepage
- [x] - Hide Add-Button if not logged in 
- [x] - Display Login/signup in NavBa when responsive-mode
- [x] - NavBar logo as "/Home" link
- [x] -  Picture upload delay fix
- [x] -  Adjust bg-img signup-page Responsive
+        [x] - Messaging page   
+        [x] - Community page
+        [x] - Project & Collab. count for user
+        [x] - ! Responsive Navbar --> render before routes
+        [x] - Line clamp on titles for Proj. & Collabs
+        [x] - User profile social media icons
+        [x] - Logout redirect
+        [x] - Redirect Messaging & Community page
 
 
 
- [] -  conditional rendering of Inbox / no collab / project
- [] -  required fields in Modals
- [] -  Responsive Add modal - scrollable code languages
- [] -  Modal for user reviews
- [] -  Loading spinner
+        [x] - Add-project/collab button
 
- [] -  CLEAN SHIT UP - console.log / className's / spaces / formatting / dead-code / **unused div's** /  
+        [x] - Adjust bg-img signup-page Responsive / Homepage
+        [x] - Hide Add-Button if not logged in 
+        [x] - Display Login/signup in NavBa when responsive-mode
+        [x] - NavBar logo as "/Home" link
+        [x] -  Picture upload delay fix
+        [x] -  Adjust bg-img signup-page Responsive
+
+
+
+        [x] -  conditional rendering of Inbox / no collab / project
+        [] -  required fields in Modals
+        [] -  Responsive Add modal - scrollable code languages
+        [] -  Modal for user reviews
+        [] -  Loading spinner
+
+        [] -  CLEAN SHIT UP - console.log / className's / spaces / formatting / dead-code / **unused div's** /  

@@ -28,7 +28,7 @@ function AddContribution(props) {
     service
       .uploadImage(uploadData)
       .then((response) => {
-        setIsLoadingImg(false)
+        setIsLoadingImg(false);
         // response carries "fileUrl" which we can use to update the state
         setImageUrl(response.fileUrl);
       })
@@ -38,42 +38,41 @@ function AddContribution(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (imageUrl){
+    if (imageUrl) {
       const { contributionsId } = props;
-    // Create an object representing the body of the POST request
-    const requestBody = {
-      title,
-      description,
-      contributionsId,
-      imageUrl,
-      languages,
-    };
+      // Create an object representing the body of the POST request
+      const requestBody = {
+        title,
+        description,
+        contributionsId,
+        imageUrl,
+        languages,
+      };
 
-    const storedToken = localStorage.getItem("authToken");
+      const storedToken = localStorage.getItem("authToken");
 
-    axios
-      .post(`${process.env.REACT_APP_API_URL}/api/contributions`, requestBody, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      })
+      axios
+        .post(
+          `${process.env.REACT_APP_API_URL}/api/contributions`,
+          requestBody,
+          {
+            headers: { Authorization: `Bearer ${storedToken}` },
+          }
+        )
 
-      .then((response) => {
-        // Reset the state to clear the inputs
-        setTitle("");
-        setDescription("");
+        .then((response) => {
+          // Reset the state to clear the inputs
+          setTitle("");
+          setDescription("");
 
-        // Invoke the callback function coming through the props
-        // from the ContributionDetailsPage, to refresh the contribution details
-        props.handleAddContributionSuccess();
-        props.refreshContributions();
-        props.onClose();
-      })
-      .catch((error) => console.log(error));
-
-
-
-    } else (setIsLoadingImg(true))
-
-    
+          // Invoke the callback function coming through the props
+          // from the ContributionDetailsPage, to refresh the contribution details
+          props.handleAddContributionSuccess();
+          props.refreshContributions();
+          props.onClose();
+        })
+        .catch((error) => console.log(error));
+    } else setIsLoadingImg(true);
   };
 
   const handleLanguageChange = (e) => {
@@ -134,7 +133,6 @@ function AddContribution(props) {
         <table class="table-auto sm:overflow-x-auto">
           <tbody className="overflow-auto">
             <tr className=" ms-center w-full text-sm flex flex-wrap  appearance-none border bg-transparent text-white border-cyan-400 rounded-xl leading-tight focus:outline-none focus:ring-white  ">
-            
               {/* React-checkbox */}
               <td class=" mt-2 border-white">
                 <div class="flex items-center pl-3">
@@ -562,8 +560,8 @@ function AddContribution(props) {
                 </div>
               </td>
 
-               {/* Other-checkbox */}
-               <td class=" mt-2 ml-5 dark:border-gray-600">
+              {/* Other-checkbox */}
+              <td class=" mt-2 ml-5 dark:border-gray-600">
                 <div class="flex items-center pl-3">
                   <input
                     id="Other-checkbox-list"
@@ -574,7 +572,7 @@ function AddContribution(props) {
                   />
 
                   <svg
-                  className="ml-3"
+                    className="ml-3"
                     width="48"
                     height="24"
                     viewBox="0 0 24 24"
@@ -628,13 +626,17 @@ function AddContribution(props) {
             onChange={(e) => handleFileUpload(e)}
           />
         </div>
-        {isLoadingImg && <p className="text-cyan-500 font-black mb-6">Loading image please wait</p>} 
+        {isLoadingImg && (
+          <p className="text-cyan-500 font-black mb-6">
+            Loading image please wait
+          </p>
+        )}
         <div className="flex justify-center">
-          <button
-            type="cancel"
-            className="bg-red-600 hover:bg-slate-700 text-black mr-6 font-bold py-2 px-4 rounded-full hover:text-red-600  hover:italic hover:shadow-lg hover:shadow-red-600">
+          <a
+            className="bg-red-600 hover:bg-slate-700 text-black mr-6 font-bold py-2 px-4 rounded-full hover:text-red-600  hover:italic hover:shadow-lg hover:shadow-red-600"
+            href="/contributions">
             Cancel
-          </button>
+          </a>
           <button
             type="submit"
             className="bg-cyan-400 hover:bg-white text-black font-bold py-2 px-4 rounded-full hover:italic hover:shadow-lg hover:shadow-cyan-400 ">

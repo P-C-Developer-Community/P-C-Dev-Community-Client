@@ -80,11 +80,9 @@ function Inbox() {
             <div className="flex-1 mt-20 w-full">
               <div className="contents ">
                 <div className="  hover:shadow-xl hover:shadow-red-500 box-border p-4 border-2 px-8 mx-10 border-red-500 rounded-3xl shadow-lg shadow-white ">
-                  <label className="text-white text-3xl font-bold ">
-                    Unread Messages:
-                  </label>
                   <div className="text-white">
                     {requests &&
+                    requests.filter((e) => !e.isRead).length > 0 ? (
                       requests
                         .filter((e) => !e.isRead)
                         .map((e) => {
@@ -92,6 +90,9 @@ function Inbox() {
                             <div
                               key={e._id}
                               className="appearance-none border-2 backdrop-blur-md mb-6 border-white rounded-xl py-2 px-1 leading-tight ">
+                              <label className="text-white text-3xl font-bold">
+                                Unread Messages:
+                              </label>
                               <div className="">
                                 <h1 className="text-lg text-green-500 italic">{`New message from: ${e.sender.email}`}</h1>
                                 {e.projectInInterest && (
@@ -117,7 +118,12 @@ function Inbox() {
                               </div>
                             </div>
                           );
-                        })}
+                        })
+                    ) : (
+                      <p className="text-red-600 backdrop-blur-sm text-3xl font-bold">
+                        No new messages
+                      </p>
+                    )}
                   </div>
                 </div>
               </div>
@@ -126,7 +132,7 @@ function Inbox() {
               <div className=" flex backdrop-filter bg-blur-sm p-4  ">
                 <div className="mt-16 w-full flex-1 ">
                   <div className="hover:shadow-xl hover:shadow-green-400 box-border px-8 mx-6 py-4 border-2 border-green-500 rounded-3xl shadow-lg shadow-white ">
-                    <label className="text-green-400 mt-6 text-3xl font-bold">
+                    <label className="text-green-400 backdrop-blur-sm mt-6 text-3xl font-bold">
                       Read Messages:
                     </label>
                     <div className="text-white"></div>
@@ -178,4 +184,5 @@ function Inbox() {
     </>
   );
 }
+
 export default Inbox;

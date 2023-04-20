@@ -87,7 +87,7 @@ function ProjectsPage() {
                   ))
                 ) : (
                   <div className="h-full flex justify-center items-center">
-                    <p className="text-lg text-gray-400">
+                    <p className="text-2xl text-white font-black">
                       No projects available at the moment
                     </p>
                   </div>
