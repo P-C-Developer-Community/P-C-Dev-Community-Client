@@ -63,13 +63,10 @@ function ProjectCard({ title, description, _id, owner, imageUrl, languages }) {
             {title}
           </h2>
           <div className="p-2">
-            <p className="text-gray-500 font-mono italic font-medium text-sm">From:</p>
-             <p className="text-gray-300 font-mono  font-black text-2xl pb-2" >{owner.name}</p> 
+            
              
-             <p className="text-gray-300 font-mono antialiased  italic text-xs text-center line-clamp-2 ">
-              {description}{" "}
-            </p>
-            <p className="text-slate-200 font-semibold mt-2">Code languages used:</p>
+          
+            <p className="text-slate-200 font-semibold mt-2">Coding languages used:</p>
             {languages.map((lang)=>{
               return<ul className="text-slate-200 my-1">
               <li>{lang}</li>  

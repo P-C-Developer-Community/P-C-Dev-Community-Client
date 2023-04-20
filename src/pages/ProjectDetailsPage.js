@@ -63,10 +63,10 @@ function ProjectDetailsPage(props) {
     getProject(projectId);
     // Reset the formSubmitted state after a successful form submission
     if (formSubmitted) {
-      // setMessage("");
-      // setFormSubmitted(false);
+      setMessage("");
+      setMessageSent(true);
     }
-  }, [projectId, formSubmitted, messageSent]);
+  }, [projectId, messageSent]);
 
   return (
     <div
@@ -110,7 +110,7 @@ function ProjectDetailsPage(props) {
             <button
               className="mt-4 p-4  bg-slate-800 border hover:text-green-400 hover:shadow-lg rounded-2xl hover:shadow-green-400 text-green-500"
               type="submit">
-              Submit
+              Send Message
             </button>
           </form>
         </div>
@@ -122,10 +122,7 @@ function ProjectDetailsPage(props) {
               <h1 className="text-3xl uppercase font-bold  mb-4">
                 {project.title}
               </h1>
-              <span className="text-sm">
-                {" "}
-                {new Date(project.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year:  'numeric' })}
-              </span>
+              
               <p className="whitespace-pre-line break-normal text-center mt-6 mb-8">
                 {project.description}
               </p>
