@@ -18,7 +18,9 @@ function EditProjectPage(props) {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API_URL}/api/projects/${projectId}`)
+      .get(`${process.env.REACT_APP_API_URL}/api/projects/${projectId}`,{
+        headers: { Authorization: `Bearer ${storedToken}` },
+      } )
       .then((response) => {
         console.log(response, "here we are............")
         const oneProject = response.data;
