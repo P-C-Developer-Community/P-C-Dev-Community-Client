@@ -59,7 +59,7 @@ function SignupPage(props) {
 
   return (
     <div
-      className=""
+      className=" grid grid-cols-1  jusitfy-center min-h-screen"
       style={{
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: "cover",
@@ -131,12 +131,13 @@ function SignupPage(props) {
                 type="submit">
                 Sign Up
               </button>
-
-              {errorMessage && <p className="error-message">{errorMessage}</p>}
-              <p className="mt-5 text-slate-300">
+              <div className="mt-4">
+              {errorMessage && <p className="text-red-500 error-message">{errorMessage}</p>}
+              <p className="mt-5 text-red-500">
                 Already have account?
                 <Link to={"/login"} className="text-cyan-400" > Login</Link>
               </p>
+              </div>
             </form>
           </div>
         </div>

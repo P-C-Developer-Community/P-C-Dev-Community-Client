@@ -20,9 +20,11 @@ function EditProjectPage(props) {
     axios
       .get(`${process.env.REACT_APP_API_URL}/api/projects/${projectId}`)
       .then((response) => {
+        console.log(response, "here we are............")
         const oneProject = response.data;
         setTitle(oneProject.title);
         setDescription(oneProject.description);
+        console.log(oneProject.title, oneProject.description)
       })
       .catch((error) => console.log(error));
   }, [projectId]);
@@ -84,14 +86,14 @@ function EditProjectPage(props) {
               />
 
               <button
-                className="p-4 drop border bg-slate-800 hover:text-white hover:shadow-lg rounded-full hover:shadow-cyan-400 text-cyan-600"
+                className="p-4 mx-4 drop border bg-slate-800 hover:text-white hover:shadow-lg rounded-full hover:shadow-cyan-400 text-cyan-600"
                 type="submit">
                 Update
               </button>
 
 
               <button
-                className="p-4 drop border bg-slate-800 hover:text-white hover:shadow-lg rounded-full hover:shadow-cyan-400 text-cyan-600"
+                className="p-4 mx-4 drop border bg-slate-800 hover:text-white hover:shadow-lg rounded-full hover:shadow-cyan-400 text-cyan-600"
                 onClick={goBack}>
                 Back
               </button>

@@ -11,7 +11,7 @@ const DetailsModal = ({ isVisible, onClose, description, title, _id, itemType })
 
   return (
     <div
-      className="fixed inset-0 bg-black bg-opacity-75 background-blur-sm flex justify-center items-center z-50"
+      className="fixed inset-0 bg-slate-900 bg-opacity-75 backdrop-blur-sm flex justify-center items-center z-50"
       id="wrapper"
       onClick={handleClose}
       style={{ zIndex: 9999 }}
