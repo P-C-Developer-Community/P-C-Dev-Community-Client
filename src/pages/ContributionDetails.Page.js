@@ -119,7 +119,7 @@ function ContributionDetailsPage(props) {
               <h1 className="text-3xl uppercase font-bold  mb-4">
                 {contribution.title}
               </h1>
-              {contribution}
+              
               <p className="whitespace-pre-line break-normal text-center mt-6 mb-8">
                 {contribution.description}
               </p>
