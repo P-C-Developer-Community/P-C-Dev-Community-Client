@@ -7,9 +7,8 @@ import { NavLink, Link } from "react-router-dom";
 function CommunityPage() {
   const [users, setUsers] = useState([]);
   const [counts, setCounts] = useState({});
-  const [review, setReview] = useState (null);
+  const [review, setReview] = useState(null);
   const [allreviews, setAllReviews] = useState([]);
-
 
   const { user } = useContext(AuthContext);
   const storedToken = localStorage.getItem("authToken");
@@ -23,7 +22,7 @@ function CommunityPage() {
         setUsers(response.data);
       })
       .catch((error) => console.log(error));
-  }, [storedToken, allreviews ]);
+  }, [storedToken, allreviews]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -65,26 +64,24 @@ function CommunityPage() {
     }
   }, [users]);
 
-
   const postReview = (userId) => (e) => {
     e.preventDefault();
-    console.log("userId",userId)
+    console.log("userId", userId);
 
     const requestBody = { review, userId };
 
-    axios.put(`${process.env.REACT_APP_API_URL}/auth/user/review`, requestBody, {headers: { Authorization: `Bearer ${storedToken}` },
-  })
-    .then((response) => {
-      console.log("responsyto", response.data.reviews)
-      setAllReviews(response.data.reviews)
-      console.log("users",users)
-      
-    }
-    );
-};
+    axios
+      .put(`${process.env.REACT_APP_API_URL}/auth/user/review`, requestBody, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then((response) => {
+        console.log("responsyto", response.data.reviews);
+        setAllReviews(response.data.reviews);
+        console.log("users", users);
+      });
+  };
 
-// console.log("allReviews",allReviews)
-
+  // console.log("allReviews",allReviews)
 
   return (
     <div
@@ -95,9 +92,7 @@ function CommunityPage() {
         backgroundPosition: "center",
         backgroundRepeat: "repeat",
       }}>
-      <h1 className="text-3xl text-white font-extrabold mb-6">
-        Dev Community 
-      </h1>
+      <h1 className="text-3xl text-white font-extrabold mb-6">Dev Community</h1>
 
       <div className=" rounded-t-lg mb-4">
         <div className="p-4 ">
@@ -123,7 +118,7 @@ function CommunityPage() {
                       year: "numeric",
                     })}
                   </p>
-                  <div className="mt-2">
+                  <div className="mt-2 justify-center">
                     {user.gitHub && (
                       <div className="ml-12 mb-2 mt-2 flex items-center">
                         <svg
@@ -260,50 +255,43 @@ function CommunityPage() {
                     {counts[user._id] && (
                       <>
                         <p className="text-slate-400 mt-5">
-                          Active Projects: {" "}
-                          {counts[user._id].projects}
+                          Active Projects: {counts[user._id].projects}
                         </p>
                         <p className="text-slate-400 ">
-                          Active Collaborations: {" "}
+                          Active Collaborations:{" "}
                           {counts[user._id].contributions}
                         </p>
                         <div>
-                        <form onSubmit={postReview(user._id)}>
-      <input
-        
-        placeholder="Leave a review"
-        type="text"
-        
-        onChange={(e) => {
-          setReview(e.target.value);
-        }}
-      />
-      <button
-      type="submit"
-      className="bg-cyan-400 hover:bg-white text-black font-bold py-2 px-4 rounded-full hover:italic hover:shadow-lg hover:shadow-cyan-400 "
-      >Submit Review</button>
-      </form>
-      <br />
-      <br />
-
-      ********Reviews******
-
-    {user.reviews && user.reviews.map((review, index)=>{
-      return (
-        <div key={index}>
-          ------------
-        <p>Review: {review.review}</p>
-        
-        
-        <p>Reviewed By: {review.createdBy.name}</p>
-        <p>{review.createdBy.email}</p>
-        </div>
-
-      )
-      
-      
-    })}
-    </div>
+                          <form onSubmit={postReview(user._id)}>
+                            <input
+                              className="my-2 bg-transparent rounded-2xl border-cyan-400 placeholder-slate-400 leading-tight  focus:ring-white"
+                              placeholder="Leave a review..."
+                              type="text"
+                              onChange={(e) => {
+                                setReview(e.target.value);
+                              }}
+                            />
+                            <button
+                              type="submit"
+                              className="mt-4 mx-2 py-4 px-2 bg-slate-800 border hover:text-green-400 hover:shadow-lg rounded-2xl hover:shadow-green-400 text-green-500">
+                              Submit Review
+                            </button>
+                          </form>
+                          <p className="mt-6 text-slate-300 font-bold tracking-wider">Reviews</p>
+                         <div className="text-slate-300 max-h-36 max-w-36 w-auto h-auto  overflow-auto hover:overscroll-contain">
+                             {user.reviews &&
+                              user.reviews.map((review, index) => {
+                                return (
+                                  <div key={index}>
+                                    ___________
+                                    <p className="font-semibold">{review.review}</p>
+                                    <p className="italic font-light pt-2">by: {review.createdBy.name}</p>
+                                    <p className="italic font-normal">{review.createdBy.email}</p>
+                                  </div>
+                                );
+                              })}
+                          </div>
+                        </div>
                       </>
                     )}
                   </div>
