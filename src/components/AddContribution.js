@@ -628,7 +628,7 @@ function AddContribution(props) {
             onChange={(e) => handleFileUpload(e)}
           />
         </div>
-        {isLoadingImg && <p className="text-pink">Image is still being uploaded. Please wait few moments and try again...</p>} 
+        {isLoadingImg && <p className="text-pink-400">Loading image please wait</p>} 
         <div className="flex justify-center">
           <button
             type="cancel"

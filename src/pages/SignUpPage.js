@@ -133,7 +133,7 @@ function SignupPage(props) {
                Upload Profile Picture
               </label>
         
-              {isLoadingImg && <p className="text-pink">Image is still being uploaded. Try again in few moments...</p>} 
+              {isLoadingImg && <p className="text-pink-400">Loading image please wait</p>} 
 
               <button
                 className="mt-4 p-2 bg-slate-800 border hover:text-green-400 hover:shadow-lg rounded-2xl hover:shadow-green-400 text-green-500"

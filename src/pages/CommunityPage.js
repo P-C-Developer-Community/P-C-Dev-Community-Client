@@ -8,6 +8,8 @@ function CommunityPage() {
   const [users, setUsers] = useState([]);
   const [counts, setCounts] = useState({});
   const [review, setReview] = useState(null);
+  const [reviewSubmitted, setReviewSubmitted] = useState(false);
+  
   const [allreviews, setAllReviews] = useState([]);
 
   const { user } = useContext(AuthContext);
@@ -22,7 +24,7 @@ function CommunityPage() {
         setUsers(response.data);
       })
       .catch((error) => console.log(error));
-  }, [storedToken, allreviews]);
+  }, [storedToken, allreviews ]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -62,12 +64,11 @@ function CommunityPage() {
     if (users.length > 0) {
       fetchData();
     }
-  }, [users]);
+  }, [users,reviewSubmitted ]);
 
   const postReview = (userId) => (e) => {
     e.preventDefault();
-    console.log("userId", userId);
-
+    
     const requestBody = { review, userId };
 
     axios
@@ -75,13 +76,13 @@ function CommunityPage() {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
-        console.log("responsyto", response.data.reviews);
         setAllReviews(response.data.reviews);
-        console.log("users", users);
+        setReview("")
+        setReviewSubmitted(true)
+
       });
   };
 
-  // console.log("allReviews",allReviews)
 
   return (
     <div
@@ -265,8 +266,13 @@ function CommunityPage() {
                           <form onSubmit={postReview(user._id)}>
                             <input
                               className="my-2 bg-transparent rounded-2xl border-cyan-400 placeholder-slate-400 leading-tight  focus:ring-white"
-                              placeholder="Leave a review..."
+                              placeholder={
+                                !reviewSubmitted
+                                  ? `Leave a review to  ${user.name}...`
+                                  : "Review submitted!"
+                              }
                               type="text"
+                              value={review}
                               onChange={(e) => {
                                 setReview(e.target.value);
                               }}
