@@ -13,7 +13,8 @@ Task list
  [] - Picture upload delay fix
  [] - Add-project/collab button
 
- [] - Adjust bg-img signup-page Responsive / Homepage
+ [x] - Adjust bg-img signup-page Responsive / Homepage
+ [] -  Adjust bg-img signup-page Responsive
  [] - CLEAN SHIT UP - ! Homepage !
  [] - conditional rendering of Inbox / no collab / project
  [] - Hide Add-Button if not logged in 

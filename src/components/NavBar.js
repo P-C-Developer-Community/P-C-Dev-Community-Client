@@ -3,7 +3,7 @@ import { Fragment, useContext, useState } from "react";
 import { AuthContext } from "../context/auth.context";
 import { useNavigate } from "react-router-dom";
 import { Transition } from "@headlessui/react";
-import logo from "../assets/WDC-logo-no-bg.png"
+import logo from "../assets/WDC-logo-no-bg.png";
 
 function NavBar() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
@@ -90,22 +90,22 @@ function NavBar() {
                         Messages
                       </NavLink>
 
-                         <div className="pl-24">
-                      <div className=" flex items-center">
-                        <span className=" text-cyan-500 font-bold ">
-                          {user && user.name}
-                        </span>
-                        <button
-                          className={`pl-2 font-bold ${
-                            isLoggedIn ? "text-red-600" : ""
-                          }`}
-                          onClick={() => {
-                            logOutUser();
-                            navigate("/login");
-                          }}>
-                          Logout
-                        </button>
-                      </div>
+                      <div className="pl-24">
+                        <div className=" flex items-center">
+                          <span className=" text-cyan-500 font-bold ">
+                            {user && user.name}
+                          </span>
+                          <button
+                            className={`pl-2 font-bold ${
+                              isLoggedIn ? "text-red-600" : ""
+                            }`}
+                            onClick={() => {
+                              logOutUser();
+                              navigate("/login");
+                            }}>
+                            Logout
+                          </button>
+                        </div>
                       </div>
                     </>
                   )}
@@ -195,23 +195,11 @@ function NavBar() {
           leaveTo="opacity-0 scale-95">
           {(ref) => (
             <div className="md:hidden" id="mobile-menu">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 relative rounded-md backdrop-blur-sm  shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" style={{ zIndex: 9999 }}>
-              <ul>
-              <li>
-                <NavLink
-                  className=""
-                  to="/"
-                  style={({ isActive }) => {
-                    return {
-                      fontWeight: isActive ? "bold" : "",
-                      color: isActive ? "cyan" : "white",
-                    };
-                  }}>
-                  Home
-                </NavLink>
-                </li>
-                {isLoggedIn && (
-                  <>
+              <div
+                className="px-2 pt-2 pb-3 space-y-1 sm:px-3 relative rounded-md backdrop-blur-sm  shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                style={{ zIndex: 9999 }}>
+                <ul>
+                  
                   <li>
                     <NavLink
                       className=""
@@ -224,8 +212,8 @@ function NavBar() {
                       }}>
                       Projects
                     </NavLink>
-                    </li>
-                      <li>
+                  </li>
+                  <li>
                     <NavLink
                       className=""
                       to="/contributions"
@@ -237,64 +225,83 @@ function NavBar() {
                       }}>
                       Collaborations
                     </NavLink>
-                    </li>
+                  </li>
+
                       <li>
-                    <NavLink
-                      className=""
-                      to="/community"
-                      style={({ isActive }) => {
-                        return {
-                          fontWeight: isActive ? "bold" : "",
-                          color: isActive ? "cyan" : "white",
-                        };
-                      }}>
-                      Community
-                    </NavLink>
-                    </li>
-                    <li>
-                    <NavLink
-                      className=""
-                      to="/userprofilepage"
-                      style={({ isActive }) => {
-                        return {
-                          fontWeight: isActive ? "bold" : "",
-                          color: isActive ? "cyan" : "white",
-                        };
-                      }}>
-                      User Profile
-                    </NavLink>
-                    </li>
-                    <li>
-                    <NavLink
-                      className=""
-                      to="/inbox"
-                      style={({ isActive }) => {
-                        return {
-                          fontWeight: isActive ? "bold" : "",
-                          color: isActive ? "cyan" : "white",
-                        };
-                      }}>
-                      Messages
-                    </NavLink>
-                    </li>
-                    <div className="">
-                      <span className="text-cyan-500 font-bold mr-1 ">
-                        {user && user.name}
-                      </span>
-                      <button
-                        className={` font-bold ${
-                          isLoggedIn ? "text-red-600" : ""
-                        }`}
-                        onClick={() => {
-                          logOutUser();
-                          navigate("/login");
+                      <NavLink
+                        className="mx-8"
+                        to="/login"
+                        style={({ isActive }) => {
+                          return {
+                            fontWeight: isActive ? "bold" : "",
+                            color: isActive ? "cyan" : "white",
+                          };
                         }}>
-                        Logout
-                      </button>
-                    </div>
-                  </>
-                )}
-              </ul>
+                        Login
+                      </NavLink>
+                      </li>
+
+
+                  {isLoggedIn && (
+                    <>
+                      <li>
+                        <NavLink
+                          className=""
+                          to="/community"
+                          style={({ isActive }) => {
+                            return {
+                              fontWeight: isActive ? "bold" : "",
+                              color: isActive ? "cyan" : "white",
+                            };
+                          }}>
+                          Community
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink
+                          className=""
+                          to="/userprofilepage"
+                          style={({ isActive }) => {
+                            return {
+                              fontWeight: isActive ? "bold" : "",
+                              color: isActive ? "cyan" : "white",
+                            };
+                          }}>
+                          User Profile
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink
+                          className=""
+                          to="/inbox"
+                          style={({ isActive }) => {
+                            return {
+                              fontWeight: isActive ? "bold" : "",
+                              color: isActive ? "cyan" : "white",
+                            };
+                          }}>
+                          Messages
+                        </NavLink>
+                      </li>
+                      <div className="">
+                        <span className="text-cyan-500 font-bold mr-1 ">
+                          {user && user.name}
+                        </span>
+                        
+                        <button
+                          className={` font-bold ${
+                            isLoggedIn ? "text-red-600" : ""
+                          }`}
+                          onClick={() => {
+                            logOutUser();
+                            navigate("/login");
+                          }}>
+                          Logout
+                        </button>
+                      </div>
+                    </>
+                  )}
+                </ul>
               </div>
             </div>
           )}

@@ -122,9 +122,10 @@ function AddContribution(props) {
           Code Languages
         </h3>
 
-        <table class="table-auto">
-          <tbody>
-            <tr className="ms-center w-full text-sm sm:flex sm:flex-wrap  appearance-none border bg-transparent text-white border-cyan-400 rounded-xl leading-tight focus:outline-none focus:ring-white  ">
+        <table class="table-auto sm:overflow-x-auto">
+          <tbody className="overflow-auto">
+            <tr className=" ms-center w-full text-sm sm:flex sm:flex-wrap  appearance-none border bg-transparent text-white border-cyan-400 rounded-xl leading-tight focus:outline-none focus:ring-white  ">
+            
               {/* React-checkbox */}
               <td class=" mt-2 border-white">
                 <div class="flex items-center pl-3">

@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import backgroundImage from "../assets/com-bg.jpg";
 import AddContributionModal from "../components/AddContributionModal";
 import ContributionCard from "../components/ContributionCard";
+import { AuthContext } from "../context/auth.context";
 
 
 
@@ -10,6 +11,8 @@ function ContributionsPage() {
   const [contributions, setContributions] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [showAddContributionForm, setShowAddContributionForm] = useState(false);
+  const { isLoggedIn } = useContext(AuthContext);
+
 
   const getAllContributions = () => {
     const storedToken = localStorage.getItem("authToken");
@@ -59,11 +62,13 @@ function ContributionsPage() {
           backgroundRepeat: "repeat",
         }}>
         <p className="text-3xl text-white font-extrabold mb-6">Collaborations</p>
-        <button
-          className="text-white rounded-full bg-cyan-500 border-double border-4 border-violet-600"
+        {isLoggedIn && (
+        <button 
+          className="p-3 w-40 drop bg-slate-800 border hover:text-white hover:border-cyan-400 hover:shadow-lg rounded-xl shadow-md shadow-white hover:shadow-cyan-400 text-cyan-600"
           onClick={handleShowAddContributionForm}>
-          Add Contribution
+          New Collaboration
         </button>
+        )}
         {showAddContributionForm && (
           <AddContributionModal
             refreshContributions={getAllContributions}

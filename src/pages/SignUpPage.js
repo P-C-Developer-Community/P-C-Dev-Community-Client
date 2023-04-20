@@ -59,7 +59,7 @@ function SignupPage(props) {
 
   return (
     <div
-      className=" grid grid-cols-1  jusitfy-center min-h-screen"
+      className=" grid grid-cols-1 jusitfy-center min-h-screen"
       style={{
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: "cover",
@@ -68,10 +68,10 @@ function SignupPage(props) {
       }}>
       <div className="flex justify-center items-center h-screen">
         <div className="flex flex-col md:flex-row w-full md:w-4/5 xl:w-3/5 bg-transparent  shadow-lg overflow-hidden">
-          <div className="mb-16 bg-transparent  rounded-full  text-gray-100 flex items-center justify-center md:w-1/2 p-6">
+          <div className="bg-transparent  rounded-full  text-gray-100 flex items-center justify-center md:w-1/2 p-6">
             <div className="max-w-md">
-              <h2 className="text-3xl font-bold pt-12 mt-16 mb-4">Welcome to Dev Community!</h2>
-              <p className="font-bold text-slate-200 pt-6">
+              <h2 className="text-3xl backdrop-blur-sm font-bold pt-12 mt-16 ">Welcome to Dev Community!</h2>
+              <p className="font-bold backdrop-blur-sm rounded-md text-slate-200 pt-6">
               Join our developer community today and connect with other web developers to share your projects, collaborate on ideas, and advance your skills in a supportive and engaging community!
               </p>
             </div>
