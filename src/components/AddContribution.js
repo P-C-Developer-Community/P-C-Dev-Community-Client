@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import service from "../api/service";
+import { useNavigate } from "react-router-dom";
 
 function AddContribution(props) {
   const [title, setTitle] = useState("");
@@ -9,6 +10,9 @@ function AddContribution(props) {
   const [contributionsId, setContributionsId] = useState("");
   const [languages, setLanguages] = useState([]);
   const [isLoadingImg, setIsLoadingImg] = useState(false);
+
+  const navigate = useNavigate();
+ 
 
   useEffect(() => {
     // Get the contribution ID from URL params or from the contribution object passed as a prop
