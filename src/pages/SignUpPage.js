@@ -12,6 +12,7 @@ function SignupPage(props) {
   const [name, setName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
+  const [isLoadingImg, setIsLoadingImg] = useState(false);
 
   const navigate = useNavigate();
 
@@ -31,6 +32,7 @@ function SignupPage(props) {
     service
       .uploadImage(uploadData)
       .then((response) => {
+        setIsLoadingImg(false)
         // console.log("response is: ", response);
         // response carries "fileUrl" which we can use to update the state
         setImageUrl(response.fileUrl);
@@ -40,7 +42,9 @@ function SignupPage(props) {
 
   const handleSignupSubmit = (e) => {
     e.preventDefault();
-    // Create an object representing the request body
+
+    if (imageUrl){
+       // Create an object representing the request body
     const requestBody = { email, password, name, imageUrl };
 
     // Make an axios request to the API
@@ -55,6 +59,10 @@ function SignupPage(props) {
         const errorDescription = error.response.data.message;
         setErrorMessage(errorDescription);
       });
+
+
+    } else (setIsLoadingImg(true))
+   
   };
 
   return (
@@ -124,7 +132,8 @@ function SignupPage(props) {
               <label htmlFor="upload-button" className="mt-4 mr-6 p-3 bg-transparent border-2 border-cyan-400 hover:text-cyan-400 hover:shadow-lg rounded-2xl hover:shadow-cyan-400 text-slate-300">
                Upload Profile Picture
               </label>
-
+        
+              {isLoadingImg && <p className="text-pink">Image is still being uploaded. Try again in few moments...</p>} 
 
               <button
                 className="mt-4 p-2 bg-slate-800 border hover:text-green-400 hover:shadow-lg rounded-2xl hover:shadow-green-400 text-green-500"

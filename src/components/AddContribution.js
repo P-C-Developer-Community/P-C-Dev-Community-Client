@@ -8,6 +8,7 @@ function AddContribution(props) {
   const [imageUrl, setImageUrl] = useState("");
   const [contributionsId, setContributionsId] = useState("");
   const [languages, setLanguages] = useState([]);
+  const [isLoadingImg, setIsLoadingImg] = useState(false);
 
   useEffect(() => {
     // Get the contribution ID from URL params or from the contribution object passed as a prop
@@ -27,6 +28,7 @@ function AddContribution(props) {
     service
       .uploadImage(uploadData)
       .then((response) => {
+        setIsLoadingImg(false)
         // response carries "fileUrl" which we can use to update the state
         setImageUrl(response.fileUrl);
       })
@@ -36,7 +38,8 @@ function AddContribution(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const { contributionsId } = props;
+    if (imageUrl){
+      const { contributionsId } = props;
     // Create an object representing the body of the POST request
     const requestBody = {
       title,
@@ -65,6 +68,12 @@ function AddContribution(props) {
         props.onClose();
       })
       .catch((error) => console.log(error));
+
+
+
+    } else (setIsLoadingImg(true))
+
+    
   };
 
   const handleLanguageChange = (e) => {
@@ -619,7 +628,7 @@ function AddContribution(props) {
             onChange={(e) => handleFileUpload(e)}
           />
         </div>
-
+        {isLoadingImg && <p className="text-pink">Image is still being uploaded. Please wait few moments and try again...</p>} 
         <div className="flex justify-center">
           <button
             type="cancel"
