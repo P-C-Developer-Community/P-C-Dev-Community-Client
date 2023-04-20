@@ -21,7 +21,7 @@ Task list
  [] -  Adjust bg-img signup-page Responsive
  [] -  CLEAN SHIT UP - ! Homepage !
  [] -  conditional rendering of Inbox / no collab / project
- [] -  Picture upload delay fix
+ [x] -  Picture upload delay fix
 
  [] - Modal for user reviews
  [] - Loading spinner
