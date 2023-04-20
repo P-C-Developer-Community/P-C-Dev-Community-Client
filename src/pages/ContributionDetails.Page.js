@@ -55,7 +55,7 @@ function ContributionDetailsPage(props) {
         // Reset the state
         setMessage("");
         setMessageSent(true);
-        console.log("posting message.........", response.data);
+       
       })
       .catch((error) => console.log(error));
   };
@@ -119,10 +119,7 @@ function ContributionDetailsPage(props) {
               <h1 className="text-3xl uppercase font-bold  mb-4">
                 {contribution.title}
               </h1>
-              <span className="text-sm">
-                {" "}
-                {new Date(contribution.createdAt).toLocaleDateString()}
-              </span>
+              {contribution}
               <p className="whitespace-pre-line break-normal text-center mt-6 mb-8">
                 {contribution.description}
               </p>
