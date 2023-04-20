@@ -17,17 +17,15 @@ function NavBar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
-              <div className="flex-shrink-0" onClick={(()=>{navigate("/")})}>
-                <img
-                  className="h-24 w-20"
-                  src={logo}
-                  alt="Workflow"
-                />
+              <div
+                className="flex-shrink-0"
+                onClick={() => {
+                  navigate("/");
+                }}>
+                <img className="h-24 w-20" src={logo} alt="Workflow" />
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
-          
-
                   {isLoggedIn && (
                     <>
                       <NavLink
@@ -199,7 +197,6 @@ function NavBar() {
                 className="px-2 pt-2 pb-3 space-y-1 sm:px-3 relative rounded-md backdrop-blur-sm  shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                 style={{ zIndex: 9999 }}>
                 <ul>
-                  
                   <li>
                     <NavLink
                       className=""
@@ -227,20 +224,19 @@ function NavBar() {
                     </NavLink>
                   </li>
 
-                      <li>
-                      <NavLink
-                        className="mx-8"
-                        to="/login"
-                        style={({ isActive }) => {
-                          return {
-                            fontWeight: isActive ? "bold" : "",
-                            color: isActive ? "cyan" : "white",
-                          };
-                        }}>
-                        Login
-                      </NavLink>
-                      </li>
-
+                  <li>
+                    <NavLink
+                      className="mx-8"
+                      to="/login"
+                      style={({ isActive }) => {
+                        return {
+                          fontWeight: isActive ? "bold" : "",
+                          color: isActive ? "cyan" : "white",
+                        };
+                      }}>
+                      Login
+                    </NavLink>
+                  </li>
 
                   {isLoggedIn && (
                     <>
@@ -287,7 +283,7 @@ function NavBar() {
                         <span className="text-cyan-500 font-bold mr-1 ">
                           {user && user.name}
                         </span>
-                        
+
                         <button
                           className={` font-bold ${
                             isLoggedIn ? "text-red-600" : ""

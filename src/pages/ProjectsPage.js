@@ -65,7 +65,7 @@ function ProjectsPage() {
         
         {isLoggedIn && (
         <button
-          className="p-3 w-40 drop bg-slate-800 border hover:text-white hover:border-cyan-400 hover:shadow-lg rounded-xl shadow-md shadow-white hover:shadow-cyan-400 text-cyan-600"
+          className="p-3 mb-8 w-80 drop bg-slate-800 border hover:text-white hover:border-cyan-400 hover:shadow-lg rounded-xl shadow-md shadow-white hover:shadow-cyan-400 text-cyan-600"
           onClick={handleShowAddProjectForm}>
           New Project
         </button>

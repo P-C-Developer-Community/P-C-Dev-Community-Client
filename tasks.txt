@@ -10,18 +10,19 @@ Task list
  [x] - Redirect Messaging & Community page
 
 
- [] - Picture upload delay fix
- [] - Add-project/collab button
+
+ [x] - Add-project/collab button
 
  [x] - Adjust bg-img signup-page Responsive / Homepage
+ [x] - Hide Add-Button if not logged in 
+ [x] - Display Login/signup in NavBa when responsive-mode
+ [x] - NavBar logo as "/Home" link
+ [] -  Responsive Add modal - scrollable code languages
  [] -  Adjust bg-img signup-page Responsive
- [] - CLEAN SHIT UP - ! Homepage !
- [] - conditional rendering of Inbox / no collab / project
- [] - Hide Add-Button if not logged in 
- [] - Display Login/signup in NavBa when responsive-mode
- [] - NavBar logo as "/Home" link
- [] - Responsive Add modal - scrollable code languages
- 
+ [] -  CLEAN SHIT UP - ! Homepage !
+ [] -  conditional rendering of Inbox / no collab / project
+ [] -  Picture upload delay fix
+
  [] - Modal for user reviews
  [] - Loading spinner
 
