@@ -291,8 +291,9 @@ function CommunityPage() {
                                   <div key={index}>
                                     ___________
                                     <p className="font-semibold">{review.review}</p>
-                                    <p className="italic font-light pt-2">by: {review.createdBy.name}</p>
+                                    <p className="italic font-light pt-2">By: {review.createdBy.name}</p>
                                     <p className="italic font-normal">{review.createdBy.email}</p>
+                                    <p className="italic font-normal">On: {new Date(review.createdAt).toLocaleDateString('en-US', { weekday: 'short', month: 'long', day: 'numeric', year:  'numeric', hour:  'numeric', minute:  'numeric' })}</p>
                                   </div>
                                 );
                               })}
