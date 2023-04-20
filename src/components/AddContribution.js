@@ -133,7 +133,7 @@ function AddContribution(props) {
 
         <table class="table-auto sm:overflow-x-auto">
           <tbody className="overflow-auto">
-            <tr className=" ms-center w-full text-sm sm:flex sm:flex-wrap  appearance-none border bg-transparent text-white border-cyan-400 rounded-xl leading-tight focus:outline-none focus:ring-white  ">
+            <tr className=" ms-center w-full text-sm flex flex-wrap  appearance-none border bg-transparent text-white border-cyan-400 rounded-xl leading-tight focus:outline-none focus:ring-white  ">
             
               {/* React-checkbox */}
               <td class=" mt-2 border-white">
@@ -628,7 +628,7 @@ function AddContribution(props) {
             onChange={(e) => handleFileUpload(e)}
           />
         </div>
-        {isLoadingImg && <p className="text-pink-400">Loading image please wait</p>} 
+        {isLoadingImg && <p className="text-cyan-500 font-black mb-6">Loading image please wait</p>} 
         <div className="flex justify-center">
           <button
             type="cancel"

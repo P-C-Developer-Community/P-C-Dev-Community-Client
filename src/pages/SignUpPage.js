@@ -133,7 +133,7 @@ function SignupPage(props) {
                Upload Profile Picture
               </label>
         
-              {isLoadingImg && <p className="text-pink-400">Loading image please wait</p>} 
+              {isLoadingImg && <p className="text-cyan-500 font-black my-6">Loading image please wait</p>} 
 
               <button
                 className="mt-4 p-2 bg-slate-800 border hover:text-green-400 hover:shadow-lg rounded-2xl hover:shadow-green-400 text-green-500"
@@ -144,7 +144,7 @@ function SignupPage(props) {
               {errorMessage && <p className="text-red-500 error-message">{errorMessage}</p>}
               <p className="mt-5 text-red-500">
                 Already have account?
-                <Link to={"/login"} className="text-cyan-400" > Login</Link>
+                <Link to={"/login"} className="text-cyan-500" > Login</Link>
               </p>
               </div>
             </form>

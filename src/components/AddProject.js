@@ -94,11 +94,11 @@ function AddProject(props) {
         <h1 class="-mb-4 font-black text-2xl ">Add a new Project</h1>
       </div>
 
-      <label>Owner:</label>
-      <span>{user && user.name}</span>
+      <label className="hidden">Owner:</label>
+      <p className="hidden" >{user && user.name}</p>
 
       <form onSubmit={handleSubmit} className="max-w-md mx-auto">
-        <div className="mb-4">
+        <div className="my-5">
           <label htmlFor="title" className="block text-zinc-200 font-bold mb-2">
             Title:
           </label>
@@ -135,7 +135,7 @@ function AddProject(props) {
         <h3 className="mb-4 font-semibold text-gray-900 dark:text-white">
           Code Languages
         </h3>
-
+        <div className="w-100 min-w-min overflow-y-scroll">
         <table class="table-auto">
           <tbody>
             <tr className="ms-center w-full text-sm sm:flex sm:flex-wrap  appearance-none border bg-transparent text-white border-cyan-400 rounded-xl leading-tight focus:outline-none focus:ring-white  ">
@@ -262,7 +262,7 @@ function AddProject(props) {
                   </label>
                 </div>
               </td>
-
+              
               {/* NextJs-checkbox */}
               <td class=" mt-2 dark:border-gray-600">
                 <div class="flex items-center pl-3">
@@ -646,6 +646,7 @@ function AddProject(props) {
             </tr>
           </tbody>
         </table>
+        </div>
 
         <input type="hidden" title="owner" value={user._id} />
 
@@ -661,7 +662,7 @@ function AddProject(props) {
             onChange={(e) => handleFileUpload(e)}
           />
           {isLoadingImg && (
-            <h2 className="text-pink">Loading image please wait</h2>
+            <h2 className="text-cyan-500 font-black mb-6">Loading image please wait</h2>
           )}
           <div className="flex justify-center">
             <button

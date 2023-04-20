@@ -56,7 +56,7 @@ function ProjectCard({ title, description, _id, owner, imageUrl, languages }) {
             }}
         >
         <div className="flex flex-col items-center justify-center">
-          <img src={imageUrl} alt=""   className=" mb-4 drop-shadow-2xl shadow-black h-42 w-42 rounded-2xl" />
+          <img src={imageUrl} alt=""   className=" mb-4 drop-shadow-2xl shadow-black h-42 w-96 rounded-2xl" />
           
           <div className="flex flex-col items-center  mr-16 ml-16 mb-2 ">
           <h2 className="text-white font-mono  antialiased italic font-black text-2xl  line-clamp-2 ">
@@ -66,7 +66,7 @@ function ProjectCard({ title, description, _id, owner, imageUrl, languages }) {
             
              
             <div className="max-h-36 max-w-36 w-auto h-auto  overflow-auto hover:overscroll-contain line-clamp-6">
-            <p className="text-slate-200 font-semibold mt-2 ">Coding languages used:</p>
+            <p className="text-slate-200 font-semibold mt-2 ">Code languages used:</p>
             {languages.map((lang)=>{
               return<ul className="text-slate-200 my-1 ">
               <li>{lang}</li>  

@@ -5,18 +5,15 @@ import ProjectCard from "../components/ProjectCard";
 import { AuthContext } from "../context/auth.context";
 import AddProjectModal from "../components/AddProjectModal";
 
-
-
 function ProjectsPage() {
   const [projects, setProjects] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [showAddProjectForm, setShowAddProjectForm] = useState(false);
   const { isLoggedIn } = useContext(AuthContext);
 
-
   const getAllProjects = () => {
     const storedToken = localStorage.getItem("authToken");
-    
+
     // Send the token through the request "Authorization" Headers
     axios
       .get(`${process.env.REACT_APP_API_URL}/api/projects`, {
@@ -62,13 +59,13 @@ function ProjectsPage() {
           backgroundRepeat: "repeat",
         }}>
         <p className="text-3xl text-white font-extrabold mb-6">Projects</p>
-        
+
         {isLoggedIn && (
-        <button
-          className="p-3 mb-8 w-80 drop bg-slate-800 border hover:text-white hover:border-cyan-400 hover:shadow-lg rounded-xl shadow-md shadow-white hover:shadow-cyan-400 text-cyan-600"
-          onClick={handleShowAddProjectForm}>
-          New Project
-        </button>
+          <button
+            className="p-3 mb-8 w-80 drop bg-slate-800 border hover:text-white hover:border-cyan-400 hover:shadow-lg rounded-xl shadow-md shadow-white hover:shadow-cyan-400 text-cyan-600"
+            onClick={handleShowAddProjectForm}>
+            New Project
+          </button>
         )}
         {showAddProjectForm && (
           <AddProjectModal
@@ -99,9 +96,8 @@ function ProjectsPage() {
             </div>
           </div>
         </div>
-        </div>  
+      </div>
     </>
-    
   );
 }
 

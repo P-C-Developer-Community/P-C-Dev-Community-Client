@@ -5,14 +5,11 @@ import AddContributionModal from "../components/AddContributionModal";
 import ContributionCard from "../components/ContributionCard";
 import { AuthContext } from "../context/auth.context";
 
-
-
 function ContributionsPage() {
   const [contributions, setContributions] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [showAddContributionForm, setShowAddContributionForm] = useState(false);
   const { isLoggedIn } = useContext(AuthContext);
-
 
   const getAllContributions = () => {
     const storedToken = localStorage.getItem("authToken");
@@ -61,13 +58,15 @@ function ContributionsPage() {
           backgroundPosition: "center",
           backgroundRepeat: "repeat",
         }}>
-        <p className="text-3xl text-white font-extrabold mb-6">Collaborations</p>
+        <p className="text-3xl text-white font-extrabold mb-6">
+          Collaborations
+        </p>
         {isLoggedIn && (
-        <button 
-          className="p-3 mb-8 w-80 drop bg-slate-800 border hover:text-white hover:border-cyan-400 hover:shadow-lg rounded-xl shadow-md shadow-white hover:shadow-cyan-400 text-cyan-600"
-          onClick={handleShowAddContributionForm}>
-          New Collaboration
-        </button>
+          <button
+            className="p-3 mb-8 w-80 drop bg-slate-800 border hover:text-white hover:border-cyan-400 hover:shadow-lg rounded-xl shadow-md shadow-white hover:shadow-cyan-400 text-cyan-600"
+            onClick={handleShowAddContributionForm}>
+            New Collaboration
+          </button>
         )}
         {showAddContributionForm && (
           <AddContributionModal
