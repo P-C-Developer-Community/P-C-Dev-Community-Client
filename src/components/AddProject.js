@@ -7,11 +7,12 @@ import service from "../api/service";
 function AddProject(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
+  const [imageUrl, setImageUrl] = useState(null);
   const [projectsId, setProjectsId] = useState(
     props.match?.params?.id || props.projectsId || ""
   );
   const [languages, setLanguages] = useState([]);
+  const [isLoadingImg, setIsLoadingImg] = useState(false);
 
   const { user } = useContext(AuthContext);
 
@@ -41,37 +42,42 @@ function AddProject(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const { projectsId } = props;
-    // Create an object representing the body of the POST request
+    if (imageUrl){
+      const { projectsId } = props;
+      // Create an object representing the body of the POST request
+  
+      const requestBody = {
+        title,
+        description,
+        owner: user._id,
+        imageUrl,
+        languages,
+      };
+  
+      // Get the token from the localStorage
+      const storedToken = localStorage.getItem("authToken");
+  
+      // Send the token through the request "Authorization" Headers
+      axios
+        .post(`${process.env.REACT_APP_API_URL}/api/projects`, requestBody, {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        })
+        .then((response) => {
+          // Reset the state to clear the inputs
+          setTitle("");
+          setDescription("");
+  
+          // Invoke the callback function coming through the props
+          // from the ProjectDetailsPage, to refresh the project details
+          props.handleAddProjectSuccess();
+          props.refreshProjects();
+          props.onClose();
+        })
+        .catch((error) => console.log(error));
 
-    const requestBody = {
-      title,
-      description,
-      owner: user._id,
-      imageUrl,
-      languages,
-    };
+    } else (setIsLoadingImg(true))
 
-    // Get the token from the localStorage
-    const storedToken = localStorage.getItem("authToken");
-
-    // Send the token through the request "Authorization" Headers
-    axios
-      .post(`${process.env.REACT_APP_API_URL}/api/projects`, requestBody, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      })
-      .then((response) => {
-        // Reset the state to clear the inputs
-        setTitle("");
-        setDescription("");
-
-        // Invoke the callback function coming through the props
-        // from the ProjectDetailsPage, to refresh the project details
-        props.handleAddProjectSuccess();
-        props.refreshProjects();
-        props.onClose();
-      })
-      .catch((error) => console.log(error));
+  
   };
 
   const handleLanguageChange = (e) => {
@@ -639,6 +645,7 @@ function AddProject(props) {
               className="bg-cyan-400 hover:bg-white text-black font-bold py-2 px-4 rounded-full hover:italic hover:shadow-lg hover:shadow-cyan-400 ">
               Submit
             </button>
+            {isLoadingImg && <p className="text-pink">Loading...</p>} 
           </div>
         </div>
       </form>
