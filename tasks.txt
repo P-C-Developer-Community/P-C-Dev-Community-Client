@@ -3,19 +3,21 @@ Task list
  [x] - Messaging page   
  [x] - Community page
  [x] - Project & Collab. count for user
- [] - ! Responsive Navbar --> render before routes
+ [x] - ! Responsive Navbar --> render before routes
  [x] - Line clamp on titles for Proj. & Collabs
  [x] - User profile social media icons
  [x] - Logout redirect
  [x] - Redirect Messaging & Community page
+
+
  [] - Picture upload delay fix
- [] - Add button
- [] - 
- [] - CLEAN SHIT UP - BG homepage
- [] - 
-
-
-
-
-
+ [] - Add-project/collab button
+ [] - Adjust pic signup-page Responsive / Homepage
+ [] - CLEAN SHIT UP - ! Homepage !
+ [] - conditional rendering of Inbox / no collab / project
+ 
+ 
+ 
+ 
+ [] - Modal for user reviews
  [] - Loading spinner
