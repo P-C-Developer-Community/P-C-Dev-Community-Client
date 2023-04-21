@@ -179,10 +179,10 @@ function UserComponent(props) {
 
         {counts[user._id] && (
           <>
-            <p className="text-slate-400 mt-5">
+            <p className="text-slate-200 mt-5">
               Active Projects: {counts[user._id].projects}
             </p>
-            <p className="text-slate-400 ">
+            <p className="text-slate-200 ">
               Active Collaborations: {counts[user._id].contributions}
             </p>
             <div>
