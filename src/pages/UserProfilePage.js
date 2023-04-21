@@ -6,7 +6,6 @@ import backgroundImage from "../assets/profile-bg.jpeg";
 import { useNavigate } from "react-router-dom";
 
 
-  const storedToken = localStorage.getItem("authToken");
 
 function UserProfilePage() {
   const [users, setUsers] = useState(null);
@@ -20,6 +19,8 @@ function UserProfilePage() {
   const [userReady, setUserReady] = useState(null)
 
   const navigate = useNavigate()
+  const storedToken = localStorage.getItem("authToken")
+  
 
   const handleSubmit = (e) =>{
     e.preventDefault();
@@ -51,11 +52,11 @@ function UserProfilePage() {
   };
 
   useEffect(() => {
-    if (!users) {
+    // if (!users) {
       getCurrentUser();
      
-    }
-  }, [users]);
+    // }
+  }, []);
 
   return (
     <div

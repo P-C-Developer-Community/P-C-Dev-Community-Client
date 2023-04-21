@@ -99,7 +99,8 @@ function NavBar() {
                             }`}
                             onClick={() => {
                               logOutUser();
-                              navigate("/login");
+                              // navigate("/login");
+                              window.location = "/login"
                             }}>
                             Logout
                           </button>
@@ -290,7 +291,8 @@ function NavBar() {
                           }`}
                           onClick={() => {
                             logOutUser();
-                            navigate("/login");
+                            // navigate("/login");
+                            window.location = "/login"
                           }}>
                           Logout
                         </button>
