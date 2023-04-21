@@ -136,7 +136,7 @@ function AddProject(props) {
         <div className="w-100 min-w-min overflow-y-scroll">
           <table class="table-auto">
             <tbody>
-              <tr className="ms-center w-full text-sm sm:flex sm:flex-wrap  appearance-none border bg-transparent text-white border-cyan-400 rounded-xl leading-tight focus:outline-none focus:ring-white  ">
+              <tr className=" ms-center w-full text-sm flex flex-wrap  appearance-none border bg-transparent text-white border-cyan-400 rounded-xl leading-tight focus:outline-none focus:ring-white  ">
                 {/* React-checkbox */}
                 <td class=" mt-2 border-white">
                   <div class="flex items-center pl-3">
@@ -467,7 +467,7 @@ function AddProject(props) {
 
                 {/* TailwindCSS-checkbox */}
                 <td class=" mt-2 dark:border-gray-600">
-                  <div class="flex items-center pl-1 ml-8">
+                  <div class="flex items-center pl-1 ml-7">
                     <input
                       id="TailwindCSS-checkbox-list"
                       type="checkbox"

@@ -23,8 +23,11 @@
 
 
         [x] -  conditional rendering of Inbox / no collab / project
+        [] -   remove Login button if logged in on mobile
         [] -  required fields in Modals
-        [] -  Responsive Add modal - scrollable code languages
+        [x] -  Responsive Add modal - scrollable code languages
+
+        
         [] -  Modal for user reviews
         [] -  Loading spinner
 

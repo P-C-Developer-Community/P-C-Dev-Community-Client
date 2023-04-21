@@ -3,7 +3,7 @@ import { Fragment, useContext, useState } from "react";
 import { AuthContext } from "../context/auth.context";
 import { useNavigate } from "react-router-dom";
 import { Transition } from "@headlessui/react";
-import logo from "../assets/logo.png"
+import logo from "../assets/logo.png";
 
 function NavBar() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
@@ -22,7 +22,11 @@ function NavBar() {
                 onClick={() => {
                   navigate("/");
                 }}>
-                <img className="h-8  cursor-pointer" src={logo} alt="Workflow" />
+                <img
+                  className="h-8  cursor-pointer"
+                  src={logo}
+                  alt="Workflow"
+                />
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
@@ -100,7 +104,7 @@ function NavBar() {
                             onClick={() => {
                               logOutUser();
                               // navigate("/login");
-                              window.location = "/login"
+                              window.location = "/login";
                             }}>
                             Logout
                           </button>
@@ -225,20 +229,23 @@ function NavBar() {
                     </NavLink>
                   </li>
 
-                  <li>
-                    <NavLink
-                      className="mx-8"
-                      to="/login"
-                      style={({ isActive }) => {
-                        return {
-                          fontWeight: isActive ? "bold" : "",
-                          color: isActive ? "cyan" : "white",
-                        };
-                      }}>
-                      Login
-                    </NavLink>
-                  </li>
-
+                  {!isLoggedIn && (
+                    <>
+                      <li>
+                        <NavLink
+                          className="mx-8"
+                          to="/login"
+                          style={({ isActive }) => {
+                            return {
+                              fontWeight: isActive ? "bold" : "",
+                              color: isActive ? "cyan" : "white",
+                            };
+                          }}>
+                          Login
+                        </NavLink>
+                      </li>
+                    </>
+                  )}
                   {isLoggedIn && (
                     <>
                       <li>
@@ -292,7 +299,7 @@ function NavBar() {
                           onClick={() => {
                             logOutUser();
                             // navigate("/login");
-                            window.location = "/login"
+                            window.location = "/login";
                           }}>
                           Logout
                         </button>

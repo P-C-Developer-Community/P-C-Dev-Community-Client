@@ -3,7 +3,7 @@ import axios from "axios";
 import { AuthContext } from "../context/auth.context";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import backgroundImage from "../assets/key-bg.jpeg";
+import backgroundImage from "../assets/message-bg.jpeg";
 
 function Inbox() {
   const [users, setUsers] = useState([]);
@@ -81,6 +81,9 @@ function Inbox() {
               <div className="contents ">
                 <div className="  hover:shadow-xl hover:shadow-red-500 box-border p-4 border-2 px-8 mx-10 border-red-500 rounded-3xl shadow-lg shadow-white ">
                   <div className="text-white">
+                    <label className="text-white text-3xl font-bold">
+                      Unread Messages:
+                    </label>
                     {requests &&
                     requests.filter((e) => !e.isRead).length > 0 ? (
                       requests
@@ -90,9 +93,6 @@ function Inbox() {
                             <div
                               key={e._id}
                               className="appearance-none border-2 backdrop-blur-md mb-6 border-white rounded-xl py-2 px-1 leading-tight ">
-                              <label className="text-white text-3xl font-bold">
-                                Unread Messages:
-                              </label>
                               <div className="">
                                 <h1 className="text-lg text-green-500 italic">{`New message from: ${e.sender.email}`}</h1>
                                 {e.projectInInterest && (

@@ -1,23 +1,17 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import service from "../api/service";
-import { useNavigate } from "react-router-dom";
 
 function AddContribution(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [imageUrl, setImageUrl] = useState("");
-  const [contributionsId, setContributionsId] = useState("");
   const [languages, setLanguages] = useState([]);
   const [isLoadingImg, setIsLoadingImg] = useState(false);
-
-  const navigate = useNavigate();
- 
 
   useEffect(() => {
     // Get the contribution ID from URL params or from the contribution object passed as a prop
     const contributionId = props.match?.params?.id || props.contributionsId;
-    setContributionsId(contributionId);
   }, [props]);
 
   const handleFileUpload = (e) => {
@@ -467,7 +461,7 @@ function AddContribution(props) {
 
               {/* TailwindCSS-checkbox */}
               <td class=" mt-2 dark:border-gray-600">
-                <div class="flex items-center pl-1 ml-8">
+                <div class="flex items-center pl-1 ml-7">
                   <input
                     id="TailwindCSS-checkbox-list"
                     type="checkbox"
