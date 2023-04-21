@@ -3,6 +3,7 @@ import { AuthContext } from "../context/auth.context";
 import { useContext, useState, useEffect } from "react";
 import backgroundImage from "../assets/globe-net.jpeg";
 import { NavLink, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function CommunityPage() {
   const [users, setUsers] = useState([]);
@@ -14,6 +15,8 @@ function CommunityPage() {
 
   const { user } = useContext(AuthContext);
   const storedToken = localStorage.getItem("authToken");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -76,9 +79,13 @@ function CommunityPage() {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
+
+          
+
         setAllReviews(response.data.reviews);
         setReview("")
         setReviewSubmitted(true)
+        navigate(0)
 
       });
   };
@@ -267,12 +274,11 @@ function CommunityPage() {
                             <input
                               className="my-2 bg-transparent rounded-2xl border-cyan-400 placeholder-slate-400 leading-tight  focus:ring-white"
                               placeholder={
-                                !reviewSubmitted
-                                  ? `Leave a review to  ${user.name}...`
-                                  : "Review submitted!"
+                                 `Leave a review to  ${user.name}...`
+                               
                               }
                               type="text"
-                              value={review}
+                           
                               onChange={(e) => {
                                 setReview(e.target.value);
                               }}

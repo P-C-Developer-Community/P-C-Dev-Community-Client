@@ -3,12 +3,13 @@ import axios from "axios";
 import { AuthContext } from "../context/auth.context";
 import { useContext } from "react";
 import backgroundImage from "../assets/profile-bg.jpeg";
+import { useNavigate } from "react-router-dom";
 
 
   const storedToken = localStorage.getItem("authToken");
 
 function UserProfilePage() {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState(null);
   const [requests, setRequests] = useState([]);
   const { user } = useContext(AuthContext);
 
@@ -16,6 +17,9 @@ function UserProfilePage() {
   const [linkedIn, setLinkedIn] = useState("");
   const [twitter, setTwitter] = useState("");
   const [instagram, setInstagram] = useState("");
+  const [userReady, setUserReady] = useState(null)
+
+  const navigate = useNavigate()
 
   const handleSubmit = (e) =>{
     e.preventDefault();
@@ -41,13 +45,17 @@ function UserProfilePage() {
       .then((response) => {
         setUsers(response.data);
         
+        
       })
       .catch((error) => console.log(error));
   };
 
   useEffect(() => {
-    getCurrentUser();
-  }, []);
+    if (!users) {
+      getCurrentUser();
+     
+    }
+  }, [users]);
 
   return (
     <div

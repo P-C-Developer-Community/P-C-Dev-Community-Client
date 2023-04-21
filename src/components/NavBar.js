@@ -3,7 +3,7 @@ import { Fragment, useContext, useState } from "react";
 import { AuthContext } from "../context/auth.context";
 import { useNavigate } from "react-router-dom";
 import { Transition } from "@headlessui/react";
-import logo from "../assets/WDC-logo-no-bg.png";
+import logo from "../assets/logo.png"
 
 function NavBar() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
@@ -22,7 +22,7 @@ function NavBar() {
                 onClick={() => {
                   navigate("/");
                 }}>
-                <img className="h-24 w-20 cursor-pointer" src={logo} alt="Workflow" />
+                <img className="h-8  cursor-pointer" src={logo} alt="Workflow" />
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
