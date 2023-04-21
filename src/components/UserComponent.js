@@ -7,6 +7,12 @@ function UserComponent(props) {
   const [review, setReview] = useState("");
   const [reviewSubmitted, setReviewSubmitted] = useState(false);
   const storedToken = localStorage.getItem("authToken");
+
+  const reviewsArr = user.reviews
+  
+   reviewsArr.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
+
   const postReview = (userId) => async (e) => {
     e.preventDefault();
     const requestBody = { review, userId };

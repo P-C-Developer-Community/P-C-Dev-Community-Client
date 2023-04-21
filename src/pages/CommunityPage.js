@@ -1,15 +1,12 @@
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/auth.context";
+import { useState, useEffect } from "react";
 import backgroundImage from "../assets/globe-net.jpeg";
-import { useContext, useState, useEffect } from "react";
 import UserComponent from "../components/UserComponent";
 
 function CommunityPage() {
-  const navigate = useNavigate();
+
   const [users, setUsers] = useState([]);
   const [counts, setCounts] = useState({});
-  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     const run = async () => {
@@ -70,7 +67,8 @@ function CommunityPage() {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "repeat",
-      }}>
+      }}
+    >
       <h1 className="text-3xl text-white font-extrabold mb-6">Dev Community</h1>
 
       <div className=" rounded-t-lg mb-4">
@@ -81,7 +79,8 @@ function CommunityPage() {
                 <UserComponent
                   key={index}
                   user={user}
-                  counts={counts}></UserComponent>
+                  counts={counts}
+                ></UserComponent>
               );
             })}
           </div>
