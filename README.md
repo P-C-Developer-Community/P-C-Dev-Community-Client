@@ -1,4 +1,4 @@
-# P-C Developer Community :computer
+# P-C Developer Community 
 
 Welcome to the P-C Developer Community, a platform for developers and project owners to collaborate, share knowledge, and showcase their skills.
 
