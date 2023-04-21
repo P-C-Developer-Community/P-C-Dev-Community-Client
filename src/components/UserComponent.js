@@ -6,6 +6,7 @@ function UserComponent (props) {
 
     const {user, counts} = props
     const [review, setReview] = useState('');
+    const [reviewSubmitted, setReviewSubmitted] = useState(false)
 
     const storedToken = localStorage.getItem("authToken");
 
@@ -24,6 +25,7 @@ function UserComponent (props) {
 
         user.reviews = response.data.reviews
             setReview("")
+            setReviewSubmitted(true)
           
       };
     
@@ -195,9 +197,14 @@ function UserComponent (props) {
                             <input
                               className="my-2 bg-transparent rounded-2xl border-cyan-400 placeholder-slate-400 leading-tight  focus:ring-white"
                               placeholder={
-                                 `Leave a review to  ${user.name}...`
-                               
+                                !reviewSubmitted
+                                  ? `Leave a review to  ${user.name}...`
+                                  : "Thank you for review!"
                               }
+                                
+                                 
+                               
+                             
                               type="text"
                               value={review}
                               onChange={(e) => {
