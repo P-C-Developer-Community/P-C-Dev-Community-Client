@@ -11,7 +11,7 @@ Welcome to the P-C Developer Community, a platform for developers and project ow
 
 ## Features
 
-**Registration and Login
+* Registration and Login
 
 To join the P-C Developer Community, you can register for a new account by providing your email address, username, and password. Once you have registered, you can log in to your account to access the community features.
 
