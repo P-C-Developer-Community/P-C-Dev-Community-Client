@@ -70,7 +70,7 @@ function HomePage() {
           something great today!
         </p>
       </div>
-      <footer class="bg-light py-5">
+      <footer class="bg-light py-6">
         <div class="container px-4 px-lg-8">
           <div class="mt-12 text-white text-center text-muted">
             Copyright &copy; 2023{" "}
