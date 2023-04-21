@@ -1,5 +1,8 @@
 # P-C Developer Community 
+<<<<<<< HEAD
 
+=======
+>>>>>>> c5427db (update)
 Welcome to the P-C Developer Community, a platform for developers and project owners to collaborate, share knowledge, and showcase their skills.
 
 ## Tech Stack

@@ -13,7 +13,7 @@ function HomePage() {
       }}>
       <div className=" font-extrabold  flex flex-wrap justify-center items-center">
         <div className="mx-24 mt-36 ">
-          <p className="text-white inline-flex  text-lg">
+          <p className="text-white inline-flex pb-8 text-lg">
             Are you a developer looking for exciting new projects to
             collaborate? Or are you a project owner in search of talented
             developers to bring your vision to life? Look no further than our
@@ -58,7 +58,7 @@ function HomePage() {
           </div>
         </Link>
 
-        <p className="text-white inline-flex px-16 pb-16 mt-10 text-lg">
+        <p className="text-white inline-flex px-20 py-12 pb-16 mt-10 text-lg">
           Whether you're a frontend or backend developer, a designer, or a
           project manager, our platform has opportunities for everyone. Browse
           our curated list of projects or create your own project and start
@@ -71,10 +71,10 @@ function HomePage() {
         </p>
       </div>
       <footer class="bg-light py-5">
-        <div class="container px-4 px-lg-5">
-          <div class="small text-center text-muted">
+        <div class="container px-4 px-lg-8">
+          <div class="mt-12 text-white text-center text-muted">
             Copyright &copy; 2023{" "}
-            <a href="https://github.com/orgs/P-C-Developer-Community/repositories">
+            <a className="text-white" href="https://github.com/orgs/P-C-Developer-Community/repositories">
               {" "}
               P&C Dev Community{" "}
             </a>
