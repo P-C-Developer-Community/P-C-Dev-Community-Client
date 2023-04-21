@@ -1,83 +1,66 @@
 import axios from "axios";
-import { AuthContext } from "../context/auth.context";
-import { useContext, useState, useEffect } from "react";
-import backgroundImage from "../assets/globe-net.jpeg";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/auth.context";
+import backgroundImage from "../assets/globe-net.jpeg";
+import { useContext, useState, useEffect } from "react";
 import UserComponent from "../components/UserComponent";
 
 function CommunityPage() {
+  const navigate = useNavigate();
   const [users, setUsers] = useState([]);
   const [counts, setCounts] = useState({});
-  // const [review, setReview] = useState(null);
-  // const [reviewSubmitted, setReviewSubmitted] = useState(false);
-  
-  const [allreviews, setAllReviews] = useState([]);
-
   const { user } = useContext(AuthContext);
 
-  const navigate = useNavigate();
-
   useEffect(() => {
-
     const run = async () => {
       const storedToken = await localStorage.getItem("authToken");
-      const response  = await axios
-      .get(`${process.env.REACT_APP_API_URL}/auth/community`, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      })
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/auth/community`,
+        {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        }
+      );
 
-      const users =  response.data
+      const users = response.data;
       setUsers(users);
-      fetchData(users, storedToken)
-    }
-
-    run()
-    
-
-    
+      fetchData(users, storedToken);
+    };
+    run();
   }, []);
 
-  // useEffect(() => {
-    const fetchData = async (users, storedToken) => {
-      try {
-        for (const user of users) {
-          const projectsResponse = await axios.get(
-            `${process.env.REACT_APP_API_URL}/api/projects/`,
-            { headers: { Authorization: `Bearer ${storedToken}` } }
-          );
-          const myProjects = projectsResponse.data.filter(
-            (project) => project.owner._id === user._id
-          );
-          const numberOfProjects = myProjects.length;
+  const fetchData = async (users, storedToken) => {
+    try {
+      for (const user of users) {
+        const projectsResponse = await axios.get(
+          `${process.env.REACT_APP_API_URL}/api/projects/`,
+          { headers: { Authorization: `Bearer ${storedToken}` } }
+        );
+        const myProjects = projectsResponse.data.filter(
+          (project) => project.owner._id === user._id
+        );
+        const numberOfProjects = myProjects.length;
 
-          const contributionsResponse = await axios.get(
-            `${process.env.REACT_APP_API_URL}/api/contributions/`,
-            { headers: { Authorization: `Bearer ${storedToken}` } }
-          );
-          const myContributions = contributionsResponse.data.filter(
-            (contribution) => contribution.owner === user._id
-          );
-          const numberOfContributions = myContributions.length;
+        const contributionsResponse = await axios.get(
+          `${process.env.REACT_APP_API_URL}/api/contributions/`,
+          { headers: { Authorization: `Bearer ${storedToken}` } }
+        );
+        const myContributions = contributionsResponse.data.filter(
+          (contribution) => contribution.owner === user._id
+        );
+        const numberOfContributions = myContributions.length;
 
-          setCounts((prevState) => ({
-            ...prevState,
-            [user._id]: {
-              projects: numberOfProjects,
-              contributions: numberOfContributions,
-            },
-          }));
-        }
-      } catch (error) {
-        console.log(error);
+        setCounts((prevState) => ({
+          ...prevState,
+          [user._id]: {
+            projects: numberOfProjects,
+            contributions: numberOfContributions,
+          },
+        }));
       }
-    };
-
-    // if (users.length > 0) {
-  //     fetchData();
-  //   // }
-  // }, []);
-
-
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div
@@ -95,7 +78,10 @@ function CommunityPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-16 gap-y-10">
             {users.map((user, index) => {
               return (
-                <UserComponent key={index} user={user} counts={counts}></UserComponent>
+                <UserComponent
+                  key={index}
+                  user={user}
+                  counts={counts}></UserComponent>
               );
             })}
           </div>

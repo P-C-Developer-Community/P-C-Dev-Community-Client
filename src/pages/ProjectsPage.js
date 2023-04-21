@@ -1,8 +1,8 @@
-import { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import backgroundImage from "../assets/display-bg.jpeg";
 import ProjectCard from "../components/ProjectCard";
 import { AuthContext } from "../context/auth.context";
+import backgroundImage from "../assets/display-bg.jpeg";
+import { useState, useEffect, useContext } from "react";
 import AddProjectModal from "../components/AddProjectModal";
 
 function ProjectsPage() {

@@ -1,5 +1,5 @@
-import backgroundImage from "../assets/keyB-bg.jpeg";
 import { Link } from "react-router-dom";
+import backgroundImage from "../assets/keyB-bg.jpeg";
 
 function HomePage() {
   return (
@@ -70,6 +70,17 @@ function HomePage() {
           something great today!
         </p>
       </div>
+      <footer class="bg-light py-5">
+        <div class="container px-4 px-lg-5">
+          <div class="small text-center text-muted">
+            Copyright &copy; 2023{" "}
+            <a href="https://github.com/orgs/P-C-Developer-Community/repositories">
+              {" "}
+              P&C Dev Community{" "}
+            </a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

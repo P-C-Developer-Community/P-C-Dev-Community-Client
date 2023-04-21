@@ -1,15 +1,13 @@
-import { useState, useEffect } from "react";
 import axios from "axios";
-import { AuthContext } from "../context/auth.context";
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { AuthContext } from "../context/auth.context";
 import backgroundImage from "../assets/message-bg.jpeg";
 
 function Inbox() {
-  const [users, setUsers] = useState([]);
+  const { user } = useContext(AuthContext);
   const [requests, setRequests] = useState(null);
   const [readStatus, setReadStatus] = useState(false);
-  const { user } = useContext(AuthContext);
   const [deleteStatus, setDeleteStatus] = useState(false);
 
   const getAllRequests = () => {
@@ -140,8 +138,6 @@ function Inbox() {
                       requests
                         .filter((e) => e.isRead)
                         .map((e) => {
-                          //  console.log("this is element,,,",e.message)
-
                           return (
                             <div
                               key={e._id}

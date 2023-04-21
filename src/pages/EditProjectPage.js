@@ -1,15 +1,12 @@
-import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useState, useEffect } from "react";
 import backgroundImage from "../assets/display-bg.jpeg";
-
+import { useParams, useNavigate } from "react-router-dom";
 
 function EditProjectPage(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-
   const storedToken = localStorage.getItem("authToken");
-
   const { projectId } = useParams();
   const navigate = useNavigate();
   const goBack = () => {
@@ -18,15 +15,13 @@ function EditProjectPage(props) {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API_URL}/api/projects/${projectId}`,{
+      .get(`${process.env.REACT_APP_API_URL}/api/projects/${projectId}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
-      } )
+      })
       .then((response) => {
-        console.log(response, "here we are............")
         const oneProject = response.data;
         setTitle(oneProject.title);
         setDescription(oneProject.description);
-        console.log(oneProject.title, oneProject.description)
       })
       .catch((error) => console.log(error));
   }, [projectId]);
@@ -36,9 +31,13 @@ function EditProjectPage(props) {
     const requestBody = { title, description };
 
     axios
-      .put(`${process.env.REACT_APP_API_URL}/api/projects/${projectId}`, requestBody, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      })
+      .put(
+        `${process.env.REACT_APP_API_URL}/api/projects/${projectId}`,
+        requestBody,
+        {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        }
+      )
       .then((response) => {
         navigate(`/projects/${projectId}`);
       });
@@ -93,18 +92,18 @@ function EditProjectPage(props) {
                 Update
               </button>
 
-
               <button
                 className="p-4 mx-4 drop border bg-slate-800 hover:text-white hover:shadow-lg rounded-full hover:shadow-cyan-400 text-cyan-600"
                 onClick={goBack}>
                 Back
               </button>
             </form>
+
             <button
-                className="mx-6 my-6 p-4 drop border bg-red-600 hover:text-black hover:shadow-lg rounded-full hover:shadow-red-500 text-white"
-                onClick={deleteProject}>
-                Delete
-              </button>
+              className="mx-6 my-6 p-4 drop border bg-red-600 hover:text-black hover:shadow-lg rounded-full hover:shadow-red-500 text-white"
+              onClick={deleteProject}>
+              Delete
+            </button>
           </div>
         </div>
       </div>

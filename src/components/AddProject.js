@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import { useContext } from "react";
 import axios from "axios";
-import { AuthContext } from "../context/auth.context";
+import { useContext } from "react";
 import service from "../api/service";
+import { useEffect, useState } from "react";
+import { AuthContext } from "../context/auth.context";
 
 function AddProject(props) {
   const [title, setTitle] = useState("");

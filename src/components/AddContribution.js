@@ -15,8 +15,6 @@ function AddContribution(props) {
   }, [props]);
 
   const handleFileUpload = (e) => {
-    // console.log("The file to be uploaded is: ", e.target.files[0]);
-
     const uploadData = new FormData();
 
     // imageUrl => this name has to be the same as in the model since we pass
@@ -75,12 +73,9 @@ function AddContribution(props) {
 
   const handleLanguageChange = (e) => {
     const isChecked = e.target.checked;
-    console.log("is checked,,,,,,,", isChecked);
     const value = e.target.value;
-    console.log("values......", value);
     if (isChecked) {
       setLanguages([value, ...languages]);
-      console.log("languages..........", languages);
     } else {
       setLanguages(languages.filter((lang) => lang !== value));
     }

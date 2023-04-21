@@ -2,12 +2,8 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import backgroundImage from "../assets/display-bg.jpeg";
 import axios from "axios";
-import SearchBar from "../components/SearchBar";
-import ProjectCard from "../components/ProjectCard";
 import { AuthContext } from "../context/auth.context";
 import { useContext } from "react";
-
-
 
 function ProjectDetailsPage(props) {
   const [project, setProject] = useState({});
@@ -83,15 +79,21 @@ function ProjectDetailsPage(props) {
             <label className="text-xl font-bold text-white mb-4">
               Created by:
             </label>
-            
+
             {project.owner ? (
               <div>
                 <p>{project.owner.name}</p>
                 <p>Email: {project.owner.email}</p>
                 <p>
-                Published: {new Date(project.createdAt).toLocaleDateString('en-US', { weekday: 'short', month: 'long', day: 'numeric', year:  'numeric' })}
+                  Published:{" "}
+                  {new Date(project.createdAt).toLocaleDateString("en-US", {
+                    weekday: "short",
+                    month: "long",
+                    day: "numeric",
+                    year: "numeric",
+                  })}
                 </p>
-                
+
                 <input
                   className=" h-auto mt-12 rounded-2xl bg-transparent  appearance-none box-border  text-white placeholder-slate-400 border-cyan-400  w-full py-2 px-3  leading-tight  focus:ring-white"
                   type="text"
@@ -100,7 +102,7 @@ function ProjectDetailsPage(props) {
                   placeholder={
                     !messageSent
                       ? `Send a message to ${project.owner.name}...`
-                      : "Message sent succesfully!" 
+                      : "Message sent succesfully!"
                   }
                   onChange={(e) => setMessage(e.target.value)}
                 />
@@ -122,11 +124,10 @@ function ProjectDetailsPage(props) {
               <h1 className="text-3xl uppercase font-bold  mb-4">
                 {project.title}
               </h1>
-              
+
               <p className="whitespace-pre-line break-normal text-center mt-6 mb-8">
                 {project.description}
               </p>
-              <div className="flex items-center justify-between"></div>
             </>
           )}
 
@@ -145,7 +146,6 @@ function ProjectDetailsPage(props) {
           ) : null}
         </div>
       </div>
-      <SearchBar />
     </div>
   );
 }

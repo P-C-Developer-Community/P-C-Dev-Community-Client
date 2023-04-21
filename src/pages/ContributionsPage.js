@@ -1,9 +1,9 @@
-import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import backgroundImage from "../assets/com-bg.jpg";
-import AddContributionModal from "../components/AddContributionModal";
-import ContributionCard from "../components/ContributionCard";
 import { AuthContext } from "../context/auth.context";
+import { useState, useEffect, useContext } from "react";
+import ContributionCard from "../components/ContributionCard";
+import AddContributionModal from "../components/AddContributionModal";
 
 function ContributionsPage() {
   const [contributions, setContributions] = useState([]);

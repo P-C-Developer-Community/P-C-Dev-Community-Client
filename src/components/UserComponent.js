@@ -1,21 +1,15 @@
 import { NavLink } from "react-router-dom";
 import axios from "axios";
-import { useContext, useState, useEffect } from "react";
+import { useState } from "react";
 
 function UserComponent(props) {
   const { user, counts } = props;
   const [review, setReview] = useState("");
   const [reviewSubmitted, setReviewSubmitted] = useState(false);
-
   const storedToken = localStorage.getItem("authToken");
-
   const postReview = (userId) => async (e) => {
     e.preventDefault();
-
     const requestBody = { review, userId };
-
-    console.log(review, userId);
-
     const response = await axios.put(
       `${process.env.REACT_APP_API_URL}/auth/user/review`,
       requestBody,

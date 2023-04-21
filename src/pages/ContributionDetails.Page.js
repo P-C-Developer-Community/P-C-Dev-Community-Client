@@ -1,14 +1,9 @@
+import axios from "axios";
+import { useContext } from "react";
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import backgroundImage from "../assets/com-bg.jpg";
-import ContributionCard from "../components/ContributionCard";
-import axios from "axios";
-
 import { AuthContext } from "../context/auth.context";
-import { useContext } from "react";
-
-
-
 
 function ContributionDetailsPage(props) {
   const [contribution, setContribution] = useState({});
@@ -24,9 +19,12 @@ function ContributionDetailsPage(props) {
 
     // Send the token through the request "Authorization" Headers
     axios
-      .get(`${process.env.REACT_APP_API_URL}/api/contributions/${contributionId}`, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      })
+      .get(
+        `${process.env.REACT_APP_API_URL}/api/contributions/${contributionId}`,
+        {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        }
+      )
       .then((response) => {
         const oneContribution = response.data;
         setContribution(oneContribution);
@@ -55,7 +53,6 @@ function ContributionDetailsPage(props) {
         // Reset the state
         setMessage("");
         setMessageSent(true);
-       
       })
       .catch((error) => console.log(error));
   };
@@ -85,7 +82,16 @@ function ContributionDetailsPage(props) {
                 <p> {contribution.owner.name}</p>
                 <p>Email: {contribution.owner.email}</p>
                 <p>
-                Published: {new Date(contribution.createdAt).toLocaleDateString('en-US', { weekday: 'short', month: 'long', day: 'numeric', year:  'numeric' })}
+                  Published:{" "}
+                  {new Date(contribution.createdAt).toLocaleDateString(
+                    "en-US",
+                    {
+                      weekday: "short",
+                      month: "long",
+                      day: "numeric",
+                      year: "numeric",
+                    }
+                  )}
                 </p>
 
                 <input
@@ -100,7 +106,6 @@ function ContributionDetailsPage(props) {
                   }
                   onChange={(e) => setMessage(e.target.value)}
                 />
-          
               </div>
             ) : null}
 
@@ -119,7 +124,7 @@ function ContributionDetailsPage(props) {
               <h1 className="text-3xl uppercase font-bold  mb-4">
                 {contribution.title}
               </h1>
-            
+
               <p className="whitespace-pre-line break-normal text-center mt-6 mb-8">
                 {contribution.description}
               </p>
@@ -133,19 +138,16 @@ function ContributionDetailsPage(props) {
             </button>
           </Link>
 
-        
-        {contribution.owner && contribution.owner._id === user._id ? (
+          {contribution.owner && contribution.owner._id === user._id ? (
             <Link to={`/contributions/edit/${contributionId}`}>
               <button className="p-4 drop bg-slate-800 border hover:text-red-500 hover:shadow-lg rounded-2xl hover:shadow-red-500 text-cyan-600">
                 Edit
               </button>
             </Link>
           ) : null}
-
+        </div>
       </div>
     </div>
-     </div>
-    
   );
 }
 

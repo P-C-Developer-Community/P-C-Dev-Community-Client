@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useState, useEffect } from "react";
 import backgroundImage from "../assets/com-bg.jpg";
-
+import { useParams, useNavigate } from "react-router-dom";
 
 function EditContributionPage(props) {
   const [title, setTitle] = useState("");
@@ -18,7 +17,9 @@ function EditContributionPage(props) {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API_URL}/api/contributions/${contributionId}`)
+      .get(
+        `${process.env.REACT_APP_API_URL}/api/contributions/${contributionId}`
+      )
       .then((response) => {
         const oneContribution = response.data;
         setTitle(oneContribution.title);
@@ -34,9 +35,11 @@ function EditContributionPage(props) {
     const requestBody = { title, description };
 
     axios
-      .put(`${process.env.REACT_APP_API_URL}/api/contributions/${contributionId}`, requestBody,
-      {headers: { Authorization: `Bearer ${storedToken}` },
-    })
+      .put(
+        `${process.env.REACT_APP_API_URL}/api/contributions/${contributionId}`,
+        requestBody,
+        { headers: { Authorization: `Bearer ${storedToken}` } }
+      )
       .then((response) => {
         navigate(`/contributions/${contributionId}`);
       });
@@ -44,9 +47,10 @@ function EditContributionPage(props) {
 
   const deleteContribution = () => {
     axios
-      .delete(`${process.env.REACT_APP_API_URL}/api/contributions/${contributionId}`, 
-      {headers: { Authorization: `Bearer ${storedToken}` },
-      })
+      .delete(
+        `${process.env.REACT_APP_API_URL}/api/contributions/${contributionId}`,
+        { headers: { Authorization: `Bearer ${storedToken}` } }
+      )
       .then(() => {
         navigate("/contributions");
       })
@@ -96,13 +100,12 @@ function EditContributionPage(props) {
                 onClick={deleteContribution}>
                 Delete
               </button>
-
             </form>
             <button
-                className="p-4 drop border bg-slate-800 hover:text-white hover:shadow-lg rounded-full hover:shadow-cyan-400 text-cyan-600"
-                onClick={goBack}>
-                Back
-              </button>
+              className="p-4 drop border bg-slate-800 hover:text-white hover:shadow-lg rounded-full hover:shadow-cyan-400 text-cyan-600"
+              onClick={goBack}>
+              Back
+            </button>
           </div>
         </div>
       </div>
